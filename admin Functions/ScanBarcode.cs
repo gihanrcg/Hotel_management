@@ -13,7 +13,7 @@ namespace admin_Functions
     public partial class ScanBarcode : MetroFramework.Forms.MetroForm
     {
         private Form1 mainForm = null;
-
+        
         public ScanBarcode()
         {
             InitializeComponent();

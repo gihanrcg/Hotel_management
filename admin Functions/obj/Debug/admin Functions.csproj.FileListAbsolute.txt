@@ -15,3 +15,5 @@ D:\HotelManagementSystem\admin Functions\admin Functions\bin\Debug\Zen.Barcode.C
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin_Functions.EmployeeIDPrint.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin_Functions.ScanBarcode.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin_Functions.Login.resources
+D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin_Functions.Attendance.resources
+D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin_Functions.AttendanceScanBarcode.resources
