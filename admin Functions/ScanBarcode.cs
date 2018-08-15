@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace admin_Functions
+namespace AttendanceRecorder
 {
     public partial class ScanBarcode : MetroFramework.Forms.MetroForm
     {

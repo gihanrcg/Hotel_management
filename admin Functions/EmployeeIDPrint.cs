@@ -12,7 +12,7 @@ using System.IO;
 using System.Drawing.Printing;
 
 
-namespace admin_Functions
+namespace AttendanceRecorder
 {
     public partial class EmployeeIDPrint : MetroFramework.Forms.MetroForm
     {

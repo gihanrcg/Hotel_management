@@ -1,4 +1,4 @@
-﻿namespace admin_Functions
+﻿namespace AttendanceRecorder
 {
     partial class Form1
     {

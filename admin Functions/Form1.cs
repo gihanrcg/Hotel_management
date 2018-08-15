@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 using System.Globalization;
 using System.IO;
 
-namespace admin_Functions
+namespace AttendanceRecorder
 {
     public partial class Form1 : MetroFramework.Forms.MetroForm
     {
@@ -127,6 +127,8 @@ namespace admin_Functions
             pnlEmployeeAttendance.Hide();
             pnlManageEmployee.Hide();
             pnlViewDetailsofCustomers.Show();
+
+            DBConnect db = new DBConnect();
         }
 
         private void btnAddEmployee_Click(object sender, EventArgs e)

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 
-namespace admin_Functions
+namespace AttendanceRecorder
 {
     public partial class Attendance : MetroFramework.Forms.MetroForm
     {
@@ -66,9 +66,8 @@ namespace admin_Functions
                 this.date = DateTime.Now.ToString("yyyy-MM-dd");
                 this.time = DateTime.Now.ToString("HH:MM:ss");
                 //MessageBox.Show(time);
-                //AutoClosingMessageBoxes.Show("User : " + employeeName + "-IN- On " + date + " At " + time, scanType, 5000);
-
-                String qu = "INSERT INTO employee_attendance(employeeNo,name,date,inTime) VALUES(" + employeeID + ",'" + employeeName + "','" + date + "','" + time + "')";
+               AutoClosingMessageBoxes.Show("User : " + employeeName + "-IN- On " + date + " At " + time, scanType, 5000);
+                String qu = "INSERT INTO employee_attendance(employeeNo,name,date,inTime) VALUES('" + employeeID + "','" + employeeName + "','" + date + "','" + time + "')";
 
                 //String qu = "INSERT INTO `employee_attendance`( `employeeNo`, `name`, `date`, `inTime`, `outTime`, `timeWorked`)VALUES('x','xx','xxx','xxxx','xxxxx','xxxxxx')";
                 //MessageBox.Show(qu);

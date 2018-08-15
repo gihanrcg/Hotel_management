@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace admin_Functions
+namespace AttendanceRecorder
 {
     public partial class Login : MetroFramework.Forms.MetroForm
     {

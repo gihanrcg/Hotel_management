@@ -5,15 +5,14 @@ D:\HotelManagementSystem\admin Functions\admin Functions\bin\Debug\MetroFramewor
 D:\HotelManagementSystem\admin Functions\admin Functions\bin\Debug\MetroFramework.dll
 D:\HotelManagementSystem\admin Functions\admin Functions\bin\Debug\MetroFramework.Fonts.dll
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin Functions.csprojResolveAssemblyReference.cache
-D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin_Functions.Form1.resources
-D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin_Functions.Properties.Resources.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin Functions.csproj.GenerateResource.Cache
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin Functions.exe
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin Functions.pdb
 D:\HotelManagementSystem\admin Functions\admin Functions\bin\Debug\mysql.data.dll
 D:\HotelManagementSystem\admin Functions\admin Functions\bin\Debug\Zen.Barcode.Core.dll
-D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin_Functions.EmployeeIDPrint.resources
-D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin_Functions.ScanBarcode.resources
-D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin_Functions.Login.resources
-D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin_Functions.Attendance.resources
-D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin_Functions.AttendanceScanBarcode.resources
+D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.EmployeeIDPrint.resources
+D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.Form1.resources
+D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.Login.resources
+D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.Properties.Resources.resources
+D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.ScanBarcode.resources
+D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.AttendenceRecorder.resources

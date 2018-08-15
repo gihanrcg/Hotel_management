@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 
-namespace admin_Functions
+namespace AttendanceRecorder
 {
     
     class DBConnect

@@ -1,6 +1,6 @@
-﻿namespace admin_Functions
+﻿namespace AttendanceRecorder
 {
-    partial class AttendanceScanBarcode
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtEmployeeID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // txtEmployeeID
+            // Form1
             // 
-            this.txtEmployeeID.Location = new System.Drawing.Point(115, 89);
-            this.txtEmployeeID.Name = "txtEmployeeID";
-            this.txtEmployeeID.Size = new System.Drawing.Size(283, 22);
-            this.txtEmployeeID.TabIndex = 0;
-            this.txtEmployeeID.TextChanged += new System.EventHandler(this.txtEmployeeID_TextChanged_1);
-            // 
-            // AttendanceScanBarcode
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 205);
-            this.Controls.Add(this.txtEmployeeID);
-            this.Name = "AttendanceScanBarcode";
-            this.Text = "AttendanceScanBarcode";
-            this.Load += new System.EventHandler(this.AttendanceScanBarcode_Load);
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtEmployeeID;
     }
 }
+

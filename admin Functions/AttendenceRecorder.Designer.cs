@@ -1,6 +1,6 @@
-﻿namespace admin_Functions
+﻿namespace AttendanceRecorder
 {
-    partial class Attendance
+    partial class AttendenceRecorder
     {
         /// <summary>
         /// Required designer variable.
@@ -30,41 +30,53 @@
         {
             this.btnIn = new System.Windows.Forms.Button();
             this.btnOut = new System.Windows.Forms.Button();
+            this.txtEmployeeID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnIn
             // 
-            this.btnIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIn.Location = new System.Drawing.Point(76, 103);
+            this.btnIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIn.Location = new System.Drawing.Point(84, 67);
             this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(174, 153);
-            this.btnIn.TabIndex = 0;
+            this.btnIn.Size = new System.Drawing.Size(180, 182);
+            this.btnIn.TabIndex = 1;
             this.btnIn.Text = "IN";
             this.btnIn.UseVisualStyleBackColor = true;
-            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            this.btnIn.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnOut
             // 
-            this.btnOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOut.Location = new System.Drawing.Point(256, 103);
+            this.btnOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOut.Location = new System.Drawing.Point(270, 67);
             this.btnOut.Name = "btnOut";
-            this.btnOut.Size = new System.Drawing.Size(174, 153);
-            this.btnOut.TabIndex = 0;
+            this.btnOut.Size = new System.Drawing.Size(180, 182);
+            this.btnOut.TabIndex = 2;
             this.btnOut.Text = "Out";
             this.btnOut.UseVisualStyleBackColor = true;
             this.btnOut.Click += new System.EventHandler(this.btnOut_Click);
             // 
-            // Attendance
+            // txtEmployeeID
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.txtEmployeeID.Location = new System.Drawing.Point(84, 28);
+            this.txtEmployeeID.MaxLength = 8;
+            this.txtEmployeeID.Name = "txtEmployeeID";
+            this.txtEmployeeID.Size = new System.Drawing.Size(366, 20);
+            this.txtEmployeeID.TabIndex = 0;
+            this.txtEmployeeID.TextChanged += new System.EventHandler(this.txtEmployeeID_TextChanged);
+            // 
+            // AttendenceRecorder
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 353);
+            this.ClientSize = new System.Drawing.Size(555, 261);
+            this.Controls.Add(this.txtEmployeeID);
             this.Controls.Add(this.btnOut);
             this.Controls.Add(this.btnIn);
-            this.Name = "Attendance";
-            this.Text = "Attendance";
-            this.Load += new System.EventHandler(this.Attendance_Load);
+            this.Name = "AttendenceRecorder";
+            this.Text = "AttendenceRecorder";
+            this.Load += new System.EventHandler(this.AttendenceRecorder_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -72,5 +84,6 @@
 
         private System.Windows.Forms.Button btnIn;
         private System.Windows.Forms.Button btnOut;
+        private System.Windows.Forms.TextBox txtEmployeeID;
     }
 }
