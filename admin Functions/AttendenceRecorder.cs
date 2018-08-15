@@ -11,8 +11,10 @@ using MySql.Data.MySqlClient;
 
 namespace AttendanceRecorder
 {
-    public partial class AttendenceRecorder : Form
+    public partial class AttendenceRecorder : MetroFramework.Forms.MetroForm
     {
+        public String employeeId;
+
         public AttendenceRecorder()
         {
             InitializeComponent();
@@ -20,65 +22,99 @@ namespace AttendanceRecorder
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!txtEmployeeID.Text.Equals(""))
-            {
-                String employeeID = txtEmployeeID.Text;
 
-                DBConnect db = new DBConnect();
-                String date = DateTime.Now.ToString("yyyy-MM-dd");
-                String time = DateTime.Now.ToString("HH:mm");
-
-                String q = "INSERT INTO employee_attendance(employeeNo,date,inTime) VALUES('" + employeeID + "','" + date + "','" + time + "')";
-                MySqlCommand cmd = new MySqlCommand(q, db.con);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Done");
-                txtEmployeeID.Clear();
-                txtEmployeeID.Focus();
-                
-            }
-            else
             {
-                MessageBox.Show("Scan your ID first");
+                ScanBarcodeForAttendence scan = new ScanBarcodeForAttendence(this);
+                scan.FormClosed += scan_FormClosedIN;
+                scan.Show();
+              
             }
+           
         }
 
-        private void txtEmployeeID_TextChanged(object sender, EventArgs e)
+        private void scan_FormClosedIN(object sender, FormClosedEventArgs e)
         {
-            if (txtEmployeeID.Text.Length == 8)
+            String employeeID = employeeId;
+            String EmployeeName = null;
             {
-                Console.Beep(1000, 400);
-                btnIn.Focus();
+
+                DBConnect d = new DBConnect();
+                String query = "Select name from employee where employeeNo = '" + employeeID + "'";
+                MySqlCommand c = new MySqlCommand(query, d.con);
+                MySqlDataReader r = c.ExecuteReader();
+
+                while (r.Read())
+                {
+                    EmployeeName = r[0].ToString();
+                }
+
             }
-        }
 
-        private void AttendenceRecorder_Load(object sender, EventArgs e)
-        {
-            txtEmployeeID.Focus();
-        }
+            DBConnect db = new DBConnect();
+            String date = DateTime.Now.ToString("yyyy-MM-dd");
+            String time = DateTime.Now.ToString("HH:mm");
 
+            String q = "INSERT INTO employee_attendance(employeeNo,date,inTime) VALUES('" + employeeID + "','" + date + "','" + time + "')";
+            MySqlCommand cmd = new MySqlCommand(q, db.con);
+            cmd.ExecuteNonQuery();
+            AutoClosingMessageBoxes.Show(EmployeeName + " IN " + date + " " + time, "Done",2000);
+     
+
+
+        }
+        
         private void btnOut_Click(object sender, EventArgs e)
         {
-            if (!txtEmployeeID.Text.Equals(""))
+                      {
+                ScanBarcodeForAttendence scan = new ScanBarcodeForAttendence(this);
+                scan.FormClosed += scan_FormClosedOut;
+                scan.Show();
+              
+            }
+
+
+                
+
+            
+         
+              
+            
+        }
+
+        private void scan_FormClosedOut(object sender, FormClosedEventArgs e)
+        {
+            String employeeID = employeeId;
+            String EmployeeName = null;
             {
-                String employeeID = txtEmployeeID.Text;
 
-                DBConnect db = new DBConnect();
-                String date = DateTime.Now.ToString("yyyy-MM-dd");
-                String time = DateTime.Now.ToString("HH:mm");
+                DBConnect d = new DBConnect();
+                String query = "Select name from employee where employeeNo = '" + employeeID + "'";
+                MySqlCommand c = new MySqlCommand(query, d.con);
+                MySqlDataReader r = c.ExecuteReader();
 
-                String q = "update employee_attendance SET outTime = '"+time+"' where employeeNo = '"+employeeID+"' and date = '"+date+"'";
-                MySqlCommand cmd = new MySqlCommand(q, db.con);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Done");
-                txtEmployeeID.Clear();
-                txtEmployeeID.Focus();
-                    
+                while (r.Read())
+                {
+                    EmployeeName = r[0].ToString();
+                }
 
             }
-            else
-            {
-                MessageBox.Show("Scan your ID first");
-            }
+
+            DBConnect db = new DBConnect();
+            String date = DateTime.Now.ToString("yyyy-MM-dd");
+            String time = DateTime.Now.ToString("HH:mm");
+
+            String q = "update employee_attendance SET outTime = '" + time + "' where employeeNo = '" + employeeID + "' and date = '" + date + "'";
+            MySqlCommand cmd = new MySqlCommand(q, db.con);
+            cmd.ExecuteNonQuery();
+
+            AutoClosingMessageBoxes.Show(EmployeeName + " OUT " + date + " " + time, "Done", 2000);
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ScanBarcodeForAttendence scan = new ScanBarcodeForAttendence(this);
+            scan.Show();
         }
     }
 }

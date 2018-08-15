@@ -30,15 +30,15 @@
         {
             this.btnIn = new System.Windows.Forms.Button();
             this.btnOut = new System.Windows.Forms.Button();
-            this.txtEmployeeID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnIn
             // 
             this.btnIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIn.Location = new System.Drawing.Point(84, 67);
+            this.btnIn.Location = new System.Drawing.Point(112, 82);
+            this.btnIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(180, 182);
+            this.btnIn.Size = new System.Drawing.Size(240, 224);
             this.btnIn.TabIndex = 1;
             this.btnIn.Text = "IN";
             this.btnIn.UseVisualStyleBackColor = true;
@@ -47,36 +47,27 @@
             // btnOut
             // 
             this.btnOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOut.Location = new System.Drawing.Point(270, 67);
+            this.btnOut.Location = new System.Drawing.Point(360, 82);
+            this.btnOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOut.Name = "btnOut";
-            this.btnOut.Size = new System.Drawing.Size(180, 182);
+            this.btnOut.Size = new System.Drawing.Size(240, 224);
             this.btnOut.TabIndex = 2;
             this.btnOut.Text = "Out";
             this.btnOut.UseVisualStyleBackColor = true;
             this.btnOut.Click += new System.EventHandler(this.btnOut_Click);
             // 
-            // txtEmployeeID
-            // 
-            this.txtEmployeeID.Location = new System.Drawing.Point(84, 28);
-            this.txtEmployeeID.MaxLength = 8;
-            this.txtEmployeeID.Name = "txtEmployeeID";
-            this.txtEmployeeID.Size = new System.Drawing.Size(366, 20);
-            this.txtEmployeeID.TabIndex = 0;
-            this.txtEmployeeID.TextChanged += new System.EventHandler(this.txtEmployeeID_TextChanged);
-            // 
             // AttendenceRecorder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 261);
-            this.Controls.Add(this.txtEmployeeID);
+            this.ClientSize = new System.Drawing.Size(740, 321);
             this.Controls.Add(this.btnOut);
             this.Controls.Add(this.btnIn);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AttendenceRecorder";
+            this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "AttendenceRecorder";
-            this.Load += new System.EventHandler(this.AttendenceRecorder_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -84,6 +75,5 @@
 
         private System.Windows.Forms.Button btnIn;
         private System.Windows.Forms.Button btnOut;
-        private System.Windows.Forms.TextBox txtEmployeeID;
     }
 }

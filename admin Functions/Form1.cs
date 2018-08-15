@@ -112,6 +112,20 @@ namespace AttendanceRecorder
             pnlManageEmployee.Show();
             pnlViewDetailsofCustomers.Hide();
 
+            List<String> jobs = new List<string>();
+
+            DBConnect db = new DBConnect();
+
+            String q = "select type from employeesalarydetails";
+            MySqlCommand cmd = new MySqlCommand(q, db.con);
+            MySqlDataReader r = cmd.ExecuteReader();
+
+            while (r.Read())
+            {
+                jobs.Add(r[0].ToString());
+            }
+
+            comboJobRole.DataSource = jobs;
  
         }
 
@@ -379,6 +393,37 @@ namespace AttendanceRecorder
                 this.Hide(); 
             }
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dgv.DataSource = GetEmployeeAttendence();
+        }
+
+        private DataTable GetEmployeeAttendence()
+        {
+            DataTable dt = new DataTable();
+            DBConnect db = new DBConnect();
+
+            String q = "select e.employeeNo as 'Employee ID',e.name as 'Name',a.date as 'Date',a.inTime as 'IN Time',a.outTime as 'Out Time',TIMEDIFF(a.outTime,a.inTime) as 'Time Worked'  from employee_attendance a, employee e where e.employeeNo = a.employeeNo";
+            MySqlCommand cmd = new MySqlCommand(q, db.con);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            dt.Load(reader);
+            return dt;
+
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnAddposition_Click(object sender, EventArgs e)
+        {
+            EmployeePositions pos = new EmployeePositions();
+            pos.Show();
         }
 
  

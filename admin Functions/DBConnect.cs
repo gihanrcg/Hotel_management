@@ -18,7 +18,7 @@ namespace AttendanceRecorder
         private static String password = "";
 
         private static String connectionString = "Server=" + server + ";Port=" + port + ";Database=" + database + ";Uid=" + username + ";Password=" + password + ";";
-        public  MySqlConnection con = new MySqlConnection(connectionString);
+         public MySqlConnection con = new MySqlConnection(connectionString);
        
 
 

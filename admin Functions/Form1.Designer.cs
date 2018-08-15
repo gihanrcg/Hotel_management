@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlManageEmployee = new System.Windows.Forms.Panel();
             this.btnScan = new MetroFramework.Controls.MetroButton();
             this.txtpicpath = new System.Windows.Forms.TextBox();
@@ -58,6 +60,7 @@
             this.tileManageEmployee = new MetroFramework.Controls.MetroTile();
             this.tileEmployeeAttendance = new MetroFramework.Controls.MetroTile();
             this.pnlEmployeeAttendance = new System.Windows.Forms.Panel();
+            this.dgv = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.metroDateTime3 = new MetroFramework.Controls.MetroDateTime();
@@ -69,7 +72,6 @@
             this.txtEmpName = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tileDetailsofCurrentCustomer = new MetroFramework.Controls.MetroTile();
             this.pnlViewDetailsofCustomers = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
@@ -85,10 +87,11 @@
             this.button6 = new System.Windows.Forms.Button();
             this.lblLoggedas = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.btnAddposition = new System.Windows.Forms.Button();
             this.pnlManageEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picEmployeePicture)).BeginInit();
             this.pnlEmployeeAttendance.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.pnlViewDetailsofCustomers.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -474,6 +477,7 @@
             // pnlEmployeeAttendance
             // 
             this.pnlEmployeeAttendance.BackColor = System.Drawing.Color.DarkCyan;
+            this.pnlEmployeeAttendance.Controls.Add(this.dgv);
             this.pnlEmployeeAttendance.Controls.Add(this.button2);
             this.pnlEmployeeAttendance.Controls.Add(this.label12);
             this.pnlEmployeeAttendance.Controls.Add(this.metroDateTime3);
@@ -485,11 +489,36 @@
             this.pnlEmployeeAttendance.Controls.Add(this.txtEmpName);
             this.pnlEmployeeAttendance.Controls.Add(this.button3);
             this.pnlEmployeeAttendance.Controls.Add(this.button1);
-            this.pnlEmployeeAttendance.Controls.Add(this.dataGridView1);
             this.pnlEmployeeAttendance.Location = new System.Drawing.Point(277, 63);
             this.pnlEmployeeAttendance.Name = "pnlEmployeeAttendance";
             this.pnlEmployeeAttendance.Size = new System.Drawing.Size(993, 606);
             this.pnlEmployeeAttendance.TabIndex = 34;
+            // 
+            // dgv
+            // 
+            this.dgv.AllowUserToAddRows = false;
+            this.dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.NullValue = null;
+            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv.BackgroundColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Location = new System.Drawing.Point(23, 186);
+            this.dgv.Name = "dgv";
+            this.dgv.ReadOnly = true;
+            this.dgv.RowTemplate.Height = 24;
+            this.dgv.Size = new System.Drawing.Size(946, 277);
+            this.dgv.TabIndex = 42;
             // 
             // button2
             // 
@@ -514,7 +543,7 @@
             // 
             this.metroDateTime3.Location = new System.Drawing.Point(493, 85);
             this.metroDateTime3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroDateTime3.MinimumSize = new System.Drawing.Size(0, 30);
+            this.metroDateTime3.MinimumSize = new System.Drawing.Size(4, 30);
             this.metroDateTime3.Name = "metroDateTime3";
             this.metroDateTime3.Size = new System.Drawing.Size(237, 30);
             this.metroDateTime3.TabIndex = 39;
@@ -533,7 +562,7 @@
             // 
             this.metroDateTime2.Location = new System.Drawing.Point(143, 85);
             this.metroDateTime2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 30);
+            this.metroDateTime2.MinimumSize = new System.Drawing.Size(4, 30);
             this.metroDateTime2.Name = "metroDateTime2";
             this.metroDateTime2.Size = new System.Drawing.Size(231, 30);
             this.metroDateTime2.TabIndex = 37;
@@ -598,6 +627,7 @@
             this.button3.TabIndex = 1;
             this.button3.Text = "Find Atendance of All Employees";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
@@ -607,15 +637,6 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Find Atendance";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(23, 189);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(948, 398);
-            this.dataGridView1.TabIndex = 0;
             // 
             // tileDetailsofCurrentCustomer
             // 
@@ -671,7 +692,7 @@
             // 
             this.metroDateTime4.Location = new System.Drawing.Point(491, 80);
             this.metroDateTime4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroDateTime4.MinimumSize = new System.Drawing.Size(0, 30);
+            this.metroDateTime4.MinimumSize = new System.Drawing.Size(4, 30);
             this.metroDateTime4.Name = "metroDateTime4";
             this.metroDateTime4.Size = new System.Drawing.Size(237, 30);
             this.metroDateTime4.TabIndex = 51;
@@ -690,7 +711,7 @@
             // 
             this.metroDateTime5.Location = new System.Drawing.Point(141, 80);
             this.metroDateTime5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroDateTime5.MinimumSize = new System.Drawing.Size(0, 30);
+            this.metroDateTime5.MinimumSize = new System.Drawing.Size(4, 30);
             this.metroDateTime5.Name = "metroDateTime5";
             this.metroDateTime5.Size = new System.Drawing.Size(231, 30);
             this.metroDateTime5.TabIndex = 49;
@@ -785,11 +806,22 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // btnAddposition
+            // 
+            this.btnAddposition.Location = new System.Drawing.Point(7, 536);
+            this.btnAddposition.Name = "btnAddposition";
+            this.btnAddposition.Size = new System.Drawing.Size(153, 23);
+            this.btnAddposition.TabIndex = 45;
+            this.btnAddposition.Text = "Add Position";
+            this.btnAddposition.UseVisualStyleBackColor = true;
+            this.btnAddposition.Click += new System.EventHandler(this.btnAddposition_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1271, 671);
+            this.Controls.Add(this.btnAddposition);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblLoggedas);
             this.Controls.Add(this.tileDetailsofCurrentCustomer);
@@ -808,7 +840,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEmployeePicture)).EndInit();
             this.pnlEmployeeAttendance.ResumeLayout(false);
             this.pnlEmployeeAttendance.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.pnlViewDetailsofCustomers.ResumeLayout(false);
             this.pnlViewDetailsofCustomers.PerformLayout();
             this.ResumeLayout(false);
@@ -843,7 +875,6 @@
         private MetroFramework.Controls.MetroTile tileEmployeeAttendance;
         private System.Windows.Forms.Panel pnlEmployeeAttendance;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label12;
         private MetroFramework.Controls.MetroDateTime metroDateTime3;
         private System.Windows.Forms.Label label11;
@@ -875,6 +906,8 @@
         private MetroFramework.Controls.MetroButton btnScan;
         private System.Windows.Forms.Label lblLoggedas;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.Button btnAddposition;
 
     }
 }

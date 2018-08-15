@@ -74,6 +74,12 @@
     <Compile Include="EmployeeIDPrint.Designer.cs">
       <DependentUpon>EmployeeIDPrint.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeePositions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeePositions.Designer.cs">
+      <DependentUpon>EmployeePositions.cs</DependentUpon>
+    </Compile>
     <Compile Include="EncryptAndDecrypt.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -95,11 +101,20 @@
     <Compile Include="ScanBarcode.Designer.cs">
       <DependentUpon>ScanBarcode.cs</DependentUpon>
     </Compile>
+    <Compile Include="ScanBarcodeForAttendence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScanBarcodeForAttendence.Designer.cs">
+      <DependentUpon>ScanBarcodeForAttendence.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AttendenceRecorder.resx">
       <DependentUpon>AttendenceRecorder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeIDPrint.resx">
       <DependentUpon>EmployeeIDPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeePositions.resx">
+      <DependentUpon>EmployeePositions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -119,6 +134,9 @@
     </Compile>
     <EmbeddedResource Include="ScanBarcode.resx">
       <DependentUpon>ScanBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScanBarcodeForAttendence.resx">
+      <DependentUpon>ScanBarcodeForAttendence.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
