@@ -426,6 +426,24 @@ namespace AttendanceRecorder
             pos.Show();
         }
 
+        private void comboJobRole_MouseClick(object sender, MouseEventArgs e)
+        {
+            List<String> jobs = new List<string>();
+
+            DBConnect db = new DBConnect();
+
+            String q = "select type from employeesalarydetails";
+            MySqlCommand cmd = new MySqlCommand(q, db.con);
+            MySqlDataReader r = cmd.ExecuteReader();
+
+            while (r.Read())
+            {
+                jobs.Add(r[0].ToString());
+            }
+
+            comboJobRole.DataSource = jobs;
+        }
+
  
 
 
