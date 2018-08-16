@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlManageEmployee = new System.Windows.Forms.Panel();
             this.btnScan = new MetroFramework.Controls.MetroButton();
             this.txtpicpath = new System.Windows.Forms.TextBox();
-            this.picEmployeePicture = new System.Windows.Forms.PictureBox();
             this.btnClear = new MetroFramework.Controls.MetroButton();
             this.btnSearch = new MetroFramework.Controls.MetroButton();
             this.txtEmployeeID = new System.Windows.Forms.TextBox();
@@ -60,18 +59,22 @@
             this.tileManageEmployee = new MetroFramework.Controls.MetroTile();
             this.tileEmployeeAttendance = new MetroFramework.Controls.MetroTile();
             this.pnlEmployeeAttendance = new System.Windows.Forms.Panel();
+            this.btnUpdateRemark = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtRemark = new System.Windows.Forms.TextBox();
+            this.btnAttendancToday = new System.Windows.Forms.Button();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.metroDateTime3 = new MetroFramework.Controls.MetroDateTime();
+            this.txttoDate = new MetroFramework.Controls.MetroDateTime();
             this.label11 = new System.Windows.Forms.Label();
-            this.metroDateTime2 = new MetroFramework.Controls.MetroDateTime();
+            this.txtFromDate = new MetroFramework.Controls.MetroDateTime();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtEmpNo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtEmpName = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnFindAttendence = new System.Windows.Forms.Button();
             this.tileDetailsofCurrentCustomer = new MetroFramework.Controls.MetroTile();
             this.pnlViewDetailsofCustomers = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
@@ -87,12 +90,14 @@
             this.button6 = new System.Windows.Forms.Button();
             this.lblLoggedas = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnAddposition = new System.Windows.Forms.Button();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.picEmployeePicture = new System.Windows.Forms.PictureBox();
+            this.pnlWelcome = new System.Windows.Forms.Panel();
             this.pnlManageEmployee.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picEmployeePicture)).BeginInit();
             this.pnlEmployeeAttendance.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.pnlViewDetailsofCustomers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picEmployeePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlManageEmployee
@@ -128,7 +133,7 @@
             this.pnlManageEmployee.Location = new System.Drawing.Point(277, 62);
             this.pnlManageEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlManageEmployee.Name = "pnlManageEmployee";
-            this.pnlManageEmployee.Size = new System.Drawing.Size(996, 609);
+            this.pnlManageEmployee.Size = new System.Drawing.Size(1125, 748);
             this.pnlManageEmployee.TabIndex = 0;
             // 
             // btnScan
@@ -149,15 +154,6 @@
             this.txtpicpath.Name = "txtpicpath";
             this.txtpicpath.Size = new System.Drawing.Size(291, 22);
             this.txtpicpath.TabIndex = 38;
-            // 
-            // picEmployeePicture
-            // 
-            this.picEmployeePicture.Location = new System.Drawing.Point(679, 166);
-            this.picEmployeePicture.Name = "picEmployeePicture";
-            this.picEmployeePicture.Size = new System.Drawing.Size(152, 159);
-            this.picEmployeePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picEmployeePicture.TabIndex = 37;
-            this.picEmployeePicture.TabStop = false;
             // 
             // btnClear
             // 
@@ -478,76 +474,120 @@
             // pnlEmployeeAttendance
             // 
             this.pnlEmployeeAttendance.BackColor = System.Drawing.Color.DarkCyan;
+            this.pnlEmployeeAttendance.Controls.Add(this.btnUpdateRemark);
+            this.pnlEmployeeAttendance.Controls.Add(this.label17);
+            this.pnlEmployeeAttendance.Controls.Add(this.txtRemark);
+            this.pnlEmployeeAttendance.Controls.Add(this.btnAttendancToday);
             this.pnlEmployeeAttendance.Controls.Add(this.dgv);
             this.pnlEmployeeAttendance.Controls.Add(this.button2);
             this.pnlEmployeeAttendance.Controls.Add(this.label12);
-            this.pnlEmployeeAttendance.Controls.Add(this.metroDateTime3);
+            this.pnlEmployeeAttendance.Controls.Add(this.txttoDate);
             this.pnlEmployeeAttendance.Controls.Add(this.label11);
-            this.pnlEmployeeAttendance.Controls.Add(this.metroDateTime2);
+            this.pnlEmployeeAttendance.Controls.Add(this.txtFromDate);
             this.pnlEmployeeAttendance.Controls.Add(this.label10);
-            this.pnlEmployeeAttendance.Controls.Add(this.textBox1);
+            this.pnlEmployeeAttendance.Controls.Add(this.txtEmpNo);
             this.pnlEmployeeAttendance.Controls.Add(this.label9);
             this.pnlEmployeeAttendance.Controls.Add(this.txtEmpName);
             this.pnlEmployeeAttendance.Controls.Add(this.button3);
-            this.pnlEmployeeAttendance.Controls.Add(this.button1);
+            this.pnlEmployeeAttendance.Controls.Add(this.btnFindAttendence);
             this.pnlEmployeeAttendance.Location = new System.Drawing.Point(277, 63);
             this.pnlEmployeeAttendance.Name = "pnlEmployeeAttendance";
-            this.pnlEmployeeAttendance.Size = new System.Drawing.Size(993, 606);
+            this.pnlEmployeeAttendance.Size = new System.Drawing.Size(1125, 747);
             this.pnlEmployeeAttendance.TabIndex = 34;
+            // 
+            // btnUpdateRemark
+            // 
+            this.btnUpdateRemark.Location = new System.Drawing.Point(971, 176);
+            this.btnUpdateRemark.Name = "btnUpdateRemark";
+            this.btnUpdateRemark.Size = new System.Drawing.Size(133, 42);
+            this.btnUpdateRemark.TabIndex = 46;
+            this.btnUpdateRemark.Text = "Update remark";
+            this.btnUpdateRemark.UseVisualStyleBackColor = true;
+            this.btnUpdateRemark.Click += new System.EventHandler(this.btnUpdateRemark_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(45, 190);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(88, 17);
+            this.label17.TabIndex = 45;
+            this.label17.Text = "Add remarks";
+            // 
+            // txtRemark
+            // 
+            this.txtRemark.Location = new System.Drawing.Point(139, 176);
+            this.txtRemark.Multiline = true;
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Size = new System.Drawing.Size(826, 42);
+            this.txtRemark.TabIndex = 44;
+            // 
+            // btnAttendancToday
+            // 
+            this.btnAttendancToday.Location = new System.Drawing.Point(584, 116);
+            this.btnAttendancToday.Name = "btnAttendancToday";
+            this.btnAttendancToday.Size = new System.Drawing.Size(522, 46);
+            this.btnAttendancToday.TabIndex = 43;
+            this.btnAttendancToday.Text = "Find today\'s attendance";
+            this.btnAttendancToday.UseVisualStyleBackColor = true;
             // 
             // dgv
             // 
             this.dgv.AllowUserToAddRows = false;
             this.dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.NullValue = null;
-            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.NullValue = null;
+            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv.BackgroundColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(23, 186);
+            this.dgv.Location = new System.Drawing.Point(41, 280);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowTemplate.Height = 24;
-            this.dgv.Size = new System.Drawing.Size(946, 277);
+            this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv.Size = new System.Drawing.Size(1063, 451);
             this.dgv.TabIndex = 42;
+            this.dgv.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgv_MouseClick);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(679, 36);
+            this.button2.Location = new System.Drawing.Point(770, 18);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(51, 32);
+            this.button2.Size = new System.Drawing.Size(61, 32);
             this.button2.TabIndex = 41;
             this.button2.Text = "Scan";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(462, 85);
+            this.label12.Location = new System.Drawing.Point(460, 76);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(25, 17);
             this.label12.TabIndex = 40;
             this.label12.Text = "To";
             // 
-            // metroDateTime3
+            // txttoDate
             // 
-            this.metroDateTime3.Location = new System.Drawing.Point(493, 85);
-            this.metroDateTime3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroDateTime3.MinimumSize = new System.Drawing.Size(4, 30);
-            this.metroDateTime3.Name = "metroDateTime3";
-            this.metroDateTime3.Size = new System.Drawing.Size(237, 30);
-            this.metroDateTime3.TabIndex = 39;
+            this.txttoDate.Location = new System.Drawing.Point(500, 68);
+            this.txttoDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txttoDate.MinimumSize = new System.Drawing.Size(0, 30);
+            this.txttoDate.Name = "txttoDate";
+            this.txttoDate.Size = new System.Drawing.Size(245, 30);
+            this.txttoDate.TabIndex = 39;
             // 
             // label11
             // 
@@ -559,46 +599,47 @@
             this.label11.TabIndex = 38;
             this.label11.Text = "Starting From";
             // 
-            // metroDateTime2
+            // txtFromDate
             // 
-            this.metroDateTime2.Location = new System.Drawing.Point(143, 85);
-            this.metroDateTime2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroDateTime2.MinimumSize = new System.Drawing.Size(4, 30);
-            this.metroDateTime2.Name = "metroDateTime2";
-            this.metroDateTime2.Size = new System.Drawing.Size(231, 30);
-            this.metroDateTime2.TabIndex = 37;
+            this.txtFromDate.Location = new System.Drawing.Point(156, 72);
+            this.txtFromDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtFromDate.MinimumSize = new System.Drawing.Size(0, 30);
+            this.txtFromDate.Name = "txtFromDate";
+            this.txtFromDate.Size = new System.Drawing.Size(245, 30);
+            this.txtFromDate.TabIndex = 37;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(313, 36);
+            this.label10.Location = new System.Drawing.Point(402, 26);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(92, 17);
             this.label10.TabIndex = 36;
             this.label10.Text = "Employee No";
             // 
-            // textBox1
+            // txtEmpNo
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Teal;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(408, 36);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(27, 40, 27, 24);
-            this.textBox1.MaximumSize = new System.Drawing.Size(444, 160);
-            this.textBox1.MinimumSize = new System.Drawing.Size(0, 16);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(265, 32);
-            this.textBox1.TabIndex = 35;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEmpNo.BackColor = System.Drawing.Color.Teal;
+            this.txtEmpNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmpNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmpNo.ForeColor = System.Drawing.Color.White;
+            this.txtEmpNo.Location = new System.Drawing.Point(500, 18);
+            this.txtEmpNo.Margin = new System.Windows.Forms.Padding(27, 40, 27, 24);
+            this.txtEmpNo.MaximumSize = new System.Drawing.Size(444, 160);
+            this.txtEmpNo.MinimumSize = new System.Drawing.Size(0, 16);
+            this.txtEmpNo.Multiline = true;
+            this.txtEmpNo.Name = "txtEmpNo";
+            this.txtEmpNo.Size = new System.Drawing.Size(245, 32);
+            this.txtEmpNo.TabIndex = 35;
+            this.txtEmpNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEmpNo.TextChanged += new System.EventHandler(this.txtEmpNo_TextChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(40, 39);
+            this.label9.Location = new System.Drawing.Point(40, 26);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(45, 17);
             this.label9.TabIndex = 34;
@@ -610,34 +651,35 @@
             this.txtEmpName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmpName.ForeColor = System.Drawing.Color.White;
-            this.txtEmpName.Location = new System.Drawing.Point(97, 36);
+            this.txtEmpName.Location = new System.Drawing.Point(156, 19);
             this.txtEmpName.Margin = new System.Windows.Forms.Padding(27, 40, 27, 24);
             this.txtEmpName.MaximumSize = new System.Drawing.Size(444, 160);
             this.txtEmpName.MinimumSize = new System.Drawing.Size(0, 16);
             this.txtEmpName.Multiline = true;
             this.txtEmpName.Name = "txtEmpName";
-            this.txtEmpName.Size = new System.Drawing.Size(186, 32);
+            this.txtEmpName.Size = new System.Drawing.Size(245, 32);
             this.txtEmpName.TabIndex = 33;
             this.txtEmpName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(23, 133);
+            this.button3.Location = new System.Drawing.Point(41, 116);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(948, 47);
+            this.button3.Size = new System.Drawing.Size(536, 47);
             this.button3.TabIndex = 1;
             this.button3.Text = "Find Atendance of All Employees";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button1
+            // btnFindAttendence
             // 
-            this.button1.Location = new System.Drawing.Point(736, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(235, 79);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Find Atendance";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnFindAttendence.Location = new System.Drawing.Point(838, 19);
+            this.btnFindAttendence.Name = "btnFindAttendence";
+            this.btnFindAttendence.Size = new System.Drawing.Size(266, 83);
+            this.btnFindAttendence.TabIndex = 1;
+            this.btnFindAttendence.Text = "Find Atendance";
+            this.btnFindAttendence.UseVisualStyleBackColor = true;
+            this.btnFindAttendence.Click += new System.EventHandler(this.btnFindAttendence_Click);
             // 
             // tileDetailsofCurrentCustomer
             // 
@@ -667,7 +709,7 @@
             this.pnlViewDetailsofCustomers.Controls.Add(this.button6);
             this.pnlViewDetailsofCustomers.Location = new System.Drawing.Point(277, 63);
             this.pnlViewDetailsofCustomers.Name = "pnlViewDetailsofCustomers";
-            this.pnlViewDetailsofCustomers.Size = new System.Drawing.Size(990, 612);
+            this.pnlViewDetailsofCustomers.Size = new System.Drawing.Size(1125, 747);
             this.pnlViewDetailsofCustomers.TabIndex = 42;
             // 
             // button4
@@ -693,7 +735,7 @@
             // 
             this.metroDateTime4.Location = new System.Drawing.Point(491, 80);
             this.metroDateTime4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroDateTime4.MinimumSize = new System.Drawing.Size(4, 30);
+            this.metroDateTime4.MinimumSize = new System.Drawing.Size(0, 30);
             this.metroDateTime4.Name = "metroDateTime4";
             this.metroDateTime4.Size = new System.Drawing.Size(237, 30);
             this.metroDateTime4.TabIndex = 51;
@@ -712,7 +754,7 @@
             // 
             this.metroDateTime5.Location = new System.Drawing.Point(141, 80);
             this.metroDateTime5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroDateTime5.MinimumSize = new System.Drawing.Size(4, 30);
+            this.metroDateTime5.MinimumSize = new System.Drawing.Size(0, 30);
             this.metroDateTime5.Name = "metroDateTime5";
             this.metroDateTime5.Size = new System.Drawing.Size(231, 30);
             this.metroDateTime5.TabIndex = 49;
@@ -791,7 +833,7 @@
             // 
             this.lblLoggedas.AutoSize = true;
             this.lblLoggedas.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoggedas.Location = new System.Drawing.Point(274, 23);
+            this.lblLoggedas.Location = new System.Drawing.Point(272, 19);
             this.lblLoggedas.Name = "lblLoggedas";
             this.lblLoggedas.Size = new System.Drawing.Size(92, 29);
             this.lblLoggedas.TabIndex = 43;
@@ -807,30 +849,51 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnAddposition
+            // metroTile1
             // 
-            this.btnAddposition.Location = new System.Drawing.Point(7, 536);
-            this.btnAddposition.Name = "btnAddposition";
-            this.btnAddposition.Size = new System.Drawing.Size(153, 23);
-            this.btnAddposition.TabIndex = 45;
-            this.btnAddposition.Text = "Add Position";
-            this.btnAddposition.UseVisualStyleBackColor = true;
-            this.btnAddposition.Click += new System.EventHandler(this.btnAddposition_Click);
+            this.metroTile1.ActiveControl = null;
+            this.metroTile1.Location = new System.Drawing.Point(7, 616);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.Size = new System.Drawing.Size(264, 50);
+            this.metroTile1.TabIndex = 46;
+            this.metroTile1.Text = "Job Role Settings";
+            this.metroTile1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile1.UseSelectable = true;
+            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
+            // 
+            // picEmployeePicture
+            // 
+            this.picEmployeePicture.Location = new System.Drawing.Point(679, 166);
+            this.picEmployeePicture.Name = "picEmployeePicture";
+            this.picEmployeePicture.Size = new System.Drawing.Size(152, 159);
+            this.picEmployeePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picEmployeePicture.TabIndex = 37;
+            this.picEmployeePicture.TabStop = false;
+            // 
+            // pnlWelcome
+            // 
+            this.pnlWelcome.BackgroundImage = global::AttendanceRecorder.Properties.Resources.Capture;
+            this.pnlWelcome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlWelcome.Location = new System.Drawing.Point(277, 66);
+            this.pnlWelcome.Name = "pnlWelcome";
+            this.pnlWelcome.Size = new System.Drawing.Size(1125, 744);
+            this.pnlWelcome.TabIndex = 47;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1271, 671);
-            this.Controls.Add(this.btnAddposition);
+            this.ClientSize = new System.Drawing.Size(1402, 813);
+            this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblLoggedas);
             this.Controls.Add(this.tileDetailsofCurrentCustomer);
             this.Controls.Add(this.tileEmployeeAttendance);
             this.Controls.Add(this.tileManageEmployee);
+            this.Controls.Add(this.pnlWelcome);
+            this.Controls.Add(this.pnlEmployeeAttendance);
             this.Controls.Add(this.pnlManageEmployee);
             this.Controls.Add(this.pnlViewDetailsofCustomers);
-            this.Controls.Add(this.pnlEmployeeAttendance);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(18, 60, 18, 16);
@@ -838,12 +901,12 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlManageEmployee.ResumeLayout(false);
             this.pnlManageEmployee.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picEmployeePicture)).EndInit();
             this.pnlEmployeeAttendance.ResumeLayout(false);
             this.pnlEmployeeAttendance.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.pnlViewDetailsofCustomers.ResumeLayout(false);
             this.pnlViewDetailsofCustomers.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picEmployeePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -875,13 +938,13 @@
         private MetroFramework.Controls.MetroTile tileManageEmployee;
         private MetroFramework.Controls.MetroTile tileEmployeeAttendance;
         private System.Windows.Forms.Panel pnlEmployeeAttendance;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnFindAttendence;
         private System.Windows.Forms.Label label12;
-        private MetroFramework.Controls.MetroDateTime metroDateTime3;
+        private MetroFramework.Controls.MetroDateTime txttoDate;
         private System.Windows.Forms.Label label11;
-        private MetroFramework.Controls.MetroDateTime metroDateTime2;
+        private MetroFramework.Controls.MetroDateTime txtFromDate;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtEmpNo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtEmpName;
         private System.Windows.Forms.Button button2;
@@ -908,7 +971,12 @@
         private System.Windows.Forms.Label lblLoggedas;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.DataGridView dgv;
-        private System.Windows.Forms.Button btnAddposition;
+        private MetroFramework.Controls.MetroTile metroTile1;
+        private System.Windows.Forms.Button btnUpdateRemark;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtRemark;
+        private System.Windows.Forms.Button btnAttendancToday;
+        private System.Windows.Forms.Panel pnlWelcome;
 
     }
 }

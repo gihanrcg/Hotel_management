@@ -80,10 +80,10 @@ namespace AttendanceRecorder
 
 
             pnlEmployeeAttendance.Hide();
-            pnlManageEmployee.Show();
+            pnlManageEmployee.Hide();
             pnlViewDetailsofCustomers.Hide();
-
-
+            pnlWelcome.Show();
+            
 }
         
        
@@ -111,6 +111,7 @@ namespace AttendanceRecorder
             pnlEmployeeAttendance.Hide();
             pnlManageEmployee.Show();
             pnlViewDetailsofCustomers.Hide();
+            pnlWelcome.Hide();
 
             List<String> jobs = new List<string>();
 
@@ -131,6 +132,7 @@ namespace AttendanceRecorder
 
         private void tileEmployeeAttendance_Click(object sender, EventArgs e)
         {
+            pnlWelcome.Hide();
             pnlEmployeeAttendance.Show();
             pnlManageEmployee.Hide();
             pnlViewDetailsofCustomers.Hide();
@@ -138,6 +140,7 @@ namespace AttendanceRecorder
 
         private void tileDetailsofCurrentCustomer_Click(object sender, EventArgs e)
         {
+            pnlWelcome.Hide();
             pnlEmployeeAttendance.Hide();
             pnlManageEmployee.Hide();
             pnlViewDetailsofCustomers.Show();
@@ -397,6 +400,7 @@ namespace AttendanceRecorder
 
         private void button3_Click(object sender, EventArgs e)
         {
+            dgv.Visible = true;
             dgv.DataSource = GetEmployeeAttendence();
         }
 
@@ -405,12 +409,15 @@ namespace AttendanceRecorder
             DataTable dt = new DataTable();
             DBConnect db = new DBConnect();
 
-            String q = "select e.employeeNo as 'Employee ID',e.name as 'Name',a.date as 'Date',a.inTime as 'IN Time',a.outTime as 'Out Time',TIMEDIFF(a.outTime,a.inTime) as 'Time Worked'  from employee_attendance a, employee e where e.employeeNo = a.employeeNo";
+            String q = "select a.No,e.employeeNo as 'Employee ID',e.name as 'Name',a.date as 'Date',a.inTime as 'IN Time',a.outTime as 'Out Time',TIMEDIFF(a.outTime,a.inTime) as 'Time Worked'  from employee_attendance a, employee e where e.employeeNo = a.employeeNo";
             MySqlCommand cmd = new MySqlCommand(q, db.con);
             MySqlDataReader reader = cmd.ExecuteReader();
 
-            dt.Load(reader);
-            return dt;
+      
+                dt.Load(reader);
+                return dt; 
+          
+   
 
 
         }
@@ -422,8 +429,7 @@ namespace AttendanceRecorder
 
         private void btnAddposition_Click(object sender, EventArgs e)
         {
-            EmployeePositions pos = new EmployeePositions();
-            pos.Show();
+  
         }
 
         private void comboJobRole_MouseClick(object sender, MouseEventArgs e)
@@ -442,6 +448,79 @@ namespace AttendanceRecorder
             }
 
             comboJobRole.DataSource = jobs;
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            EmployeePositions pos = new EmployeePositions();
+            pos.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            txtEmpNo.Focus();
+        }
+
+        private void txtEmpNo_TextChanged(object sender, EventArgs e)
+        {
+            if (txtEmpNo.Text.Length == 8)
+            {
+                btnFindAttendence.Focus();
+                btnFindAttendence.BackColor = Color.Blue;
+            }
+        }
+
+        private void btnFindAttendence_Click(object sender, EventArgs e)
+        {
+            if (txtFromDate.Value > txttoDate.Value)
+            {
+                MessageBox.Show("Check your dates again..", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
+            else
+            {
+                dgv.DataSource = viewAttendenceFiltered();
+            }
+        }
+
+        private DataTable viewAttendenceFiltered()
+        {
+            DataTable dt = new DataTable();
+            DBConnect db = new DBConnect();
+
+            String q = "select No as 'Record ID', date as 'Date',inTime as 'IN Time',outTime as 'Out Time',TIMEDIFF(outTime,inTime) as 'Time Worked',remarks as 'Remarks'  from employee_attendance  where  employeeNo ='"+txtEmpNo.Text+"' and date >= '"+txtFromDate.Value.ToString("yyyy-MM-dd")+"' and date <= '"+txttoDate.Value.ToString("yyyy-MM-dd")+"'";
+            MySqlCommand cmd = new MySqlCommand(q, db.con);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                dt.Load(reader);
+                return dt; 
+            }
+            else
+            {
+                MessageBox.Show("No data found");
+                return null;
+            }
+        }
+
+        private void dgv_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            try
+            {
+                txtRemark.Text = dgv.SelectedRows[0].Cells[5].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);   
+            }
+            
+        }
+
+        private void btnUpdateRemark_Click(object sender, EventArgs e)
+        {
+
         }
 
  

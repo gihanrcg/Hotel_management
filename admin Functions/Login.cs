@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Threading;
 
 namespace AttendanceRecorder
 {
@@ -18,6 +19,7 @@ namespace AttendanceRecorder
         public Login()
         {
             InitializeComponent();
+            txtEmployeeID.Focus();
         }
 
         private void Login_Load(object sender, EventArgs e)

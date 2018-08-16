@@ -22,5 +22,15 @@ namespace AttendanceRecorder.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;database=hotel")]
+        public string hotelConnectionString {
+            get {
+                return ((string)(this["hotelConnectionString"]));
+            }
+        }
     }
 }
