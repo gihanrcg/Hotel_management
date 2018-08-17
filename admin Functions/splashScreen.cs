@@ -39,6 +39,8 @@ namespace AttendanceRecorder
          
             metroProgressSpinner1.Value = progress;
             metroProgressBar1.Value = progress;
+          
+         
             metroLabel1.Text= "Loading...  " + progress + "%";
         }
 
