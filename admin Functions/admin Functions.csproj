@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -46,6 +46,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Dapino-Summer-Holiday-Hotel.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetroFramework">
@@ -82,6 +85,12 @@
       <DependentUpon>AttendenceRecorder.cs</DependentUpon>
     </Compile>
     <Compile Include="AutoClosingMessageBoxes.cs" />
+    <Compile Include="ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBConnect.cs" />
     <Compile Include="EmployeeIDPrint.cs">
       <SubType>Form</SubType>
@@ -94,6 +103,12 @@
     </Compile>
     <Compile Include="EmployeePositions.Designer.cs">
       <DependentUpon>EmployeePositions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeProfile.Designer.cs">
+      <DependentUpon>EmployeeProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="EncryptAndDecrypt.cs" />
     <Compile Include="Form1.cs">
@@ -108,14 +123,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageRooms.cs" />
+    <Compile Include="ManageRooms.Designer.cs">
+      <DependentUpon>ManageRooms.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Report.Designer.cs">
-      <DependentUpon>Report.cs</DependentUpon>
-    </Compile>
     <Compile Include="ScanBarcode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,17 +150,26 @@
     <EmbeddedResource Include="AttendenceRecorder.resx">
       <DependentUpon>AttendenceRecorder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeIDPrint.resx">
       <DependentUpon>EmployeeIDPrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeePositions.resx">
       <DependentUpon>EmployeePositions.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeProfile.resx">
+      <DependentUpon>EmployeeProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageRooms.resx">
+      <DependentUpon>ManageRooms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -159,10 +181,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Report.resx">
-      <DependentUpon>Report.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="ScanBarcode.resx">
       <DependentUpon>ScanBarcode.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,83 +190,7 @@
     <EmbeddedResource Include="splashScreen.resx">
       <DependentUpon>splashScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-    </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\MySql.Data.Common.StringUtility.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Authentication.CachingSha2AuthenticationPlugin.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Authentication.MySqlNativePasswordPlugin.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Authentication.SecBuffer.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Authentication.SecHandle.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Authentication.SecPkgContext_Sizes.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Authentication.SECURITY_HANDLE.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Authentication.SECURITY_INTEGER.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Authentication.Sha256AuthenticationPlugin.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.AuthenticationPluginConfigurationElement.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.BaseCommandInterceptor.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.BaseTableCache.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.CustomInstaller.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.InterceptorConfigurationElement.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Interceptors.BaseExceptionInterceptor.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Memcached.BinaryClient.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Memcached.Client.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Memcached.MemcachedException.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Memcached.TextClient.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlBulkLoader.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlClientFactory.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlClientPermission.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlClientPermissionAttribute.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlCommand.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlCommandBuilder.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlConfiguration.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlConnection.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlConnectionStringBuilder.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlDataAdapter.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlDataReader.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlError.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlException.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlHelper.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlInfoMessageEventArgs.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlInfoMessageEventHandler.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlParameter.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlParameterCollection.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlRowUpdatedEventArgs.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlRowUpdatedEventHandler.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlRowUpdatingEventArgs.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlRowUpdatingEventHandler.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlSchemaCollection.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlSchemaRow.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlScript.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlScriptErrorEventArgs.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlScriptErrorEventHandler.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlScriptEventArgs.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlSecurityPermission.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlStatementExecutedEventHandler.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlTrace.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlTransaction.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Replication.ReplicationRoundRobinServerGroup.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Replication.ReplicationServer.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Replication.ReplicationServerGroup.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.ReplicationConfigurationElement.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.ReplicationServerConfigurationElement.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.ReplicationServerGroupConfigurationElement.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.MySqlClient.SchemaColumn.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.Resources.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.ResourcesX.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.Types.MySqlConversionException.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.Types.MySqlDateTime.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.Types.MySqlDecimal.datasource" />
-    <None Include="Properties\DataSources\MySql.Data.Types.MySqlGeometry.datasource" />
-    <None Include="Properties\DataSources\MySqlPemReader.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -285,6 +227,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dapino-Summer-Holiday-Hotel.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -16,6 +16,25 @@ namespace AttendanceRecorder
 
         public splashScreen()
         {
+            try
+            {
+                DBConnect db = new DBConnect();
+            }
+            catch (Exception)
+            {
+
+                DialogResult d = MessageBox.Show("Database connection failed. Make sure your database server is up and running", "Warning", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation);
+                if (d == DialogResult.Retry)
+                {
+                    Application.Restart();
+                    Environment.Exit(10);
+                }
+                else if(d == DialogResult.Cancel)   
+                {
+                    Environment.Exit(10);
+                 
+                }
+            }
             InitializeComponent();
         }
 
@@ -23,6 +42,8 @@ namespace AttendanceRecorder
         {
             timer1.Enabled = true;
             timer1.Interval = 30;
+            
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)

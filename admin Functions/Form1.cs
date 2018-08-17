@@ -523,6 +523,14 @@ namespace AttendanceRecorder
 
         }
 
+        private void btnMyProfile_Click(object sender, EventArgs e)
+        {
+            EmployeeProfile f = new EmployeeProfile(loggedEmployeeID);
+            f.Show();
+        }
+
+
+
  
 
 

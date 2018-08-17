@@ -33,6 +33,7 @@
             this.pnlManageEmployee = new System.Windows.Forms.Panel();
             this.btnScan = new MetroFramework.Controls.MetroButton();
             this.txtpicpath = new System.Windows.Forms.TextBox();
+            this.picEmployeePicture = new System.Windows.Forms.PictureBox();
             this.btnClear = new MetroFramework.Controls.MetroButton();
             this.btnSearch = new MetroFramework.Controls.MetroButton();
             this.txtEmployeeID = new System.Windows.Forms.TextBox();
@@ -91,13 +92,14 @@
             this.lblLoggedas = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
-            this.picEmployeePicture = new System.Windows.Forms.PictureBox();
             this.pnlWelcome = new System.Windows.Forms.Panel();
+            this.btnMyProfile = new System.Windows.Forms.Button();
+            this.btnManageRooms = new MetroFramework.Controls.MetroTile();
             this.pnlManageEmployee.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picEmployeePicture)).BeginInit();
             this.pnlEmployeeAttendance.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.pnlViewDetailsofCustomers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picEmployeePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlManageEmployee
@@ -154,6 +156,15 @@
             this.txtpicpath.Name = "txtpicpath";
             this.txtpicpath.Size = new System.Drawing.Size(291, 22);
             this.txtpicpath.TabIndex = 38;
+            // 
+            // picEmployeePicture
+            // 
+            this.picEmployeePicture.Location = new System.Drawing.Point(679, 166);
+            this.picEmployeePicture.Name = "picEmployeePicture";
+            this.picEmployeePicture.Size = new System.Drawing.Size(152, 159);
+            this.picEmployeePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picEmployeePicture.TabIndex = 37;
+            this.picEmployeePicture.TabStop = false;
             // 
             // btnClear
             // 
@@ -584,7 +595,7 @@
             // 
             this.txttoDate.Location = new System.Drawing.Point(500, 68);
             this.txttoDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txttoDate.MinimumSize = new System.Drawing.Size(0, 30);
+            this.txttoDate.MinimumSize = new System.Drawing.Size(4, 30);
             this.txttoDate.Name = "txttoDate";
             this.txttoDate.Size = new System.Drawing.Size(245, 30);
             this.txttoDate.TabIndex = 39;
@@ -603,7 +614,7 @@
             // 
             this.txtFromDate.Location = new System.Drawing.Point(156, 72);
             this.txtFromDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtFromDate.MinimumSize = new System.Drawing.Size(0, 30);
+            this.txtFromDate.MinimumSize = new System.Drawing.Size(4, 30);
             this.txtFromDate.Name = "txtFromDate";
             this.txtFromDate.Size = new System.Drawing.Size(245, 30);
             this.txtFromDate.TabIndex = 37;
@@ -735,7 +746,7 @@
             // 
             this.metroDateTime4.Location = new System.Drawing.Point(491, 80);
             this.metroDateTime4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroDateTime4.MinimumSize = new System.Drawing.Size(0, 30);
+            this.metroDateTime4.MinimumSize = new System.Drawing.Size(4, 30);
             this.metroDateTime4.Name = "metroDateTime4";
             this.metroDateTime4.Size = new System.Drawing.Size(237, 30);
             this.metroDateTime4.TabIndex = 51;
@@ -754,7 +765,7 @@
             // 
             this.metroDateTime5.Location = new System.Drawing.Point(141, 80);
             this.metroDateTime5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroDateTime5.MinimumSize = new System.Drawing.Size(0, 30);
+            this.metroDateTime5.MinimumSize = new System.Drawing.Size(4, 30);
             this.metroDateTime5.Name = "metroDateTime5";
             this.metroDateTime5.Size = new System.Drawing.Size(231, 30);
             this.metroDateTime5.TabIndex = 49;
@@ -841,9 +852,9 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(1175, 14);
+            this.btnLogout.Location = new System.Drawing.Point(1287, 18);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(75, 34);
+            this.btnLogout.Size = new System.Drawing.Size(96, 38);
             this.btnLogout.TabIndex = 44;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -852,23 +863,14 @@
             // metroTile1
             // 
             this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(7, 616);
+            this.metroTile1.Location = new System.Drawing.Point(7, 771);
             this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(264, 50);
+            this.metroTile1.Size = new System.Drawing.Size(264, 39);
             this.metroTile1.TabIndex = 46;
             this.metroTile1.Text = "Job Role Settings";
             this.metroTile1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile1.UseSelectable = true;
             this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
-            // 
-            // picEmployeePicture
-            // 
-            this.picEmployeePicture.Location = new System.Drawing.Point(679, 166);
-            this.picEmployeePicture.Name = "picEmployeePicture";
-            this.picEmployeePicture.Size = new System.Drawing.Size(152, 159);
-            this.picEmployeePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picEmployeePicture.TabIndex = 37;
-            this.picEmployeePicture.TabStop = false;
             // 
             // pnlWelcome
             // 
@@ -879,21 +881,44 @@
             this.pnlWelcome.Size = new System.Drawing.Size(1125, 744);
             this.pnlWelcome.TabIndex = 47;
             // 
+            // btnMyProfile
+            // 
+            this.btnMyProfile.Location = new System.Drawing.Point(1166, 18);
+            this.btnMyProfile.Name = "btnMyProfile";
+            this.btnMyProfile.Size = new System.Drawing.Size(115, 38);
+            this.btnMyProfile.TabIndex = 48;
+            this.btnMyProfile.Text = "My Profile";
+            this.btnMyProfile.UseVisualStyleBackColor = true;
+            this.btnMyProfile.Click += new System.EventHandler(this.btnMyProfile_Click);
+            // 
+            // btnManageRooms
+            // 
+            this.btnManageRooms.ActiveControl = null;
+            this.btnManageRooms.Location = new System.Drawing.Point(7, 704);
+            this.btnManageRooms.Name = "btnManageRooms";
+            this.btnManageRooms.Size = new System.Drawing.Size(264, 50);
+            this.btnManageRooms.TabIndex = 49;
+            this.btnManageRooms.Text = "Manage Rooms";
+            this.btnManageRooms.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnManageRooms.UseSelectable = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1402, 813);
+            this.Controls.Add(this.btnManageRooms);
+            this.Controls.Add(this.btnMyProfile);
             this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblLoggedas);
             this.Controls.Add(this.tileDetailsofCurrentCustomer);
             this.Controls.Add(this.tileEmployeeAttendance);
             this.Controls.Add(this.tileManageEmployee);
-            this.Controls.Add(this.pnlWelcome);
-            this.Controls.Add(this.pnlEmployeeAttendance);
             this.Controls.Add(this.pnlManageEmployee);
             this.Controls.Add(this.pnlViewDetailsofCustomers);
+            this.Controls.Add(this.pnlWelcome);
+            this.Controls.Add(this.pnlEmployeeAttendance);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(18, 60, 18, 16);
@@ -901,12 +926,12 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlManageEmployee.ResumeLayout(false);
             this.pnlManageEmployee.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picEmployeePicture)).EndInit();
             this.pnlEmployeeAttendance.ResumeLayout(false);
             this.pnlEmployeeAttendance.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.pnlViewDetailsofCustomers.ResumeLayout(false);
             this.pnlViewDetailsofCustomers.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picEmployeePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -977,6 +1002,8 @@
         private System.Windows.Forms.TextBox txtRemark;
         private System.Windows.Forms.Button btnAttendancToday;
         private System.Windows.Forms.Panel pnlWelcome;
+        private System.Windows.Forms.Button btnMyProfile;
+        private MetroFramework.Controls.MetroTile btnManageRooms;
 
     }
 }

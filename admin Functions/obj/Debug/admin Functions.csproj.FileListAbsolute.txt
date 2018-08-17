@@ -8,8 +8,10 @@ D:\HotelManagementSystem\admin Functions\admin Functions\bin\Debug\mysql.data.dl
 D:\HotelManagementSystem\admin Functions\admin Functions\bin\Debug\Zen.Barcode.Core.dll
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin Functions.csprojResolveAssemblyReference.cache
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.AttendenceRecorder.resources
+D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.ChangePassword.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.EmployeeIDPrint.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.EmployeePositions.resources
+D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.EmployeeProfile.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.Form1.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.Login.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.Properties.Resources.resources
@@ -19,6 +21,3 @@ D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRec
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin Functions.csproj.GenerateResource.Cache
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin Functions.exe
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin Functions.pdb
-D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.Report.resources
-D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\RdlCompile.cache
-D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\RdlCompile.compiled

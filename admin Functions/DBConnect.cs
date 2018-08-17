@@ -34,6 +34,7 @@ namespace AttendanceRecorder
             {
                 Console.WriteLine(e.StackTrace);
                 Console.WriteLine("Database Connection Failed");
+                throw new Exception();
             }
 
 
