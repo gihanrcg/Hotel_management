@@ -133,6 +133,7 @@
             this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Add Room";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // button1
             // 
@@ -142,6 +143,7 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "Update Room";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -151,6 +153,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "Delete Room";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dgvRooms
             // 
@@ -161,8 +164,10 @@
             this.dgvRooms.Name = "dgvRooms";
             this.dgvRooms.ReadOnly = true;
             this.dgvRooms.RowTemplate.Height = 24;
+            this.dgvRooms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRooms.Size = new System.Drawing.Size(855, 377);
             this.dgvRooms.TabIndex = 9;
+            this.dgvRooms.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvRooms_MouseClick);
             // 
             // ManageRooms
             // 

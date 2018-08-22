@@ -40,7 +40,7 @@ namespace AttendanceRecorder
 
         private void splashScreen_Load(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
+            timer1.Enabled =true;
             timer1.Interval = 30;
             
 

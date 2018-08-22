@@ -14,6 +14,7 @@ D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRec
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.EmployeeProfile.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.Form1.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.Login.resources
+D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.ManageRooms.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.Properties.Resources.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.ScanBarcode.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.ScanBarcodeForAttendence.resources

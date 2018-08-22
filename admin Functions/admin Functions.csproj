@@ -123,7 +123,9 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageRooms.cs" />
+    <Compile Include="ManageRooms.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ManageRooms.Designer.cs">
       <DependentUpon>ManageRooms.cs</DependentUpon>
     </Compile>

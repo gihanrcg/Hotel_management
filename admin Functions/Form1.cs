@@ -136,6 +136,7 @@ namespace AttendanceRecorder
             pnlEmployeeAttendance.Show();
             pnlManageEmployee.Hide();
             pnlViewDetailsofCustomers.Hide();
+            
         }
 
         private void tileDetailsofCurrentCustomer_Click(object sender, EventArgs e)
@@ -527,6 +528,12 @@ namespace AttendanceRecorder
         {
             EmployeeProfile f = new EmployeeProfile(loggedEmployeeID);
             f.Show();
+        }
+
+        private void btnManageRooms_Click(object sender, EventArgs e)
+        {
+            ManageRooms r = new ManageRooms();
+            r.Show();
         }
 
 
