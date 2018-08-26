@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 namespace AttendanceRecorder
 {
     
-    class DBConnect
+    class DBConnect: IDisposable 
     {
         private static String server = "localhost";
         private static String port = "3306";
@@ -20,7 +20,7 @@ namespace AttendanceRecorder
         private static String connectionString = "Server=" + server + ";Port=" + port + ";Database=" + database + ";Uid=" + username + ";Password=" + password + ";";
          public MySqlConnection con = new MySqlConnection(connectionString);
        
-
+        
 
         public DBConnect()
         {
@@ -40,5 +40,10 @@ namespace AttendanceRecorder
 
         }
 
+
+        public void Dispose()
+        {
+            con.Close();
+        }
     }
 }

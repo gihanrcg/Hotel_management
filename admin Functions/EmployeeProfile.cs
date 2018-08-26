@@ -243,6 +243,54 @@ namespace AttendanceRecorder
             }
         }
 
+        private void btnLeaverequest_Click(object sender, EventArgs e)
+        {
+            DBConnect db = new DBConnect();
+            String q = null;
+            if (comboBox1.Text.Equals("Casual Leave 1+ days"))
+            {                      
+                q = "INSERT INTO `leaverequests`(`employeeNo`, `leaveType`, `FromDate`, `toDate`, `reason`) VALUES ('" + this.employeeID + "','" + comboBox1.Text + "','" + txtFrom.Value.ToString("yyyy-MM-dd") + "','" + txtTo.Value.ToString("yyyy-MM-dd") + "','" + txtReason.Text + "')";
+               
+            }
+            else if (comboBox1.Text.Equals("Casual Leave One Day"))
+            {
+                q = "INSERT INTO `leaverequests`(`employeeNo`, `leaveType`, `FromDate`,`reason`) VALUES ('" + this.employeeID + "','" + comboBox1.Text + "','" + txtFrom.Value.ToString("yyyy-MM-dd") + "','" + txtReason.Text + "')";
+            }
+            else if (comboBox1.Text.Equals("Half Day"))
+            {
+
+                q = "INSERT INTO `leaverequests`(`employeeNo`, `leaveType`, `FromDate`, `halfdayTime`, `reason`) VALUES ('" + this.employeeID + "','" + comboBox1.Text + "','" + txtFrom.Value.ToString("yyyy-MM-dd") + "','"+cmbHalfdayType.Text+"','" + txtReason.Text + "')";
+            }
+            else if (comboBox1.Text.Equals("Medical Leave"))
+            {
+                lblhalfDayTime.Visible = false;
+                cmbHalfdayType.Visible = false;
+                lblDateTo.Visible = false;
+                lblDatefrom.Visible = true;
+                txtDateTo.Visible = false;
+                txtDateFrom.Visible = true;
+                txtDateFrom.Format = DateTimePickerFormat.Short;
+                txtDateTo.Format = DateTimePickerFormat.Short;
+                txtDateFrom.ShowUpDown = false; txtDateTo.ShowUpDown = false;
+            }
+            else if (comboBox1.Text.Equals("Short Leave"))
+            {
+                lblhalfDayTime.Visible = false;
+                cmbHalfdayType.Visible = false;
+                lblDateTo.Visible = true;
+                lblDatefrom.Visible = true;
+                txtDateTo.Visible = true;
+                txtDateFrom.Visible = true;
+                txtDateFrom.Format = DateTimePickerFormat.Time;
+                txtDateFrom.ShowUpDown = true; txtDateTo.ShowUpDown = true;
+                txtDateTo.Format = DateTimePickerFormat.Time;
+
+            }
+
+            MySqlCommand cmd = new MySqlCommand(q, db.con);
+            cmd.ExecuteNonQuery();
+        }
+
 
     }
 }

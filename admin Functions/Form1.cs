@@ -39,12 +39,47 @@ namespace AttendanceRecorder
             this.loggedEmployeeID = employeeID;
            
         }
-        
 
 
+        private Timer timerLeaveReq;
+
+        public void initTimer()
+        {
+            timerLeaveReq = new Timer();
+            timerLeaveReq.Tick += timerLeaveReq_Tick;
+            timerLeaveReq.Interval = 1000;
+            timerLeaveReq.Start();
+        }
+
+        void timerLeaveReq_Tick(object sender, EventArgs e)
+        {
+            int count=0;
+            
+            using (DBConnect db = new DBConnect())
+            {
+                String q = "SELECT COUNT(id) FROM leaverequests";
+                MySqlCommand cmd = new MySqlCommand(q, db.con);
+                MySqlDataReader r = cmd.ExecuteReader();
+
+                while (r.Read())
+                {
+                    count = Int32.Parse(r[0].ToString());
+                }
+                if (count == 0 || count == null)
+                {
+                    lblRequestCount.Visible = false;
+                }
+                else
+                {
+                    lblRequestCount.Visible = true;
+                    lblRequestCount.Text = count.ToString();
+                } 
+            }
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            initTimer();
             //DBConnect db = new DBConnect();
             //String q = "SELECT * FROM employee";
             //MySqlCommand cmd = new MySqlCommand(q, db.con);
@@ -537,6 +572,11 @@ namespace AttendanceRecorder
         }
 
         private void pnlViewDetailsofCustomers_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tileEmployeeLeaveRequests_Click(object sender, EventArgs e)
         {
 
         }

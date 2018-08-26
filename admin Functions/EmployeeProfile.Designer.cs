@@ -48,24 +48,27 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnMyProfile = new System.Windows.Forms.Button();
             this.pnlMyattendence = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtTo = new System.Windows.Forms.DateTimePicker();
+            this.txtFrom = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.dgvMyAttendance = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.btnMyAttendence = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtFrom = new System.Windows.Forms.DateTimePicker();
-            this.txtTo = new System.Windows.Forms.DateTimePicker();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.btnRequestLeave = new System.Windows.Forms.Button();
             this.pnlrequestLeave = new System.Windows.Forms.Panel();
-            this.lblDatefrom = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.txtDateFrom = new System.Windows.Forms.DateTimePicker();
-            this.lblDateTo = new System.Windows.Forms.Label();
-            this.txtDateTo = new System.Windows.Forms.DateTimePicker();
-            this.lblhalfDayTime = new System.Windows.Forms.Label();
             this.cmbHalfdayType = new System.Windows.Forms.ComboBox();
+            this.lblhalfDayTime = new System.Windows.Forms.Label();
+            this.txtDateTo = new System.Windows.Forms.DateTimePicker();
+            this.txtDateFrom = new System.Windows.Forms.DateTimePicker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblDateTo = new System.Windows.Forms.Label();
+            this.lblDatefrom = new System.Windows.Forms.Label();
+            this.txtReason = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btnLeaverequest = new System.Windows.Forms.Button();
             this.pnlMyprofile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlMyattendence.SuspendLayout();
@@ -272,6 +275,50 @@
             this.pnlMyattendence.Size = new System.Drawing.Size(750, 708);
             this.pnlMyattendence.TabIndex = 13;
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(617, 106);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(108, 23);
+            this.btnSearch.TabIndex = 4;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtTo
+            // 
+            this.txtTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtTo.Location = new System.Drawing.Point(416, 106);
+            this.txtTo.Name = "txtTo";
+            this.txtTo.Size = new System.Drawing.Size(147, 22);
+            this.txtTo.TabIndex = 3;
+            // 
+            // txtFrom
+            // 
+            this.txtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFrom.Location = new System.Drawing.Point(151, 106);
+            this.txtFrom.Name = "txtFrom";
+            this.txtFrom.Size = new System.Drawing.Size(147, 22);
+            this.txtFrom.TabIndex = 3;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(364, 106);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(25, 17);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "To";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(66, 106);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(40, 17);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "From";
+            // 
             // dgvMyAttendance
             // 
             this.dgvMyAttendance.AllowUserToAddRows = false;
@@ -308,50 +355,6 @@
             this.btnMyAttendence.UseVisualStyleBackColor = true;
             this.btnMyAttendence.Click += new System.EventHandler(this.btnMyAttendence_Click);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(66, 106);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(40, 17);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "From";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(364, 106);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(25, 17);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "To";
-            // 
-            // txtFrom
-            // 
-            this.txtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFrom.Location = new System.Drawing.Point(151, 106);
-            this.txtFrom.Name = "txtFrom";
-            this.txtFrom.Size = new System.Drawing.Size(147, 22);
-            this.txtFrom.TabIndex = 3;
-            // 
-            // txtTo
-            // 
-            this.txtTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtTo.Location = new System.Drawing.Point(416, 106);
-            this.txtTo.Name = "txtTo";
-            this.txtTo.Size = new System.Drawing.Size(147, 22);
-            this.txtTo.TabIndex = 3;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(617, 106);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(108, 23);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // btnRequestLeave
             // 
             this.btnRequestLeave.Location = new System.Drawing.Point(17, 316);
@@ -364,6 +367,9 @@
             // 
             // pnlrequestLeave
             // 
+            this.pnlrequestLeave.Controls.Add(this.btnLeaverequest);
+            this.pnlrequestLeave.Controls.Add(this.label11);
+            this.pnlrequestLeave.Controls.Add(this.txtReason);
             this.pnlrequestLeave.Controls.Add(this.cmbHalfdayType);
             this.pnlrequestLeave.Controls.Add(this.lblhalfDayTime);
             this.pnlrequestLeave.Controls.Add(this.txtDateTo);
@@ -378,23 +384,41 @@
             this.pnlrequestLeave.TabIndex = 15;
             this.pnlrequestLeave.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlrequestLeave_Paint);
             // 
-            // lblDatefrom
+            // cmbHalfdayType
             // 
-            this.lblDatefrom.AutoSize = true;
-            this.lblDatefrom.Location = new System.Drawing.Point(127, 128);
-            this.lblDatefrom.Name = "lblDatefrom";
-            this.lblDatefrom.Size = new System.Drawing.Size(38, 17);
-            this.lblDatefrom.TabIndex = 0;
-            this.lblDatefrom.Text = "Date";
+            this.cmbHalfdayType.FormattingEnabled = true;
+            this.cmbHalfdayType.Items.AddRange(new object[] {
+            "Morning",
+            "Afternoon"});
+            this.cmbHalfdayType.Location = new System.Drawing.Point(315, 179);
+            this.cmbHalfdayType.Name = "cmbHalfdayType";
+            this.cmbHalfdayType.Size = new System.Drawing.Size(121, 24);
+            this.cmbHalfdayType.TabIndex = 4;
             // 
-            // label12
+            // lblhalfDayTime
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(68, 55);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(78, 17);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Leave type";
+            this.lblhalfDayTime.AutoSize = true;
+            this.lblhalfDayTime.Location = new System.Drawing.Point(177, 182);
+            this.lblhalfDayTime.Name = "lblhalfDayTime";
+            this.lblhalfDayTime.Size = new System.Drawing.Size(91, 17);
+            this.lblhalfDayTime.TabIndex = 3;
+            this.lblhalfDayTime.Text = "Halfday Time";
+            // 
+            // txtDateTo
+            // 
+            this.txtDateTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtDateTo.Location = new System.Drawing.Point(406, 128);
+            this.txtDateTo.Name = "txtDateTo";
+            this.txtDateTo.Size = new System.Drawing.Size(135, 22);
+            this.txtDateTo.TabIndex = 2;
+            // 
+            // txtDateFrom
+            // 
+            this.txtDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtDateFrom.Location = new System.Drawing.Point(180, 128);
+            this.txtDateFrom.Name = "txtDateFrom";
+            this.txtDateFrom.Size = new System.Drawing.Size(135, 22);
+            this.txtDateFrom.TabIndex = 2;
             // 
             // comboBox1
             // 
@@ -412,13 +436,14 @@
             this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // txtDateFrom
+            // label12
             // 
-            this.txtDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtDateFrom.Location = new System.Drawing.Point(180, 128);
-            this.txtDateFrom.Name = "txtDateFrom";
-            this.txtDateFrom.Size = new System.Drawing.Size(135, 22);
-            this.txtDateFrom.TabIndex = 2;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(68, 55);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(78, 17);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Leave type";
             // 
             // lblDateTo
             // 
@@ -429,33 +454,41 @@
             this.lblDateTo.TabIndex = 0;
             this.lblDateTo.Text = "To";
             // 
-            // txtDateTo
+            // lblDatefrom
             // 
-            this.txtDateTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtDateTo.Location = new System.Drawing.Point(406, 128);
-            this.txtDateTo.Name = "txtDateTo";
-            this.txtDateTo.Size = new System.Drawing.Size(135, 22);
-            this.txtDateTo.TabIndex = 2;
+            this.lblDatefrom.AutoSize = true;
+            this.lblDatefrom.Location = new System.Drawing.Point(127, 128);
+            this.lblDatefrom.Name = "lblDatefrom";
+            this.lblDatefrom.Size = new System.Drawing.Size(38, 17);
+            this.lblDatefrom.TabIndex = 0;
+            this.lblDatefrom.Text = "Date";
             // 
-            // lblhalfDayTime
+            // txtReason
             // 
-            this.lblhalfDayTime.AutoSize = true;
-            this.lblhalfDayTime.Location = new System.Drawing.Point(177, 182);
-            this.lblhalfDayTime.Name = "lblhalfDayTime";
-            this.lblhalfDayTime.Size = new System.Drawing.Size(91, 17);
-            this.lblhalfDayTime.TabIndex = 3;
-            this.lblhalfDayTime.Text = "Halfday Time";
+            this.txtReason.Location = new System.Drawing.Point(180, 252);
+            this.txtReason.Multiline = true;
+            this.txtReason.Name = "txtReason";
+            this.txtReason.Size = new System.Drawing.Size(361, 90);
+            this.txtReason.TabIndex = 5;
             // 
-            // cmbHalfdayType
+            // label11
             // 
-            this.cmbHalfdayType.FormattingEnabled = true;
-            this.cmbHalfdayType.Items.AddRange(new object[] {
-            "Morning",
-            "Afternoon"});
-            this.cmbHalfdayType.Location = new System.Drawing.Point(315, 179);
-            this.cmbHalfdayType.Name = "cmbHalfdayType";
-            this.cmbHalfdayType.Size = new System.Drawing.Size(121, 24);
-            this.cmbHalfdayType.TabIndex = 4;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(71, 252);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(57, 17);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Reason";
+            // 
+            // btnLeaverequest
+            // 
+            this.btnLeaverequest.Location = new System.Drawing.Point(180, 370);
+            this.btnLeaverequest.Name = "btnLeaverequest";
+            this.btnLeaverequest.Size = new System.Drawing.Size(361, 73);
+            this.btnLeaverequest.TabIndex = 7;
+            this.btnLeaverequest.Text = "Request Leave";
+            this.btnLeaverequest.UseVisualStyleBackColor = true;
+            this.btnLeaverequest.Click += new System.EventHandler(this.btnLeaverequest_Click);
             // 
             // EmployeeProfile
             // 
@@ -525,5 +558,8 @@
         private System.Windows.Forms.Label lblDateTo;
         private System.Windows.Forms.ComboBox cmbHalfdayType;
         private System.Windows.Forms.Label lblhalfDayTime;
+        private System.Windows.Forms.Button btnLeaverequest;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtReason;
     }
 }

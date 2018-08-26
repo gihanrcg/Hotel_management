@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlManageEmployee = new System.Windows.Forms.Panel();
             this.btnScan = new MetroFramework.Controls.MetroButton();
             this.txtpicpath = new System.Windows.Forms.TextBox();
@@ -95,11 +95,14 @@
             this.pnlWelcome = new System.Windows.Forms.Panel();
             this.btnMyProfile = new System.Windows.Forms.Button();
             this.btnManageRooms = new MetroFramework.Controls.MetroTile();
+            this.tileEmployeeLeaveRequests = new MetroFramework.Controls.MetroTile();
+            this.lblRequestCount = new System.Windows.Forms.Label();
             this.pnlManageEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picEmployeePicture)).BeginInit();
             this.pnlEmployeeAttendance.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.pnlViewDetailsofCustomers.SuspendLayout();
+            this.tileEmployeeLeaveRequests.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlManageEmployee
@@ -382,7 +385,7 @@
             // 
             this.txtDatetime.Location = new System.Drawing.Point(313, 209);
             this.txtDatetime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDatetime.MinimumSize = new System.Drawing.Size(0, 30);
+            this.txtDatetime.MinimumSize = new System.Drawing.Size(4, 30);
             this.txtDatetime.Name = "txtDatetime";
             this.txtDatetime.Size = new System.Drawing.Size(265, 30);
             this.txtDatetime.TabIndex = 22;
@@ -547,20 +550,20 @@
             // 
             this.dgv.AllowUserToAddRows = false;
             this.dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.NullValue = null;
-            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.NullValue = null;
+            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv.BackgroundColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Location = new System.Drawing.Point(41, 280);
             this.dgv.Name = "dgv";
@@ -904,6 +907,31 @@
             this.btnManageRooms.UseSelectable = true;
             this.btnManageRooms.Click += new System.EventHandler(this.btnManageRooms_Click);
             // 
+            // tileEmployeeLeaveRequests
+            // 
+            this.tileEmployeeLeaveRequests.ActiveControl = null;
+            this.tileEmployeeLeaveRequests.Controls.Add(this.lblRequestCount);
+            this.tileEmployeeLeaveRequests.Location = new System.Drawing.Point(7, 395);
+            this.tileEmployeeLeaveRequests.Name = "tileEmployeeLeaveRequests";
+            this.tileEmployeeLeaveRequests.Size = new System.Drawing.Size(264, 104);
+            this.tileEmployeeLeaveRequests.TabIndex = 35;
+            this.tileEmployeeLeaveRequests.Text = "Employee Leave Requests";
+            this.tileEmployeeLeaveRequests.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tileEmployeeLeaveRequests.UseSelectable = true;
+            this.tileEmployeeLeaveRequests.Click += new System.EventHandler(this.tileEmployeeLeaveRequests_Click);
+            // 
+            // lblRequestCount
+            // 
+            this.lblRequestCount.AutoSize = true;
+            this.lblRequestCount.BackColor = System.Drawing.Color.Red;
+            this.lblRequestCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequestCount.ForeColor = System.Drawing.Color.White;
+            this.lblRequestCount.Location = new System.Drawing.Point(213, 13);
+            this.lblRequestCount.Name = "lblRequestCount";
+            this.lblRequestCount.Size = new System.Drawing.Size(26, 29);
+            this.lblRequestCount.TabIndex = 0;
+            this.lblRequestCount.Text = "1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -914,6 +942,7 @@
             this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblLoggedas);
+            this.Controls.Add(this.tileEmployeeLeaveRequests);
             this.Controls.Add(this.tileDetailsofCurrentCustomer);
             this.Controls.Add(this.tileEmployeeAttendance);
             this.Controls.Add(this.tileManageEmployee);
@@ -934,6 +963,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.pnlViewDetailsofCustomers.ResumeLayout(false);
             this.pnlViewDetailsofCustomers.PerformLayout();
+            this.tileEmployeeLeaveRequests.ResumeLayout(false);
+            this.tileEmployeeLeaveRequests.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1006,6 +1037,8 @@
         private System.Windows.Forms.Panel pnlWelcome;
         private System.Windows.Forms.Button btnMyProfile;
         private MetroFramework.Controls.MetroTile btnManageRooms;
+        private MetroFramework.Controls.MetroTile tileEmployeeLeaveRequests;
+        private System.Windows.Forms.Label lblRequestCount;
 
     }
 }
