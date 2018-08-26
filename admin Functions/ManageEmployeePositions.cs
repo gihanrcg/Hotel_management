@@ -11,13 +11,13 @@ using MySql.Data.MySqlClient;
 
 namespace AttendanceRecorder
 {
-    public partial class EmployeePositions : Form
+    public partial class ManageEmployeePositions : Form
     {
 
      
         
 
-        public EmployeePositions()
+        public ManageEmployeePositions()
         {
             InitializeComponent();
                      

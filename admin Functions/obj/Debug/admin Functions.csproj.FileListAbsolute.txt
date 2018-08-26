@@ -10,7 +10,6 @@ D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin Functio
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.AttendenceRecorder.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.ChangePassword.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.EmployeeIDPrint.resources
-D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.EmployeePositions.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.EmployeeProfile.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.Form1.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.Login.resources
@@ -22,3 +21,5 @@ D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRec
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin Functions.csproj.GenerateResource.Cache
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin Functions.exe
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\admin Functions.pdb
+D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.ManageDrinks.resources
+D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.ManageEmployeePositions.resources

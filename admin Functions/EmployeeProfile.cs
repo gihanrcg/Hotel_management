@@ -26,6 +26,7 @@ namespace AttendanceRecorder
 
         private void EmployeeProfile_Load(object sender, EventArgs e)
         {
+            
             DBConnect db = new DBConnect();
 
             String q = "Select name,nic,address,contactHome,contactMobile,image,password from employee where employeeNo = '" + employeeID + "'";
@@ -62,6 +63,28 @@ namespace AttendanceRecorder
 
                 Console.WriteLine(ex);
             }
+            pnlMyprofile.BringToFront();
+            dgvMyAttendance.DataSource = loadMyattenceWithoutFilter();     
+
+
+
+
+
+        }
+
+        private DataTable loadMyattenceWithoutFilter() {
+
+            DataTable dt = new DataTable();
+            String today = DateTime.Now.ToString("yyyy-MM-dd");
+
+            DBConnect db = new DBConnect();
+
+            String qu = "select date as 'Date',inTime as 'IN Time',outTime as 'Out Time',TIMEDIFF(outTime,inTime) as 'Time Worked'  from employee_attendance where date='" + today + "' and employeeNo = '" + employeeID + "'";
+            MySqlCommand c = new MySqlCommand(qu, db.con);
+            MySqlDataReader reader = c.ExecuteReader();
+            dt.Load(reader);
+            return dt; 
+
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
@@ -97,6 +120,127 @@ namespace AttendanceRecorder
             l.Show();
             this.Hide();
             
+        }
+
+        private void btnMyAttendence_Click(object sender, EventArgs e)
+        {
+            pnlMyattendence.Show();
+            pnlMyprofile.Hide();
+            pnlrequestLeave.Hide();
+        }
+
+        private void btnMyProfile_Click(object sender, EventArgs e)
+        {
+            pnlMyprofile.Show();
+            pnlMyattendence.Hide();
+            pnlrequestLeave.Hide();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            dgvMyAttendance.DataSource = loadAttendenceWithFilters();
+        }
+        private DataTable loadAttendenceWithFilters()
+        {
+            DataTable dt = new DataTable();
+            String from = txtFrom.Value.ToString("yyyy-MM-dd");
+            String to = txtTo.Value.ToString("yyyy-MM-dd");
+
+            DBConnect db = new DBConnect();
+
+            String qu = "select date as 'Date',inTime as 'IN Time',outTime as 'Out Time',TIMEDIFF(outTime,inTime) as 'Time Worked'  from employee_attendance where date >= '"+from+"' and date <= '"+to+"' and employeeNo = '" + employeeID + "'";
+            MySqlCommand c = new MySqlCommand(qu, db.con);
+            MySqlDataReader reader = c.ExecuteReader();
+            dt.Load(reader);
+            return dt; 
+        }
+
+        private void btnChangePassword_Click_1(object sender, EventArgs e)
+        {
+            ChangePassword f = new ChangePassword(employeeID, password);
+            f.Show();
+        }
+
+        private void EmployeeProfile_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
+
+        private void btnRequestLeave_Click(object sender, EventArgs e)
+        {
+            pnlrequestLeave.Show();
+            pnlMyprofile.Hide();
+            pnlMyattendence.Hide();
+        }
+
+        private void pnlrequestLeave_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.Text.Equals("Casual Leave 1+ days"))
+            {
+                lblhalfDayTime.Visible = false;
+                cmbHalfdayType.Visible = false;
+                lblDateTo.Visible = true;
+                lblDatefrom.Visible = true;
+                txtDateTo.Visible = true;
+                txtDateFrom.Visible = true;
+                txtDateFrom.Format = DateTimePickerFormat.Short;
+                txtDateTo.Format = DateTimePickerFormat.Short;
+                txtDateFrom.ShowUpDown = false; txtDateTo.ShowUpDown = false;
+            }
+            else if (comboBox1.Text.Equals("Casual Leave One Day"))
+            {
+                lblhalfDayTime.Visible = false;
+                cmbHalfdayType.Visible = false;
+                lblDateTo.Visible = false;
+                lblDatefrom.Visible = true;
+                txtDateTo.Visible = false;
+                txtDateFrom.Visible = true;
+                txtDateFrom.Format = DateTimePickerFormat.Short;
+                txtDateTo.Format = DateTimePickerFormat.Short;
+                txtDateFrom.ShowUpDown = false; txtDateTo.ShowUpDown = false;
+            }
+            else if (comboBox1.Text.Equals("Half Day")) 
+            {
+                lblhalfDayTime.Visible = true;
+                cmbHalfdayType.Visible = true;
+                lblDateTo.Visible = false;
+                lblDatefrom.Visible = true;
+                txtDateTo.Visible = false;
+                txtDateFrom.Visible = true;
+                txtDateFrom.Format = DateTimePickerFormat.Short;
+                txtDateTo.Format = DateTimePickerFormat.Short;
+                txtDateFrom.ShowUpDown = false; txtDateTo.ShowUpDown = false;
+            }
+            else if (comboBox1.Text.Equals("Medical Leave"))
+            {
+                lblhalfDayTime.Visible = false;
+                cmbHalfdayType.Visible = false;
+                lblDateTo.Visible = false;
+                lblDatefrom.Visible = true;
+                txtDateTo.Visible = false;
+                txtDateFrom.Visible = true;
+                txtDateFrom.Format = DateTimePickerFormat.Short;
+                txtDateTo.Format = DateTimePickerFormat.Short;
+                txtDateFrom.ShowUpDown = false; txtDateTo.ShowUpDown = false;
+            }
+            else if (comboBox1.Text.Equals("Short Leave"))
+            {
+                lblhalfDayTime.Visible = false;
+                cmbHalfdayType.Visible = false; 
+                lblDateTo.Visible = true;
+                lblDatefrom.Visible = true;
+                txtDateTo.Visible = true;
+                txtDateFrom.Visible = true;
+                txtDateFrom.Format = DateTimePickerFormat.Time;
+                txtDateFrom.ShowUpDown = true; txtDateTo.ShowUpDown = true;
+                txtDateTo.Format = DateTimePickerFormat.Time;
+            
+            }
         }
 
 

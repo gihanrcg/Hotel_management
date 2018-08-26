@@ -98,11 +98,17 @@
     <Compile Include="EmployeeIDPrint.Designer.cs">
       <DependentUpon>EmployeeIDPrint.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeePositions.cs">
+    <Compile Include="ManageDrinks.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmployeePositions.Designer.cs">
-      <DependentUpon>EmployeePositions.cs</DependentUpon>
+    <Compile Include="ManageDrinks.Designer.cs">
+      <DependentUpon>ManageDrinks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageEmployeePositions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageEmployeePositions.Designer.cs">
+      <DependentUpon>ManageEmployeePositions.cs</DependentUpon>
     </Compile>
     <Compile Include="EmployeeProfile.cs">
       <SubType>Form</SubType>
@@ -158,8 +164,11 @@
     <EmbeddedResource Include="EmployeeIDPrint.resx">
       <DependentUpon>EmployeeIDPrint.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeePositions.resx">
-      <DependentUpon>EmployeePositions.cs</DependentUpon>
+    <EmbeddedResource Include="ManageDrinks.resx">
+      <DependentUpon>ManageDrinks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageEmployeePositions.resx">
+      <DependentUpon>ManageEmployeePositions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeProfile.resx">
       <DependentUpon>EmployeeProfile.cs</DependentUpon>

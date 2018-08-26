@@ -1,6 +1,6 @@
 ﻿namespace AttendanceRecorder
 {
-    partial class EmployeePositions
+    partial class ManageEmployeePositions
     {
         /// <summary>
         /// Required designer variable.

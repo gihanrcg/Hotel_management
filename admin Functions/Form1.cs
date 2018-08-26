@@ -453,7 +453,7 @@ namespace AttendanceRecorder
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
-            EmployeePositions pos = new EmployeePositions();
+            ManageEmployeePositions pos = new ManageEmployeePositions();
             pos.Show();
         }
 
@@ -534,6 +534,11 @@ namespace AttendanceRecorder
         {
             ManageRooms r = new ManageRooms();
             r.Show();
+        }
+
+        private void pnlViewDetailsofCustomers_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
 

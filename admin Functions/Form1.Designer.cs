@@ -722,6 +722,7 @@
             this.pnlViewDetailsofCustomers.Name = "pnlViewDetailsofCustomers";
             this.pnlViewDetailsofCustomers.Size = new System.Drawing.Size(1125, 747);
             this.pnlViewDetailsofCustomers.TabIndex = 42;
+            this.pnlViewDetailsofCustomers.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlViewDetailsofCustomers_Paint);
             // 
             // button4
             // 
@@ -746,7 +747,7 @@
             // 
             this.metroDateTime4.Location = new System.Drawing.Point(491, 80);
             this.metroDateTime4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroDateTime4.MinimumSize = new System.Drawing.Size(4, 30);
+            this.metroDateTime4.MinimumSize = new System.Drawing.Size(0, 30);
             this.metroDateTime4.Name = "metroDateTime4";
             this.metroDateTime4.Size = new System.Drawing.Size(237, 30);
             this.metroDateTime4.TabIndex = 51;
@@ -765,7 +766,7 @@
             // 
             this.metroDateTime5.Location = new System.Drawing.Point(141, 80);
             this.metroDateTime5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroDateTime5.MinimumSize = new System.Drawing.Size(4, 30);
+            this.metroDateTime5.MinimumSize = new System.Drawing.Size(0, 30);
             this.metroDateTime5.Name = "metroDateTime5";
             this.metroDateTime5.Size = new System.Drawing.Size(231, 30);
             this.metroDateTime5.TabIndex = 49;
@@ -916,10 +917,10 @@
             this.Controls.Add(this.tileDetailsofCurrentCustomer);
             this.Controls.Add(this.tileEmployeeAttendance);
             this.Controls.Add(this.tileManageEmployee);
-            this.Controls.Add(this.pnlManageEmployee);
             this.Controls.Add(this.pnlViewDetailsofCustomers);
             this.Controls.Add(this.pnlWelcome);
             this.Controls.Add(this.pnlEmployeeAttendance);
+            this.Controls.Add(this.pnlManageEmployee);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(18, 60, 18, 16);
