@@ -1,15 +1,16 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using System.Globalization;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AttendanceRecorder
 {
@@ -19,12 +20,12 @@ namespace AttendanceRecorder
 
         AutoCompleteStringCollection namesCollection = new AutoCompleteStringCollection();
 
-        private  String loggedEmployeeID;
+        private String loggedEmployeeID;
 
 
         public string employeeID
         {
-            get { return txtEmployeeID.Text;}
+            get { return txtEmployeeID.Text; }
             set { txtEmployeeID.Text = value; }
         }
 
@@ -32,12 +33,12 @@ namespace AttendanceRecorder
         {
             InitializeComponent();
         }
-        public Form1(String username,String Jobrole,String employeeID)
+        public Form1(String username, String Jobrole, String employeeID)
         {
             InitializeComponent();
-            this.lblLoggedas.Text = "Logged as "+username+" : "+Jobrole;
+            this.lblLoggedas.Text = "Logged as " + username + " : " + Jobrole;
             this.loggedEmployeeID = employeeID;
-           
+
         }
 
 
@@ -53,8 +54,8 @@ namespace AttendanceRecorder
 
         void timerLeaveReq_Tick(object sender, EventArgs e)
         {
-            int count=0;
-            
+            int count = 0;
+
             using (DBConnect db = new DBConnect())
             {
                 String q = "SELECT COUNT(id) FROM leaverequests";
@@ -65,7 +66,7 @@ namespace AttendanceRecorder
                 {
                     count = Int32.Parse(r[0].ToString());
                 }
-                if (count == 0 || count == null)
+                if (count == 0)
                 {
                     lblRequestCount.Visible = false;
                 }
@@ -73,7 +74,7 @@ namespace AttendanceRecorder
                 {
                     lblRequestCount.Visible = true;
                     lblRequestCount.Text = count.ToString();
-                } 
+                }
             }
         }
 
@@ -103,13 +104,13 @@ namespace AttendanceRecorder
 
             //var textBox = new TextBox
             //{
-                txtEmployeeName.AutoCompleteCustomSource = namesCollection;
-                txtEmployeeName.AutoCompleteMode =
-                    AutoCompleteMode.SuggestAppend;
-                txtEmployeeName.AutoCompleteSource =
-                    AutoCompleteSource.CustomSource;
+            txtEmployeeName.AutoCompleteCustomSource = namesCollection;
+            txtEmployeeName.AutoCompleteMode =
+                AutoCompleteMode.SuggestAppend;
+            txtEmployeeName.AutoCompleteSource =
+                AutoCompleteSource.CustomSource;
 
-           // };
+            // };
 
             // Add the text box to the form.
 
@@ -118,14 +119,14 @@ namespace AttendanceRecorder
             pnlManageEmployee.Hide();
             pnlViewDetailsofCustomers.Hide();
             pnlWelcome.Show();
-            
-}
-        
-       
+
+        }
+
+
 
         private void txtContactNoHome_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) )
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -143,6 +144,7 @@ namespace AttendanceRecorder
 
         private void tileManageEmployee_Click(object sender, EventArgs e)
         {
+            pnlManageEmployee.BringToFront();
             pnlEmployeeAttendance.Hide();
             pnlManageEmployee.Show();
             pnlViewDetailsofCustomers.Hide();
@@ -162,20 +164,22 @@ namespace AttendanceRecorder
             }
 
             comboJobRole.DataSource = jobs;
- 
+
         }
 
         private void tileEmployeeAttendance_Click(object sender, EventArgs e)
         {
+            pnlEmployeeAttendance.BringToFront();
             pnlWelcome.Hide();
             pnlEmployeeAttendance.Show();
             pnlManageEmployee.Hide();
             pnlViewDetailsofCustomers.Hide();
-            
+
         }
 
         private void tileDetailsofCurrentCustomer_Click(object sender, EventArgs e)
         {
+            pnlViewDetailsofCustomers.BringToFront();
             pnlWelcome.Hide();
             pnlEmployeeAttendance.Hide();
             pnlManageEmployee.Hide();
@@ -186,50 +190,59 @@ namespace AttendanceRecorder
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
-            DBConnect db = new DBConnect();
-
-            try
+            if (ValidationManageEmployeeAdd())
             {
-                byte[] imageBt = null;
-                FileStream fstream = new FileStream(this.txtpicpath.Text, FileMode.Open, FileAccess.Read);
-                BinaryReader br = new BinaryReader(fstream);
-                imageBt = br.ReadBytes((int)fstream.Length);
-
-                DialogResult d = MessageBox.Show("Are you sure want to add this Employee..?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-
-                if (d == DialogResult.Yes)
+                using (DBConnect db = new DBConnect())
                 {
 
-                    DateTime dt = txtDatetime.Value;
-                    String date = dt.ToString("yyyy-MM-dd");
-                    Console.WriteLine(en.EncryptString("1234"));
-                    String q = "insert into employee(name,nic,dob,address,contactHome,contactMobile,jobRole,image,password,changedBy) values ('" + txtEmployeeName.Text + "','" + txtEmployeeNIC.Text + "','" + date + "','" + txtEmployeeAddress.Text + "','" + txtContactNoHome.Text + "','" + txtContactNoMobile.Text + "','" + comboJobRole.Text + "',@IMG,'"+en.EncryptString("1234")+"','"+this.loggedEmployeeID+"')";
-
-
-                    MySqlCommand cmd = new MySqlCommand(q, db.con);
-                    cmd.Parameters.Add(new MySqlParameter("@IMG", imageBt));
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Employee Inserted Succesfully", "Done..!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-                    q = "SELECT * FROM employee WHERE name ='" + txtEmployeeName.Text + "'";
-                    cmd = new MySqlCommand(q, db.con);
-                    MySqlDataReader r = cmd.ExecuteReader();
-
-                    while (r.Read())
+                    try
                     {
-                        txtEmployeeID.Text = r[0].ToString();
+                        byte[] imageBt = null;
+                        FileStream fstream = new FileStream(this.txtpicpath.Text, FileMode.Open, FileAccess.Read);
+                        BinaryReader br = new BinaryReader(fstream);
+                        imageBt = br.ReadBytes((int)fstream.Length);
+
+                        DialogResult d = MessageBox.Show("Are you sure want to add this Employee..?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                        if (d == DialogResult.Yes)
+                        {
+
+                            DateTime dt = txtDatetime.Value;
+                            String date = dt.ToString("yyyy-MM-dd");
+                            Console.WriteLine(en.EncryptString("1234"));
+                            String q = "insert into employee(name,nic,dob,address,contactHome,contactMobile,jobRole,image,password,changedBy) values ('" + txtEmployeeName.Text + "','" + txtEmployeeNIC.Text + "','" + date + "','" + txtEmployeeAddress.Text + "','" + txtContactNoHome.Text + "','" + txtContactNoMobile.Text + "','" + comboJobRole.Text + "',@IMG,'" + en.EncryptString("1234") + "','" + this.loggedEmployeeID + "')";
+
+
+                            MySqlCommand cmd = new MySqlCommand(q, db.con);
+                            cmd.Parameters.Add(new MySqlParameter("@IMG", imageBt));
+                            cmd.ExecuteNonQuery();
+
+
+
+                            String q1 = "SELECT * FROM employee WHERE name ='" + txtEmployeeName.Text + "'";
+                            MySqlCommand cmd1 = new MySqlCommand(q1, db.con);
+                            MySqlDataReader r = cmd1.ExecuteReader();
+
+                            while (r.Read())
+                            {
+                                txtEmployeeID.Text = r[0].ToString();
+
+                            }
+
+
+
+                            MessageBox.Show("Employee Inserted Succesfully", "Done..!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
 
                     }
-                }
-
-            }
 
 
-            catch (Exception ex)
-            {
+                    catch (Exception ex)
+                    {
 
-                Console.WriteLine(ex.StackTrace);
+                        Console.WriteLine(ex.StackTrace);
+                    }
+                } 
             }
         }
 
@@ -242,61 +255,61 @@ namespace AttendanceRecorder
         {
             try
             {
-                 DBConnect db = new DBConnect();
-                 String q = "SELECT * FROM employee WHERE employeeNo ='" + txtEmployeeID.Text + "'";
-                 MySqlCommand cmd = new MySqlCommand(q, db.con);
-                 MySqlDataReader r = cmd.ExecuteReader();
+                DBConnect db = new DBConnect();
+                String q = "SELECT * FROM employee WHERE employeeNo ='" + txtEmployeeID.Text + "'";
+                MySqlCommand cmd = new MySqlCommand(q, db.con);
+                MySqlDataReader r = cmd.ExecuteReader();
 
-                 if (r.HasRows)
-                 {
-                     while (r.Read())
-                     {
-                         txtEmployeeName.Text = r[1].ToString();
+                if (r.HasRows)
+                {
+                    while (r.Read())
+                    {
+                        txtEmployeeName.Text = r[1].ToString();
 
-                         txtEmployeeNIC.Text = r[2].ToString();
+                        txtEmployeeNIC.Text = r[2].ToString();
 
-                         String date = r[3].ToString();
-                         txtDatetime.Value = Convert.ToDateTime(date);
+                        String date = r[3].ToString();
+                        txtDatetime.Value = Convert.ToDateTime(date);
 
-                         txtEmployeeAddress.Text = r[4].ToString();
+                        txtEmployeeAddress.Text = r[4].ToString();
 
-                         txtContactNoHome.Text = r[5].ToString();
+                        txtContactNoHome.Text = r[5].ToString();
 
-                         txtContactNoMobile.Text = r[6].ToString();
+                        txtContactNoMobile.Text = r[6].ToString();
 
-                         comboJobRole.SelectedItem = r[7].ToString();
+                        comboJobRole.SelectedItem = r[7].ToString();
 
-                         byte[] img = (byte[])(r[8]);
+                        byte[] img = (byte[])(r[8]);
 
-                         if (img == null)
-                         {
-                             picEmployeePicture.Image = null;
-                         }
-                         else
-                         {
-                             MemoryStream mstream = new MemoryStream(img);
-                             picEmployeePicture.Image = System.Drawing.Image.FromStream(mstream);
-                         }
+                        if (img == null)
+                        {
+                            picEmployeePicture.Image = null;
+                        }
+                        else
+                        {
+                            MemoryStream mstream = new MemoryStream(img);
+                            picEmployeePicture.Image = System.Drawing.Image.FromStream(mstream);
+                        }
 
-                     } 
-                 }
-                 else
-                 {
-                     MessageBox.Show("No records found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                 }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No records found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
             }
             catch (Exception ex)
             {
 
-                
+
                 Console.WriteLine(ex.StackTrace);
             }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtEmployeeID.Clear();    
+            txtEmployeeID.Clear();
 
             txtEmployeeName.Clear();
 
@@ -318,34 +331,37 @@ namespace AttendanceRecorder
 
         private void btnUpdateEmployee_Click(object sender, EventArgs e)
         {
-            DBConnect db = new DBConnect();
-
-            try
+            if (true)
             {
-                byte[] imageBt = null;
-                FileStream fstream = new FileStream(this.picEmployeePicture.ImageLocation, FileMode.Open, FileAccess.Read);
-                BinaryReader br = new BinaryReader(fstream);
-                imageBt = br.ReadBytes((int)fstream.Length);
+                DBConnect db = new DBConnect();
 
-                DateTime dt = txtDatetime.Value;
-                String date = dt.ToString("yyyy-MM-dd");
-
-                DialogResult d = MessageBox.Show("Are you sure you want to Update this Employee..?", "Confirm",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
-                if(d == DialogResult.Yes)
+                try
                 {
-                    String q = "UPDATE employee SET name='" + txtEmployeeName.Text + "',nic = '" + txtEmployeeNIC.Text + "',dob ='" + date + "',address='" + txtEmployeeAddress.Text + "',contactHome='" + txtContactNoHome.Text + "',contactMobile='" + txtContactNoMobile.Text + "',jobRole='" + comboJobRole.Text + "',image=@IMG,changedBy='" + this.loggedEmployeeID +"' WHERE employeeNo='" + txtEmployeeID.Text + "'";
-                    Console.WriteLine(q);
-                    MySqlCommand cmd = new MySqlCommand(q, db.con);
-                    cmd.Parameters.Add(new MySqlParameter("@IMG", imageBt));
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Employee Updated Succesfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    byte[] imageBt = null;
+                    FileStream fstream = new FileStream(this.picEmployeePicture.ImageLocation, FileMode.Open, FileAccess.Read);
+                    BinaryReader br = new BinaryReader(fstream);
+                    imageBt = br.ReadBytes((int)fstream.Length);
+
+                    DateTime dt = txtDatetime.Value;
+                    String date = dt.ToString("yyyy-MM-dd");
+
+                    DialogResult d = MessageBox.Show("Are you sure you want to Update this Employee..?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (d == DialogResult.Yes)
+                    {
+                        String q = "UPDATE employee SET name='" + txtEmployeeName.Text + "',nic = '" + txtEmployeeNIC.Text + "',dob ='" + date + "',address='" + txtEmployeeAddress.Text + "',contactHome='" + txtContactNoHome.Text + "',contactMobile='" + txtContactNoMobile.Text + "',jobRole='" + comboJobRole.Text + "',image=@IMG,changedBy='" + this.loggedEmployeeID + "' WHERE employeeNo='" + txtEmployeeID.Text + "'";
+                        Console.WriteLine(q);
+                        MySqlCommand cmd = new MySqlCommand(q, db.con);
+                        cmd.Parameters.Add(new MySqlParameter("@IMG", imageBt));
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Employee Updated Succesfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
                 }
+                catch (Exception ex)
+                {
 
-            }
-            catch (Exception ex)
-            {
-
-                Console.WriteLine(ex.StackTrace);
+                    Console.WriteLine(ex.StackTrace);
+                } 
             }
 
         }
@@ -356,7 +372,7 @@ namespace AttendanceRecorder
 
             try
             {
- 
+
 
                 DialogResult d = MessageBox.Show("Are you sure you want to Delete this Employee..?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (d == DialogResult.Yes)
@@ -366,7 +382,7 @@ namespace AttendanceRecorder
                     MySqlCommand cmd = new MySqlCommand(q, db.con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Employee Deleted Succesfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btnClear_Click(null,null);
+                    btnClear_Click(null, null);
                 }
 
             }
@@ -397,7 +413,7 @@ namespace AttendanceRecorder
             {
                 EmployeeIDPrint id = new EmployeeIDPrint(txtEmployeeID.Text);
                 id.Show();
-                
+
             }
             else
             {
@@ -409,7 +425,7 @@ namespace AttendanceRecorder
         {
             ScanBarcode f = new ScanBarcode(this);
             f.Show();
-            
+
         }
 
         private void txtEmployeeID_TextChanged(object sender, EventArgs e)
@@ -429,7 +445,7 @@ namespace AttendanceRecorder
             {
                 Login l = new Login();
                 l.Show();
-                this.Hide(); 
+                this.Hide();
             }
 
         }
@@ -449,11 +465,11 @@ namespace AttendanceRecorder
             MySqlCommand cmd = new MySqlCommand(q, db.con);
             MySqlDataReader reader = cmd.ExecuteReader();
 
-      
-                dt.Load(reader);
-                return dt; 
-          
-   
+
+            dt.Load(reader);
+            return dt;
+
+
 
 
         }
@@ -465,7 +481,7 @@ namespace AttendanceRecorder
 
         private void btnAddposition_Click(object sender, EventArgs e)
         {
-  
+
         }
 
         private void comboJobRole_MouseClick(object sender, MouseEventArgs e)
@@ -511,7 +527,7 @@ namespace AttendanceRecorder
             if (txtFromDate.Value > txttoDate.Value)
             {
                 MessageBox.Show("Check your dates again..", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+
             }
             else
             {
@@ -524,14 +540,14 @@ namespace AttendanceRecorder
             DataTable dt = new DataTable();
             DBConnect db = new DBConnect();
 
-            String q = "select No as 'Record ID', date as 'Date',inTime as 'IN Time',outTime as 'Out Time',TIMEDIFF(outTime,inTime) as 'Time Worked',remarks as 'Remarks'  from employee_attendance  where  employeeNo ='"+txtEmpNo.Text+"' and date >= '"+txtFromDate.Value.ToString("yyyy-MM-dd")+"' and date <= '"+txttoDate.Value.ToString("yyyy-MM-dd")+"'";
+            String q = "select No as 'Record ID', date as 'Date',inTime as 'IN Time',outTime as 'Out Time',TIMEDIFF(outTime,inTime) as 'Time Worked',remarks as 'Remarks'  from employee_attendance  where  employeeNo ='" + txtEmpNo.Text + "' and date >= '" + txtFromDate.Value.ToString("yyyy-MM-dd") + "' and date <= '" + txttoDate.Value.ToString("yyyy-MM-dd") + "'";
             MySqlCommand cmd = new MySqlCommand(q, db.con);
             MySqlDataReader reader = cmd.ExecuteReader();
 
             if (reader.HasRows)
             {
                 dt.Load(reader);
-                return dt; 
+                return dt;
             }
             else
             {
@@ -549,9 +565,9 @@ namespace AttendanceRecorder
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);   
+                Console.WriteLine(ex);
             }
-            
+
         }
 
         private void btnUpdateRemark_Click(object sender, EventArgs e)
@@ -578,25 +594,126 @@ namespace AttendanceRecorder
 
         private void tileEmployeeLeaveRequests_Click(object sender, EventArgs e)
         {
-
+            pnlLeaveRequests.BringToFront();
+            dgvLeaverequests.DataSource = loadLeaveRequests();
         }
 
 
+        private DataTable loadLeaveRequests()
+        {
+            DBConnect db = new DBConnect();
+            DataTable dt = new DataTable();
 
- 
+            String q = "SELECT l.id, e.employeeNo, e.name,l.leaveType, l.FromDate, l.toDate, l.fromTime, l.toTime, l.halfdayTime, l.reason,e.jobRole FROM leaverequests l , employee e WHERE l.employeeNo = e.employeeNo";
+            MySqlCommand cmd = new MySqlCommand(q, db.con);
+            MySqlDataReader r = cmd.ExecuteReader();
+            dt.Load(r);
+
+            return dt;
+
+        }
+
+        private void dgvLeaverequests_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtLeaveId.Text = dgvLeaverequests.SelectedRows[0].Cells[0].Value.ToString();
+            txtEmpIDLeave.Text = dgvLeaverequests.SelectedRows[0].Cells[1].Value.ToString();
+            txtEmpNameLeave.Text = dgvLeaverequests.SelectedRows[0].Cells[2].Value.ToString();
+            txtLeaveType.Text = dgvLeaverequests.SelectedRows[0].Cells[3].Value.ToString();
+            txtDateFromLeave.Text = dgvLeaverequests.SelectedRows[0].Cells[4].Value.ToString();
+            txtDateToLeave.Text = dgvLeaverequests.SelectedRows[0].Cells[5].Value.ToString();
+            txtTimeFromLeave.Text = dgvLeaverequests.SelectedRows[0].Cells[6].Value.ToString();
+            txtTimetoLeave.Text = dgvLeaverequests.SelectedRows[0].Cells[7].Value.ToString();
+            // txtLeaveId.Text = dgvLeaverequests.SelectedRows[0].Cells[8].Value.ToString();
+            txtReason.Text = dgvLeaverequests.SelectedRows[0].Cells[9].Value.ToString();
+            txtempPositionLeave.Text = dgvLeaverequests.SelectedRows[0].Cells[10].Value.ToString();
+
+        }
+
+        private void pnlLeaveRequests_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnApprove_Click(object sender, EventArgs e)
+        {
+            using (DBConnect db = new DBConnect())
+            {
 
 
-   
+            }
+        }
+
+        private bool ValidationManageEmployeeAdd()
+        {
+
+            bool result = false;
+            if (String.IsNullOrEmpty(txtEmployeeName.Text))
+            {
+                errorProvider1.Clear();
+                errorProvider1.SetError(txtEmployeeName, "Name is required");
+            }
+            else if (String.IsNullOrEmpty(txtEmployeeNIC.Text) || !(txtEmployeeNIC.Text.Length == 10 || txtEmployeeNIC.Text.Length == 12))
+            {
+                errorProvider1.Clear();
+                errorProvider1.SetError(txtEmployeeNIC, "NIC should have either 12 characters or 10");
+            }              
 
 
-  
+            else if(((DateTime.Compare(txtDatetime.Value,DateTime.Now)) > 0))
+            {
+                errorProvider1.Clear();
+                errorProvider1.SetError(txtDatetime, "Invalid Birthdate");
+            }
+            else if (((dateDiffYears(txtDatetime.Value, DateTime.Now)) < 15 )|| ((dateDiffYears(txtDatetime.Value, DateTime.Now)) > 59))
+            {
+                errorProvider1.Clear();
+                errorProvider1.SetError(txtDatetime, "Employee should be atleast 14 years old");
+            }
+            else if (String.IsNullOrEmpty(txtEmployeeAddress.Text))
+            {
+                errorProvider1.Clear();
+                errorProvider1.SetError(txtEmployeeAddress, "Address Cannot be empty");
+            }
+            else if (txtContactNoMobile.Text.Length != 10 || !Regex.Match(txtContactNoMobile.Text, "[0-9]{10}").Success)
+            {
+                errorProvider1.Clear();
+                errorProvider1.SetError(txtContactNoMobile, "Mobile number should have 10 numbers");
+            }
+            else if (String.IsNullOrEmpty(comboJobRole.Text))
+            {
+                errorProvider1.Clear();
+                errorProvider1.SetError(comboJobRole, "Please selecct a job role");
+            }
+            else if (String.IsNullOrEmpty(txtpicpath.Text))
+            {
+                errorProvider1.Clear();
+                errorProvider1.SetError(comboJobRole, "Please selecct a job role");
+            }
+           
+            else
+            {
+                errorProvider1.Clear();
+                result = true;
+            }
+            return result;
+        }
 
 
+        private int dateDiffYears(DateTime From, DateTime To)
+        {
+            DateTime zeroTime = new DateTime(1, 1, 1);
 
-     
+            DateTime a = From;
+            DateTime b =  To;
 
+            TimeSpan span = b - a;
+            // Because we start at year 1 for the Gregorian
+            // calendar, we must subtract a year here.
+            int years = (zeroTime + span).Year - 1;
 
-        
+            // 1, where my other algorithm resulted in 0.
+            return years;
+        }
 
     }
 }

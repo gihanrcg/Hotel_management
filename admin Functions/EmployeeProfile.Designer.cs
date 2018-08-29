@@ -69,6 +69,8 @@
             this.txtReason = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.btnLeaverequest = new System.Windows.Forms.Button();
+            this.txtShortLeaveDate = new System.Windows.Forms.DateTimePicker();
+            this.lblShortLeaveDate = new System.Windows.Forms.Label();
             this.pnlMyprofile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlMyattendence.SuspendLayout();
@@ -367,6 +369,8 @@
             // 
             // pnlrequestLeave
             // 
+            this.pnlrequestLeave.Controls.Add(this.lblShortLeaveDate);
+            this.pnlrequestLeave.Controls.Add(this.txtShortLeaveDate);
             this.pnlrequestLeave.Controls.Add(this.btnLeaverequest);
             this.pnlrequestLeave.Controls.Add(this.label11);
             this.pnlrequestLeave.Controls.Add(this.txtReason);
@@ -490,17 +494,33 @@
             this.btnLeaverequest.UseVisualStyleBackColor = true;
             this.btnLeaverequest.Click += new System.EventHandler(this.btnLeaverequest_Click);
             // 
+            // txtShortLeaveDate
+            // 
+            this.txtShortLeaveDate.Location = new System.Drawing.Point(180, 94);
+            this.txtShortLeaveDate.Name = "txtShortLeaveDate";
+            this.txtShortLeaveDate.Size = new System.Drawing.Size(361, 22);
+            this.txtShortLeaveDate.TabIndex = 8;
+            // 
+            // lblShortLeaveDate
+            // 
+            this.lblShortLeaveDate.AutoSize = true;
+            this.lblShortLeaveDate.Location = new System.Drawing.Point(92, 94);
+            this.lblShortLeaveDate.Name = "lblShortLeaveDate";
+            this.lblShortLeaveDate.Size = new System.Drawing.Size(38, 17);
+            this.lblShortLeaveDate.TabIndex = 9;
+            this.lblShortLeaveDate.Text = "Date";
+            // 
             // EmployeeProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 807);
-            this.Controls.Add(this.pnlrequestLeave);
             this.Controls.Add(this.btnRequestLeave);
             this.Controls.Add(this.btnMyAttendence);
             this.Controls.Add(this.btnMyProfile);
-            this.Controls.Add(this.pnlMyprofile);
             this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.pnlrequestLeave);
+            this.Controls.Add(this.pnlMyprofile);
             this.Controls.Add(this.pnlMyattendence);
             this.Name = "EmployeeProfile";
             this.Text = "My Profile";
@@ -561,5 +581,7 @@
         private System.Windows.Forms.Button btnLeaverequest;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtReason;
+        private System.Windows.Forms.Label lblShortLeaveDate;
+        private System.Windows.Forms.DateTimePicker txtShortLeaveDate;
     }
 }

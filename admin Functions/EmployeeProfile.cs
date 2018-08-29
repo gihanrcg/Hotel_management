@@ -33,7 +33,8 @@ namespace AttendanceRecorder
             MySqlCommand cmd = new MySqlCommand(q, db.con);
 
             MySqlDataReader r = cmd.ExecuteReader();
-
+            lblShortLeaveDate.Visible = false;
+            txtShortLeaveDate.Visible = false;
             try
             {
                 while (r.Read())
@@ -191,6 +192,8 @@ namespace AttendanceRecorder
                 txtDateFrom.Format = DateTimePickerFormat.Short;
                 txtDateTo.Format = DateTimePickerFormat.Short;
                 txtDateFrom.ShowUpDown = false; txtDateTo.ShowUpDown = false;
+                lblShortLeaveDate.Visible = false;
+                txtShortLeaveDate.Visible = false;
             }
             else if (comboBox1.Text.Equals("Casual Leave One Day"))
             {
@@ -203,6 +206,9 @@ namespace AttendanceRecorder
                 txtDateFrom.Format = DateTimePickerFormat.Short;
                 txtDateTo.Format = DateTimePickerFormat.Short;
                 txtDateFrom.ShowUpDown = false; txtDateTo.ShowUpDown = false;
+                lblShortLeaveDate.Visible = false;
+                txtShortLeaveDate.Visible = false;
+                
             }
             else if (comboBox1.Text.Equals("Half Day")) 
             {
@@ -215,6 +221,8 @@ namespace AttendanceRecorder
                 txtDateFrom.Format = DateTimePickerFormat.Short;
                 txtDateTo.Format = DateTimePickerFormat.Short;
                 txtDateFrom.ShowUpDown = false; txtDateTo.ShowUpDown = false;
+                lblShortLeaveDate.Visible = false;
+                txtShortLeaveDate.Visible = false;
             }
             else if (comboBox1.Text.Equals("Medical Leave"))
             {
@@ -227,6 +235,8 @@ namespace AttendanceRecorder
                 txtDateFrom.Format = DateTimePickerFormat.Short;
                 txtDateTo.Format = DateTimePickerFormat.Short;
                 txtDateFrom.ShowUpDown = false; txtDateTo.ShowUpDown = false;
+                lblShortLeaveDate.Visible = false;
+                txtShortLeaveDate.Visible = false;
             }
             else if (comboBox1.Text.Equals("Short Leave"))
             {
@@ -239,56 +249,55 @@ namespace AttendanceRecorder
                 txtDateFrom.Format = DateTimePickerFormat.Time;
                 txtDateFrom.ShowUpDown = true; txtDateTo.ShowUpDown = true;
                 txtDateTo.Format = DateTimePickerFormat.Time;
+                
+                txtShortLeaveDate.Format = DateTimePickerFormat.Short;
+                lblShortLeaveDate.Visible = true;
+                txtShortLeaveDate.Visible = true;
             
             }
         }
 
         private void btnLeaverequest_Click(object sender, EventArgs e)
         {
-            DBConnect db = new DBConnect();
-            String q = null;
-            if (comboBox1.Text.Equals("Casual Leave 1+ days"))
-            {                      
-                q = "INSERT INTO `leaverequests`(`employeeNo`, `leaveType`, `FromDate`, `toDate`, `reason`) VALUES ('" + this.employeeID + "','" + comboBox1.Text + "','" + txtFrom.Value.ToString("yyyy-MM-dd") + "','" + txtTo.Value.ToString("yyyy-MM-dd") + "','" + txtReason.Text + "')";
-               
-            }
-            else if (comboBox1.Text.Equals("Casual Leave One Day"))
-            {
-                q = "INSERT INTO `leaverequests`(`employeeNo`, `leaveType`, `FromDate`,`reason`) VALUES ('" + this.employeeID + "','" + comboBox1.Text + "','" + txtFrom.Value.ToString("yyyy-MM-dd") + "','" + txtReason.Text + "')";
-            }
-            else if (comboBox1.Text.Equals("Half Day"))
+
+            DialogResult d = MessageBox.Show("Are you sure you want to request this leave...?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (d == DialogResult.Yes)
             {
 
-                q = "INSERT INTO `leaverequests`(`employeeNo`, `leaveType`, `FromDate`, `halfdayTime`, `reason`) VALUES ('" + this.employeeID + "','" + comboBox1.Text + "','" + txtFrom.Value.ToString("yyyy-MM-dd") + "','"+cmbHalfdayType.Text+"','" + txtReason.Text + "')";
-            }
-            else if (comboBox1.Text.Equals("Medical Leave"))
-            {
-                lblhalfDayTime.Visible = false;
-                cmbHalfdayType.Visible = false;
-                lblDateTo.Visible = false;
-                lblDatefrom.Visible = true;
-                txtDateTo.Visible = false;
-                txtDateFrom.Visible = true;
-                txtDateFrom.Format = DateTimePickerFormat.Short;
-                txtDateTo.Format = DateTimePickerFormat.Short;
-                txtDateFrom.ShowUpDown = false; txtDateTo.ShowUpDown = false;
-            }
-            else if (comboBox1.Text.Equals("Short Leave"))
-            {
-                lblhalfDayTime.Visible = false;
-                cmbHalfdayType.Visible = false;
-                lblDateTo.Visible = true;
-                lblDatefrom.Visible = true;
-                txtDateTo.Visible = true;
-                txtDateFrom.Visible = true;
-                txtDateFrom.Format = DateTimePickerFormat.Time;
-                txtDateFrom.ShowUpDown = true; txtDateTo.ShowUpDown = true;
-                txtDateTo.Format = DateTimePickerFormat.Time;
+                using (DBConnect db = new DBConnect())
+                {
+                    String q = null;
+                    if (comboBox1.Text.Equals("Casual Leave 1+ days"))
+                    {
+                        q = "INSERT INTO `leaverequests`(`employeeNo`, `leaveType`, `FromDate`, `toDate`, `reason`) VALUES ('" + this.employeeID + "','" + comboBox1.Text + "','" + txtDateFrom.Value.ToString("yyyy-MM-dd") + "','" + txtDateTo.Value.ToString("yyyy-MM-dd") + "','" + txtReason.Text + "')";
 
-            }
+                    }
+                    else if (comboBox1.Text.Equals("Casual Leave One Day"))
+                    {
+                        q = "INSERT INTO `leaverequests`(`employeeNo`, `leaveType`, `FromDate`,`reason`) VALUES ('" + this.employeeID + "','" + comboBox1.Text + "','" + txtDateFrom.Value.ToString("yyyy-MM-dd") + "','" + txtReason.Text + "')";
+                    }
+                    else if (comboBox1.Text.Equals("Half Day"))
+                    {
 
-            MySqlCommand cmd = new MySqlCommand(q, db.con);
-            cmd.ExecuteNonQuery();
+                        q = "INSERT INTO `leaverequests`(`employeeNo`, `leaveType`, `FromDate`, `halfdayTime`, `reason`) VALUES ('" + this.employeeID + "','" + comboBox1.Text + "','" + txtDateFrom.Value.ToString("yyyy-MM-dd") + "','" + cmbHalfdayType.Text + "','" + txtReason.Text + "')";
+                    }
+                    else if (comboBox1.Text.Equals("Medical Leave"))
+                    {
+                        q = "INSERT INTO `leaverequests`(`employeeNo`, `leaveType`, `FromDate`,`reason`) VALUES ('" + this.employeeID + "','" + comboBox1.Text + "','" + txtDateFrom.Value.ToString("yyyy-MM-dd") + "','" + txtReason.Text + "')";
+                    }
+                    else if (comboBox1.Text.Equals("Short Leave"))
+                    {
+
+
+                        q = "INSERT INTO `leaverequests`(`employeeNo`, `leaveType`, `FromDate`, `fromTime`, `toTime`, `reason`) VALUES ('" + this.employeeID + "','" + comboBox1.Text + "','" + txtShortLeaveDate.Value.ToString("yyyy-MM-dd") + "','" + txtDateFrom.Value.ToString("HH:mm") + "','" + txtDateTo.Value.ToString("HH:mm") + "','" + txtReason.Text + "')";
+
+                    }
+
+                    MySqlCommand cmd = new MySqlCommand(q, db.con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Leave requested successfully.Please wait for the response", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } 
+            }
         }
 
 

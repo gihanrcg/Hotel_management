@@ -60,11 +60,22 @@
     <Reference Include="MetroFramework.Fonts">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="mysql.data">
       <HintPath>..\..\..\mysql.data.dll</HintPath>
     </Reference>
+    <Reference Include="PrinterUtility">
+      <HintPath>..\packages\PrinterUtility.1.1.2\lib\PrinterUtility.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -85,6 +96,17 @@
       <DependentUpon>AttendenceRecorder.cs</DependentUpon>
     </Compile>
     <Compile Include="AutoClosingMessageBoxes.cs" />
+    <Compile Include="billdataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>billdataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="billPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="billPrint.Designer.cs">
+      <DependentUpon>billPrint.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +119,11 @@
     </Compile>
     <Compile Include="EmployeeIDPrint.Designer.cs">
       <DependentUpon>EmployeeIDPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="hotelDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hotelDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="ManageDrinks.cs">
       <SubType>Form</SubType>
@@ -149,6 +176,12 @@
     <Compile Include="ScanBarcodeForAttendence.Designer.cs">
       <DependentUpon>ScanBarcodeForAttendence.cs</DependentUpon>
     </Compile>
+    <Compile Include="SendMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendMail.Designer.cs">
+      <DependentUpon>SendMail.cs</DependentUpon>
+    </Compile>
     <Compile Include="splashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +190,10 @@
     </Compile>
     <EmbeddedResource Include="AttendenceRecorder.resx">
       <DependentUpon>AttendenceRecorder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bill.rdlc" />
+    <EmbeddedResource Include="billPrint.resx">
+      <DependentUpon>billPrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
@@ -198,9 +235,34 @@
     <EmbeddedResource Include="ScanBarcodeForAttendence.resx">
       <DependentUpon>ScanBarcodeForAttendence.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SendMail.resx">
+      <DependentUpon>SendMail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="splashScreen.resx">
       <DependentUpon>splashScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="billdataset.xsc">
+      <DependentUpon>billdataset.xsd</DependentUpon>
+    </None>
+    <None Include="billdataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>billdataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="billdataset.xss">
+      <DependentUpon>billdataset.xsd</DependentUpon>
+    </None>
+    <None Include="hotelDataSet3.xsc">
+      <DependentUpon>hotelDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="hotelDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>hotelDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="hotelDataSet3.xss">
+      <DependentUpon>hotelDataSet3.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

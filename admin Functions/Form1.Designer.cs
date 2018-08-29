@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlManageEmployee = new System.Windows.Forms.Panel();
             this.btnScan = new MetroFramework.Controls.MetroButton();
             this.txtpicpath = new System.Windows.Forms.TextBox();
@@ -97,12 +98,40 @@
             this.btnManageRooms = new MetroFramework.Controls.MetroTile();
             this.tileEmployeeLeaveRequests = new MetroFramework.Controls.MetroTile();
             this.lblRequestCount = new System.Windows.Forms.Label();
+            this.pnlLeaveRequests = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.From = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtTimeFromLeave = new System.Windows.Forms.Label();
+            this.txtTimetoLeave = new System.Windows.Forms.Label();
+            this.txtDateToLeave = new System.Windows.Forms.Label();
+            this.txtDateFromLeave = new System.Windows.Forms.Label();
+            this.txtReason = new System.Windows.Forms.Label();
+            this.txtLeaveType = new System.Windows.Forms.Label();
+            this.txtempPositionLeave = new System.Windows.Forms.Label();
+            this.txtEmpNameLeave = new System.Windows.Forms.Label();
+            this.txtLeaveId = new System.Windows.Forms.Label();
+            this.txtEmpIDLeave = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.btnRejected = new System.Windows.Forms.Button();
+            this.btnApprove = new System.Windows.Forms.Button();
+            this.dgvLeaverequests = new System.Windows.Forms.DataGridView();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlManageEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picEmployeePicture)).BeginInit();
             this.pnlEmployeeAttendance.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.pnlViewDetailsofCustomers.SuspendLayout();
             this.tileEmployeeLeaveRequests.SuspendLayout();
+            this.pnlLeaveRequests.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLeaverequests)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlManageEmployee
@@ -155,7 +184,8 @@
             // 
             // txtpicpath
             // 
-            this.txtpicpath.Location = new System.Drawing.Point(620, 333);
+            this.txtpicpath.Location = new System.Drawing.Point(620, 334);
+            this.txtpicpath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtpicpath.Name = "txtpicpath";
             this.txtpicpath.Size = new System.Drawing.Size(291, 22);
             this.txtpicpath.TabIndex = 38;
@@ -163,6 +193,7 @@
             // picEmployeePicture
             // 
             this.picEmployeePicture.Location = new System.Drawing.Point(679, 166);
+            this.picEmployeePicture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picEmployeePicture.Name = "picEmployeePicture";
             this.picEmployeePicture.Size = new System.Drawing.Size(152, 159);
             this.picEmployeePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -200,7 +231,7 @@
             this.txtEmployeeID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmployeeID.ForeColor = System.Drawing.Color.White;
             this.txtEmployeeID.Location = new System.Drawing.Point(312, 59);
-            this.txtEmployeeID.Margin = new System.Windows.Forms.Padding(27, 40, 27, 24);
+            this.txtEmployeeID.Margin = new System.Windows.Forms.Padding(27, 39, 27, 25);
             this.txtEmployeeID.MaximumSize = new System.Drawing.Size(444, 160);
             this.txtEmployeeID.MinimumSize = new System.Drawing.Size(0, 16);
             this.txtEmployeeID.Multiline = true;
@@ -265,7 +296,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(126, 333);
+            this.label6.Location = new System.Drawing.Point(125, 334);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(129, 17);
             this.label6.TabIndex = 32;
@@ -295,7 +326,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(221, 163);
+            this.label3.Location = new System.Drawing.Point(221, 162);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 17);
             this.label3.TabIndex = 32;
@@ -324,7 +355,7 @@
             // btnUpdateEmployee
             // 
             this.btnUpdateEmployee.BackColor = System.Drawing.Color.Turquoise;
-            this.btnUpdateEmployee.Location = new System.Drawing.Point(232, 504);
+            this.btnUpdateEmployee.Location = new System.Drawing.Point(232, 505);
             this.btnUpdateEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdateEmployee.Name = "btnUpdateEmployee";
             this.btnUpdateEmployee.Size = new System.Drawing.Size(157, 46);
@@ -336,7 +367,7 @@
             // btnRemoveEmployee
             // 
             this.btnRemoveEmployee.BackColor = System.Drawing.Color.Turquoise;
-            this.btnRemoveEmployee.Location = new System.Drawing.Point(420, 504);
+            this.btnRemoveEmployee.Location = new System.Drawing.Point(420, 505);
             this.btnRemoveEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRemoveEmployee.Name = "btnRemoveEmployee";
             this.btnRemoveEmployee.Size = new System.Drawing.Size(157, 46);
@@ -348,7 +379,7 @@
             // btnAddEmployee
             // 
             this.btnAddEmployee.BackColor = System.Drawing.Color.Turquoise;
-            this.btnAddEmployee.Location = new System.Drawing.Point(43, 504);
+            this.btnAddEmployee.Location = new System.Drawing.Point(43, 505);
             this.btnAddEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddEmployee.Name = "btnAddEmployee";
             this.btnAddEmployee.Size = new System.Drawing.Size(157, 46);
@@ -360,7 +391,7 @@
             // metroButton2
             // 
             this.metroButton2.BackColor = System.Drawing.Color.Turquoise;
-            this.metroButton2.Location = new System.Drawing.Point(686, 438);
+            this.metroButton2.Location = new System.Drawing.Point(685, 438);
             this.metroButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(157, 46);
@@ -372,7 +403,7 @@
             // btnUploadPhoto
             // 
             this.btnUploadPhoto.BackColor = System.Drawing.Color.Turquoise;
-            this.btnUploadPhoto.Location = new System.Drawing.Point(686, 372);
+            this.btnUploadPhoto.Location = new System.Drawing.Point(685, 372);
             this.btnUploadPhoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUploadPhoto.Name = "btnUploadPhoto";
             this.btnUploadPhoto.Size = new System.Drawing.Size(157, 46);
@@ -385,7 +416,7 @@
             // 
             this.txtDatetime.Location = new System.Drawing.Point(313, 209);
             this.txtDatetime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDatetime.MinimumSize = new System.Drawing.Size(4, 30);
+            this.txtDatetime.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtDatetime.Name = "txtDatetime";
             this.txtDatetime.Size = new System.Drawing.Size(265, 30);
             this.txtDatetime.TabIndex = 22;
@@ -408,7 +439,7 @@
             this.txtContactNoHome.BackColor = System.Drawing.Color.Teal;
             this.txtContactNoHome.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtContactNoHome.ForeColor = System.Drawing.Color.White;
-            this.txtContactNoHome.Location = new System.Drawing.Point(313, 333);
+            this.txtContactNoHome.Location = new System.Drawing.Point(313, 334);
             this.txtContactNoHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContactNoHome.MaxLength = 10;
             this.txtContactNoHome.Multiline = true;
@@ -435,7 +466,7 @@
             this.txtEmployeeNIC.BackColor = System.Drawing.Color.Teal;
             this.txtEmployeeNIC.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmployeeNIC.ForeColor = System.Drawing.Color.White;
-            this.txtEmployeeNIC.Location = new System.Drawing.Point(313, 163);
+            this.txtEmployeeNIC.Location = new System.Drawing.Point(313, 162);
             this.txtEmployeeNIC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEmployeeNIC.Multiline = true;
             this.txtEmployeeNIC.Name = "txtEmployeeNIC";
@@ -450,7 +481,7 @@
             this.txtEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmployeeName.ForeColor = System.Drawing.Color.White;
             this.txtEmployeeName.Location = new System.Drawing.Point(313, 113);
-            this.txtEmployeeName.Margin = new System.Windows.Forms.Padding(27, 40, 27, 24);
+            this.txtEmployeeName.Margin = new System.Windows.Forms.Padding(27, 39, 27, 25);
             this.txtEmployeeName.MaximumSize = new System.Drawing.Size(444, 160);
             this.txtEmployeeName.MinimumSize = new System.Drawing.Size(0, 16);
             this.txtEmployeeName.Multiline = true;
@@ -465,7 +496,7 @@
             this.tileManageEmployee.Location = new System.Drawing.Point(7, 66);
             this.tileManageEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tileManageEmployee.Name = "tileManageEmployee";
-            this.tileManageEmployee.Size = new System.Drawing.Size(264, 104);
+            this.tileManageEmployee.Size = new System.Drawing.Size(264, 103);
             this.tileManageEmployee.TabIndex = 34;
             this.tileManageEmployee.Text = "Manage Employee";
             this.tileManageEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -478,7 +509,7 @@
             this.tileEmployeeAttendance.Location = new System.Drawing.Point(7, 175);
             this.tileEmployeeAttendance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tileEmployeeAttendance.Name = "tileEmployeeAttendance";
-            this.tileEmployeeAttendance.Size = new System.Drawing.Size(264, 104);
+            this.tileEmployeeAttendance.Size = new System.Drawing.Size(264, 103);
             this.tileEmployeeAttendance.TabIndex = 34;
             this.tileEmployeeAttendance.Text = "Employee Attendance";
             this.tileEmployeeAttendance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -505,6 +536,7 @@
             this.pnlEmployeeAttendance.Controls.Add(this.button3);
             this.pnlEmployeeAttendance.Controls.Add(this.btnFindAttendence);
             this.pnlEmployeeAttendance.Location = new System.Drawing.Point(277, 63);
+            this.pnlEmployeeAttendance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlEmployeeAttendance.Name = "pnlEmployeeAttendance";
             this.pnlEmployeeAttendance.Size = new System.Drawing.Size(1125, 747);
             this.pnlEmployeeAttendance.TabIndex = 34;
@@ -512,6 +544,7 @@
             // btnUpdateRemark
             // 
             this.btnUpdateRemark.Location = new System.Drawing.Point(971, 176);
+            this.btnUpdateRemark.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdateRemark.Name = "btnUpdateRemark";
             this.btnUpdateRemark.Size = new System.Drawing.Size(133, 42);
             this.btnUpdateRemark.TabIndex = 46;
@@ -532,16 +565,18 @@
             // txtRemark
             // 
             this.txtRemark.Location = new System.Drawing.Point(139, 176);
+            this.txtRemark.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(826, 42);
+            this.txtRemark.Size = new System.Drawing.Size(825, 42);
             this.txtRemark.TabIndex = 44;
             // 
             // btnAttendancToday
             // 
             this.btnAttendancToday.Location = new System.Drawing.Point(584, 116);
+            this.btnAttendancToday.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAttendancToday.Name = "btnAttendancToday";
-            this.btnAttendancToday.Size = new System.Drawing.Size(522, 46);
+            this.btnAttendancToday.Size = new System.Drawing.Size(523, 46);
             this.btnAttendancToday.TabIndex = 43;
             this.btnAttendancToday.Text = "Find today\'s attendance";
             this.btnAttendancToday.UseVisualStyleBackColor = true;
@@ -550,33 +585,35 @@
             // 
             this.dgv.AllowUserToAddRows = false;
             this.dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.NullValue = null;
-            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.NullValue = null;
+            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv.BackgroundColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(41, 280);
+            this.dgv.Location = new System.Drawing.Point(41, 281);
+            this.dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowTemplate.Height = 24;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1063, 451);
+            this.dgv.Size = new System.Drawing.Size(1063, 450);
             this.dgv.TabIndex = 42;
             this.dgv.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgv_MouseClick);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(770, 18);
+            this.button2.Location = new System.Drawing.Point(771, 18);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(61, 32);
             this.button2.TabIndex = 41;
@@ -615,7 +652,7 @@
             // 
             // txtFromDate
             // 
-            this.txtFromDate.Location = new System.Drawing.Point(156, 72);
+            this.txtFromDate.Location = new System.Drawing.Point(156, 71);
             this.txtFromDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFromDate.MinimumSize = new System.Drawing.Size(4, 30);
             this.txtFromDate.Name = "txtFromDate";
@@ -626,7 +663,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(402, 26);
+            this.label10.Location = new System.Drawing.Point(403, 26);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(92, 17);
             this.label10.TabIndex = 36;
@@ -639,7 +676,7 @@
             this.txtEmpNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmpNo.ForeColor = System.Drawing.Color.White;
             this.txtEmpNo.Location = new System.Drawing.Point(500, 18);
-            this.txtEmpNo.Margin = new System.Windows.Forms.Padding(27, 40, 27, 24);
+            this.txtEmpNo.Margin = new System.Windows.Forms.Padding(27, 39, 27, 25);
             this.txtEmpNo.MaximumSize = new System.Drawing.Size(444, 160);
             this.txtEmpNo.MinimumSize = new System.Drawing.Size(0, 16);
             this.txtEmpNo.Multiline = true;
@@ -665,8 +702,8 @@
             this.txtEmpName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmpName.ForeColor = System.Drawing.Color.White;
-            this.txtEmpName.Location = new System.Drawing.Point(156, 19);
-            this.txtEmpName.Margin = new System.Windows.Forms.Padding(27, 40, 27, 24);
+            this.txtEmpName.Location = new System.Drawing.Point(156, 18);
+            this.txtEmpName.Margin = new System.Windows.Forms.Padding(27, 39, 27, 25);
             this.txtEmpName.MaximumSize = new System.Drawing.Size(444, 160);
             this.txtEmpName.MinimumSize = new System.Drawing.Size(0, 16);
             this.txtEmpName.Multiline = true;
@@ -678,6 +715,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(41, 116);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(536, 47);
             this.button3.TabIndex = 1;
@@ -687,9 +725,10 @@
             // 
             // btnFindAttendence
             // 
-            this.btnFindAttendence.Location = new System.Drawing.Point(838, 19);
+            this.btnFindAttendence.Location = new System.Drawing.Point(837, 18);
+            this.btnFindAttendence.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFindAttendence.Name = "btnFindAttendence";
-            this.btnFindAttendence.Size = new System.Drawing.Size(266, 83);
+            this.btnFindAttendence.Size = new System.Drawing.Size(267, 82);
             this.btnFindAttendence.TabIndex = 1;
             this.btnFindAttendence.Text = "Find Atendance";
             this.btnFindAttendence.UseVisualStyleBackColor = true;
@@ -699,8 +738,9 @@
             // 
             this.tileDetailsofCurrentCustomer.ActiveControl = null;
             this.tileDetailsofCurrentCustomer.Location = new System.Drawing.Point(7, 284);
+            this.tileDetailsofCurrentCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tileDetailsofCurrentCustomer.Name = "tileDetailsofCurrentCustomer";
-            this.tileDetailsofCurrentCustomer.Size = new System.Drawing.Size(264, 104);
+            this.tileDetailsofCurrentCustomer.Size = new System.Drawing.Size(264, 103);
             this.tileDetailsofCurrentCustomer.TabIndex = 35;
             this.tileDetailsofCurrentCustomer.Text = "View Details of Current Customers";
             this.tileDetailsofCurrentCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -722,6 +762,7 @@
             this.pnlViewDetailsofCustomers.Controls.Add(this.button5);
             this.pnlViewDetailsofCustomers.Controls.Add(this.button6);
             this.pnlViewDetailsofCustomers.Location = new System.Drawing.Point(277, 63);
+            this.pnlViewDetailsofCustomers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlViewDetailsofCustomers.Name = "pnlViewDetailsofCustomers";
             this.pnlViewDetailsofCustomers.Size = new System.Drawing.Size(1125, 747);
             this.pnlViewDetailsofCustomers.TabIndex = 42;
@@ -730,6 +771,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(677, 31);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(51, 32);
             this.button4.TabIndex = 53;
@@ -750,7 +792,7 @@
             // 
             this.metroDateTime4.Location = new System.Drawing.Point(491, 80);
             this.metroDateTime4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroDateTime4.MinimumSize = new System.Drawing.Size(0, 30);
+            this.metroDateTime4.MinimumSize = new System.Drawing.Size(4, 30);
             this.metroDateTime4.Name = "metroDateTime4";
             this.metroDateTime4.Size = new System.Drawing.Size(237, 30);
             this.metroDateTime4.TabIndex = 51;
@@ -759,7 +801,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(38, 80);
+            this.label14.Location = new System.Drawing.Point(37, 80);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(93, 17);
             this.label14.TabIndex = 50;
@@ -769,7 +811,7 @@
             // 
             this.metroDateTime5.Location = new System.Drawing.Point(141, 80);
             this.metroDateTime5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroDateTime5.MinimumSize = new System.Drawing.Size(0, 30);
+            this.metroDateTime5.MinimumSize = new System.Drawing.Size(4, 30);
             this.metroDateTime5.Name = "metroDateTime5";
             this.metroDateTime5.Size = new System.Drawing.Size(231, 30);
             this.metroDateTime5.TabIndex = 49;
@@ -790,8 +832,8 @@
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(406, 31);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(27, 40, 27, 24);
+            this.textBox2.Location = new System.Drawing.Point(405, 31);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(27, 39, 27, 25);
             this.textBox2.MaximumSize = new System.Drawing.Size(444, 160);
             this.textBox2.MinimumSize = new System.Drawing.Size(0, 16);
             this.textBox2.Multiline = true;
@@ -804,7 +846,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(38, 34);
+            this.label16.Location = new System.Drawing.Point(37, 34);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(45, 17);
             this.label16.TabIndex = 46;
@@ -817,18 +859,19 @@
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ForeColor = System.Drawing.Color.White;
             this.textBox3.Location = new System.Drawing.Point(95, 31);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(27, 40, 27, 24);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(27, 39, 27, 25);
             this.textBox3.MaximumSize = new System.Drawing.Size(444, 160);
             this.textBox3.MinimumSize = new System.Drawing.Size(0, 16);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(186, 32);
+            this.textBox3.Size = new System.Drawing.Size(187, 32);
             this.textBox3.TabIndex = 45;
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(21, 128);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(948, 47);
             this.button5.TabIndex = 43;
@@ -837,7 +880,8 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(734, 31);
+            this.button6.Location = new System.Drawing.Point(733, 31);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(235, 79);
             this.button6.TabIndex = 44;
@@ -848,7 +892,7 @@
             // 
             this.lblLoggedas.AutoSize = true;
             this.lblLoggedas.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoggedas.Location = new System.Drawing.Point(272, 19);
+            this.lblLoggedas.Location = new System.Drawing.Point(272, 18);
             this.lblLoggedas.Name = "lblLoggedas";
             this.lblLoggedas.Size = new System.Drawing.Size(92, 29);
             this.lblLoggedas.TabIndex = 43;
@@ -857,6 +901,7 @@
             // btnLogout
             // 
             this.btnLogout.Location = new System.Drawing.Point(1287, 18);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(96, 38);
             this.btnLogout.TabIndex = 44;
@@ -867,7 +912,8 @@
             // metroTile1
             // 
             this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(7, 771);
+            this.metroTile1.Location = new System.Drawing.Point(7, 770);
+            this.metroTile1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroTile1.Name = "metroTile1";
             this.metroTile1.Size = new System.Drawing.Size(264, 39);
             this.metroTile1.TabIndex = 46;
@@ -881,13 +927,15 @@
             this.pnlWelcome.BackgroundImage = global::AttendanceRecorder.Properties.Resources.Capture;
             this.pnlWelcome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlWelcome.Location = new System.Drawing.Point(277, 66);
+            this.pnlWelcome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlWelcome.Name = "pnlWelcome";
-            this.pnlWelcome.Size = new System.Drawing.Size(1125, 744);
+            this.pnlWelcome.Size = new System.Drawing.Size(1125, 743);
             this.pnlWelcome.TabIndex = 47;
             // 
             // btnMyProfile
             // 
-            this.btnMyProfile.Location = new System.Drawing.Point(1166, 18);
+            this.btnMyProfile.Location = new System.Drawing.Point(1165, 18);
+            this.btnMyProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMyProfile.Name = "btnMyProfile";
             this.btnMyProfile.Size = new System.Drawing.Size(115, 38);
             this.btnMyProfile.TabIndex = 48;
@@ -899,6 +947,7 @@
             // 
             this.btnManageRooms.ActiveControl = null;
             this.btnManageRooms.Location = new System.Drawing.Point(7, 704);
+            this.btnManageRooms.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnManageRooms.Name = "btnManageRooms";
             this.btnManageRooms.Size = new System.Drawing.Size(264, 50);
             this.btnManageRooms.TabIndex = 49;
@@ -912,8 +961,9 @@
             this.tileEmployeeLeaveRequests.ActiveControl = null;
             this.tileEmployeeLeaveRequests.Controls.Add(this.lblRequestCount);
             this.tileEmployeeLeaveRequests.Location = new System.Drawing.Point(7, 395);
+            this.tileEmployeeLeaveRequests.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tileEmployeeLeaveRequests.Name = "tileEmployeeLeaveRequests";
-            this.tileEmployeeLeaveRequests.Size = new System.Drawing.Size(264, 104);
+            this.tileEmployeeLeaveRequests.Size = new System.Drawing.Size(264, 103);
             this.tileEmployeeLeaveRequests.TabIndex = 35;
             this.tileEmployeeLeaveRequests.Text = "Employee Leave Requests";
             this.tileEmployeeLeaveRequests.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -926,17 +976,280 @@
             this.lblRequestCount.BackColor = System.Drawing.Color.Red;
             this.lblRequestCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRequestCount.ForeColor = System.Drawing.Color.White;
-            this.lblRequestCount.Location = new System.Drawing.Point(213, 13);
+            this.lblRequestCount.Location = new System.Drawing.Point(213, 14);
             this.lblRequestCount.Name = "lblRequestCount";
             this.lblRequestCount.Size = new System.Drawing.Size(26, 29);
             this.lblRequestCount.TabIndex = 0;
             this.lblRequestCount.Text = "1";
             // 
+            // pnlLeaveRequests
+            // 
+            this.pnlLeaveRequests.BackColor = System.Drawing.Color.Teal;
+            this.pnlLeaveRequests.Controls.Add(this.label23);
+            this.pnlLeaveRequests.Controls.Add(this.From);
+            this.pnlLeaveRequests.Controls.Add(this.label27);
+            this.pnlLeaveRequests.Controls.Add(this.label26);
+            this.pnlLeaveRequests.Controls.Add(this.label25);
+            this.pnlLeaveRequests.Controls.Add(this.label24);
+            this.pnlLeaveRequests.Controls.Add(this.label22);
+            this.pnlLeaveRequests.Controls.Add(this.label19);
+            this.pnlLeaveRequests.Controls.Add(this.txtTimeFromLeave);
+            this.pnlLeaveRequests.Controls.Add(this.txtTimetoLeave);
+            this.pnlLeaveRequests.Controls.Add(this.txtDateToLeave);
+            this.pnlLeaveRequests.Controls.Add(this.txtDateFromLeave);
+            this.pnlLeaveRequests.Controls.Add(this.txtReason);
+            this.pnlLeaveRequests.Controls.Add(this.txtLeaveType);
+            this.pnlLeaveRequests.Controls.Add(this.txtempPositionLeave);
+            this.pnlLeaveRequests.Controls.Add(this.txtEmpNameLeave);
+            this.pnlLeaveRequests.Controls.Add(this.txtLeaveId);
+            this.pnlLeaveRequests.Controls.Add(this.txtEmpIDLeave);
+            this.pnlLeaveRequests.Controls.Add(this.label20);
+            this.pnlLeaveRequests.Controls.Add(this.label18);
+            this.pnlLeaveRequests.Controls.Add(this.btnRejected);
+            this.pnlLeaveRequests.Controls.Add(this.btnApprove);
+            this.pnlLeaveRequests.Controls.Add(this.dgvLeaverequests);
+            this.pnlLeaveRequests.Location = new System.Drawing.Point(277, 63);
+            this.pnlLeaveRequests.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlLeaveRequests.Name = "pnlLeaveRequests";
+            this.pnlLeaveRequests.Size = new System.Drawing.Size(1123, 746);
+            this.pnlLeaveRequests.TabIndex = 50;
+            this.pnlLeaveRequests.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLeaveRequests_Paint);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(139, 222);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(57, 17);
+            this.label23.TabIndex = 3;
+            this.label23.Text = "Reason";
+            // 
+            // From
+            // 
+            this.From.AutoSize = true;
+            this.From.Location = new System.Drawing.Point(157, 342);
+            this.From.Name = "From";
+            this.From.Size = new System.Drawing.Size(40, 17);
+            this.From.TabIndex = 3;
+            this.From.Text = "From";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(379, 342);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(60, 17);
+            this.label27.TabIndex = 3;
+            this.label27.Text = "Time To";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(379, 292);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(59, 17);
+            this.label26.TabIndex = 3;
+            this.label26.Text = "Date To";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(124, 292);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(74, 17);
+            this.label25.TabIndex = 3;
+            this.label25.Text = "Date From";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(115, 178);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(83, 17);
+            this.label24.TabIndex = 3;
+            this.label24.Text = "Leave Type";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(75, 137);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(124, 17);
+            this.label22.TabIndex = 3;
+            this.label22.Text = "Employee Position";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(87, 89);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(111, 17);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "Employee Name";
+            // 
+            // txtTimeFromLeave
+            // 
+            this.txtTimeFromLeave.AutoSize = true;
+            this.txtTimeFromLeave.Location = new System.Drawing.Point(240, 342);
+            this.txtTimeFromLeave.Name = "txtTimeFromLeave";
+            this.txtTimeFromLeave.Size = new System.Drawing.Size(91, 17);
+            this.txtTimeFromLeave.TabIndex = 3;
+            this.txtTimeFromLeave.Text = "Not assigned";
+            // 
+            // txtTimetoLeave
+            // 
+            this.txtTimetoLeave.AutoSize = true;
+            this.txtTimetoLeave.Location = new System.Drawing.Point(460, 342);
+            this.txtTimetoLeave.Name = "txtTimetoLeave";
+            this.txtTimetoLeave.Size = new System.Drawing.Size(91, 17);
+            this.txtTimetoLeave.TabIndex = 3;
+            this.txtTimetoLeave.Text = "Not assigned";
+            // 
+            // txtDateToLeave
+            // 
+            this.txtDateToLeave.AutoSize = true;
+            this.txtDateToLeave.Location = new System.Drawing.Point(460, 292);
+            this.txtDateToLeave.Name = "txtDateToLeave";
+            this.txtDateToLeave.Size = new System.Drawing.Size(91, 17);
+            this.txtDateToLeave.TabIndex = 3;
+            this.txtDateToLeave.Text = "Not assigned";
+            // 
+            // txtDateFromLeave
+            // 
+            this.txtDateFromLeave.AutoSize = true;
+            this.txtDateFromLeave.Location = new System.Drawing.Point(240, 292);
+            this.txtDateFromLeave.Name = "txtDateFromLeave";
+            this.txtDateFromLeave.Size = new System.Drawing.Size(91, 17);
+            this.txtDateFromLeave.TabIndex = 3;
+            this.txtDateFromLeave.Text = "Not assigned";
+            // 
+            // txtReason
+            // 
+            this.txtReason.AutoSize = true;
+            this.txtReason.Location = new System.Drawing.Point(240, 222);
+            this.txtReason.MaximumSize = new System.Drawing.Size(400, 0);
+            this.txtReason.Name = "txtReason";
+            this.txtReason.Size = new System.Drawing.Size(91, 17);
+            this.txtReason.TabIndex = 3;
+            this.txtReason.Text = "Not assigned";
+            // 
+            // txtLeaveType
+            // 
+            this.txtLeaveType.AutoSize = true;
+            this.txtLeaveType.Location = new System.Drawing.Point(240, 178);
+            this.txtLeaveType.Name = "txtLeaveType";
+            this.txtLeaveType.Size = new System.Drawing.Size(91, 17);
+            this.txtLeaveType.TabIndex = 3;
+            this.txtLeaveType.Text = "Not assigned";
+            // 
+            // txtempPositionLeave
+            // 
+            this.txtempPositionLeave.AutoSize = true;
+            this.txtempPositionLeave.Location = new System.Drawing.Point(240, 135);
+            this.txtempPositionLeave.Name = "txtempPositionLeave";
+            this.txtempPositionLeave.Size = new System.Drawing.Size(91, 17);
+            this.txtempPositionLeave.TabIndex = 3;
+            this.txtempPositionLeave.Text = "Not assigned";
+            // 
+            // txtEmpNameLeave
+            // 
+            this.txtEmpNameLeave.AutoSize = true;
+            this.txtEmpNameLeave.Location = new System.Drawing.Point(240, 89);
+            this.txtEmpNameLeave.Name = "txtEmpNameLeave";
+            this.txtEmpNameLeave.Size = new System.Drawing.Size(91, 17);
+            this.txtEmpNameLeave.TabIndex = 3;
+            this.txtEmpNameLeave.Text = "Not assigned";
+            // 
+            // txtLeaveId
+            // 
+            this.txtLeaveId.AutoSize = true;
+            this.txtLeaveId.Location = new System.Drawing.Point(240, 14);
+            this.txtLeaveId.Name = "txtLeaveId";
+            this.txtLeaveId.Size = new System.Drawing.Size(91, 17);
+            this.txtLeaveId.TabIndex = 3;
+            this.txtLeaveId.Text = "Not assigned";
+            // 
+            // txtEmpIDLeave
+            // 
+            this.txtEmpIDLeave.AutoSize = true;
+            this.txtEmpIDLeave.Location = new System.Drawing.Point(240, 42);
+            this.txtEmpIDLeave.Name = "txtEmpIDLeave";
+            this.txtEmpIDLeave.Size = new System.Drawing.Size(91, 17);
+            this.txtEmpIDLeave.TabIndex = 3;
+            this.txtEmpIDLeave.Text = "Not assigned";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(131, 14);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(64, 17);
+            this.label20.TabIndex = 3;
+            this.label20.Text = "Leave ID";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(111, 42);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(87, 17);
+            this.label18.TabIndex = 3;
+            this.label18.Text = "Employee ID";
+            // 
+            // btnRejected
+            // 
+            this.btnRejected.BackColor = System.Drawing.Color.Red;
+            this.btnRejected.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRejected.ForeColor = System.Drawing.Color.White;
+            this.btnRejected.Location = new System.Drawing.Point(889, 167);
+            this.btnRejected.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRejected.Name = "btnRejected";
+            this.btnRejected.Size = new System.Drawing.Size(193, 106);
+            this.btnRejected.TabIndex = 1;
+            this.btnRejected.Text = "Reject";
+            this.btnRejected.UseVisualStyleBackColor = false;
+            // 
+            // btnApprove
+            // 
+            this.btnApprove.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnApprove.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApprove.ForeColor = System.Drawing.Color.White;
+            this.btnApprove.Location = new System.Drawing.Point(889, 57);
+            this.btnApprove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnApprove.Name = "btnApprove";
+            this.btnApprove.Size = new System.Drawing.Size(193, 106);
+            this.btnApprove.TabIndex = 1;
+            this.btnApprove.Text = "Approve";
+            this.btnApprove.UseVisualStyleBackColor = false;
+            this.btnApprove.Click += new System.EventHandler(this.btnApprove_Click);
+            // 
+            // dgvLeaverequests
+            // 
+            this.dgvLeaverequests.AllowUserToAddRows = false;
+            this.dgvLeaverequests.AllowUserToDeleteRows = false;
+            this.dgvLeaverequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLeaverequests.Location = new System.Drawing.Point(21, 396);
+            this.dgvLeaverequests.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvLeaverequests.Name = "dgvLeaverequests";
+            this.dgvLeaverequests.ReadOnly = true;
+            this.dgvLeaverequests.RowTemplate.Height = 24;
+            this.dgvLeaverequests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLeaverequests.Size = new System.Drawing.Size(1083, 335);
+            this.dgvLeaverequests.TabIndex = 0;
+            this.dgvLeaverequests.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvLeaverequests_MouseClick);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1402, 813);
+            this.ClientSize = new System.Drawing.Size(1403, 823);
+            this.Controls.Add(this.pnlEmployeeAttendance);
+            this.Controls.Add(this.pnlManageEmployee);
+            this.Controls.Add(this.pnlLeaveRequests);
             this.Controls.Add(this.btnManageRooms);
             this.Controls.Add(this.btnMyProfile);
             this.Controls.Add(this.metroTile1);
@@ -948,11 +1261,9 @@
             this.Controls.Add(this.tileManageEmployee);
             this.Controls.Add(this.pnlViewDetailsofCustomers);
             this.Controls.Add(this.pnlWelcome);
-            this.Controls.Add(this.pnlEmployeeAttendance);
-            this.Controls.Add(this.pnlManageEmployee);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
-            this.Padding = new System.Windows.Forms.Padding(18, 60, 18, 16);
+            this.Padding = new System.Windows.Forms.Padding(19, 74, 19, 16);
             this.Text = "Manager";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlManageEmployee.ResumeLayout(false);
@@ -965,6 +1276,10 @@
             this.pnlViewDetailsofCustomers.PerformLayout();
             this.tileEmployeeLeaveRequests.ResumeLayout(false);
             this.tileEmployeeLeaveRequests.PerformLayout();
+            this.pnlLeaveRequests.ResumeLayout(false);
+            this.pnlLeaveRequests.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLeaverequests)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1039,6 +1354,31 @@
         private MetroFramework.Controls.MetroTile btnManageRooms;
         private MetroFramework.Controls.MetroTile tileEmployeeLeaveRequests;
         private System.Windows.Forms.Label lblRequestCount;
+        private System.Windows.Forms.Panel pnlLeaveRequests;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label txtEmpIDLeave;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button btnRejected;
+        private System.Windows.Forms.Button btnApprove;
+        private System.Windows.Forms.DataGridView dgvLeaverequests;
+        private System.Windows.Forms.Label From;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label txtTimeFromLeave;
+        private System.Windows.Forms.Label txtDateFromLeave;
+        private System.Windows.Forms.Label txtReason;
+        private System.Windows.Forms.Label txtLeaveType;
+        private System.Windows.Forms.Label txtempPositionLeave;
+        private System.Windows.Forms.Label txtEmpNameLeave;
+        private System.Windows.Forms.Label txtLeaveId;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label txtDateToLeave;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label txtTimetoLeave;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
 
     }
 }
