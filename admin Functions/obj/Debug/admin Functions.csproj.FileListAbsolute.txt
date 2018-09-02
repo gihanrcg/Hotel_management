@@ -28,3 +28,4 @@ D:\HotelManagementSystem\admin Functions\admin Functions\bin\Debug\PrinterUtilit
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.billPrint.resources
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\RdlCompile.cache
 D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\RdlCompile.compiled
+D:\HotelManagementSystem\admin Functions\admin Functions\obj\Debug\AttendanceRecorder.EmployeeNotifications.resources

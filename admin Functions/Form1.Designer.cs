@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pnlManageEmployee = new System.Windows.Forms.Panel();
             this.btnScan = new MetroFramework.Controls.MetroButton();
             this.txtpicpath = new System.Windows.Forms.TextBox();
@@ -93,7 +94,6 @@
             this.lblLoggedas = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
-            this.pnlWelcome = new System.Windows.Forms.Panel();
             this.btnMyProfile = new System.Windows.Forms.Button();
             this.btnManageRooms = new MetroFramework.Controls.MetroTile();
             this.tileEmployeeLeaveRequests = new MetroFramework.Controls.MetroTile();
@@ -123,6 +123,8 @@
             this.btnApprove = new System.Windows.Forms.Button();
             this.dgvLeaverequests = new System.Windows.Forms.DataGridView();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.imgNotification = new System.Windows.Forms.PictureBox();
+            this.pnlWelcome = new System.Windows.Forms.Panel();
             this.pnlManageEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picEmployeePicture)).BeginInit();
             this.pnlEmployeeAttendance.SuspendLayout();
@@ -132,6 +134,7 @@
             this.pnlLeaveRequests.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeaverequests)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgNotification)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlManageEmployee
@@ -164,7 +167,7 @@
             this.pnlManageEmployee.Controls.Add(this.txtEmployeeNIC);
             this.pnlManageEmployee.Controls.Add(this.txtEmployeeName);
             this.pnlManageEmployee.ForeColor = System.Drawing.Color.White;
-            this.pnlManageEmployee.Location = new System.Drawing.Point(277, 62);
+            this.pnlManageEmployee.Location = new System.Drawing.Point(473, 111);
             this.pnlManageEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlManageEmployee.Name = "pnlManageEmployee";
             this.pnlManageEmployee.Size = new System.Drawing.Size(1125, 748);
@@ -493,26 +496,31 @@
             // tileManageEmployee
             // 
             this.tileManageEmployee.ActiveControl = null;
-            this.tileManageEmployee.Location = new System.Drawing.Point(7, 66);
+            this.tileManageEmployee.BackColor = System.Drawing.Color.Transparent;
+            this.tileManageEmployee.Location = new System.Drawing.Point(34, 112);
             this.tileManageEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tileManageEmployee.Name = "tileManageEmployee";
-            this.tileManageEmployee.Size = new System.Drawing.Size(264, 103);
+            this.tileManageEmployee.Size = new System.Drawing.Size(360, 112);
+            this.tileManageEmployee.Style = MetroFramework.MetroColorStyle.Silver;
             this.tileManageEmployee.TabIndex = 34;
             this.tileManageEmployee.Text = "Manage Employee";
             this.tileManageEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tileManageEmployee.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.tileManageEmployee.UseSelectable = true;
             this.tileManageEmployee.Click += new System.EventHandler(this.tileManageEmployee_Click);
             // 
             // tileEmployeeAttendance
             // 
             this.tileEmployeeAttendance.ActiveControl = null;
-            this.tileEmployeeAttendance.Location = new System.Drawing.Point(7, 175);
+            this.tileEmployeeAttendance.Location = new System.Drawing.Point(34, 247);
             this.tileEmployeeAttendance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tileEmployeeAttendance.Name = "tileEmployeeAttendance";
-            this.tileEmployeeAttendance.Size = new System.Drawing.Size(264, 103);
+            this.tileEmployeeAttendance.Size = new System.Drawing.Size(360, 105);
+            this.tileEmployeeAttendance.Style = MetroFramework.MetroColorStyle.Silver;
             this.tileEmployeeAttendance.TabIndex = 34;
             this.tileEmployeeAttendance.Text = "Employee Attendance";
             this.tileEmployeeAttendance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tileEmployeeAttendance.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.tileEmployeeAttendance.UseSelectable = true;
             this.tileEmployeeAttendance.Click += new System.EventHandler(this.tileEmployeeAttendance_Click);
             // 
@@ -535,7 +543,7 @@
             this.pnlEmployeeAttendance.Controls.Add(this.txtEmpName);
             this.pnlEmployeeAttendance.Controls.Add(this.button3);
             this.pnlEmployeeAttendance.Controls.Add(this.btnFindAttendence);
-            this.pnlEmployeeAttendance.Location = new System.Drawing.Point(277, 63);
+            this.pnlEmployeeAttendance.Location = new System.Drawing.Point(473, 112);
             this.pnlEmployeeAttendance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlEmployeeAttendance.Name = "pnlEmployeeAttendance";
             this.pnlEmployeeAttendance.Size = new System.Drawing.Size(1125, 747);
@@ -585,20 +593,20 @@
             // 
             this.dgv.AllowUserToAddRows = false;
             this.dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.NullValue = null;
-            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.NullValue = null;
+            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv.BackgroundColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Location = new System.Drawing.Point(41, 281);
             this.dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -737,13 +745,15 @@
             // tileDetailsofCurrentCustomer
             // 
             this.tileDetailsofCurrentCustomer.ActiveControl = null;
-            this.tileDetailsofCurrentCustomer.Location = new System.Drawing.Point(7, 284);
+            this.tileDetailsofCurrentCustomer.Location = new System.Drawing.Point(34, 384);
             this.tileDetailsofCurrentCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tileDetailsofCurrentCustomer.Name = "tileDetailsofCurrentCustomer";
-            this.tileDetailsofCurrentCustomer.Size = new System.Drawing.Size(264, 103);
+            this.tileDetailsofCurrentCustomer.Size = new System.Drawing.Size(360, 106);
+            this.tileDetailsofCurrentCustomer.Style = MetroFramework.MetroColorStyle.Silver;
             this.tileDetailsofCurrentCustomer.TabIndex = 35;
             this.tileDetailsofCurrentCustomer.Text = "View Details of Current Customers";
             this.tileDetailsofCurrentCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tileDetailsofCurrentCustomer.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.tileDetailsofCurrentCustomer.UseSelectable = true;
             this.tileDetailsofCurrentCustomer.Click += new System.EventHandler(this.tileDetailsofCurrentCustomer_Click);
             // 
@@ -761,7 +771,7 @@
             this.pnlViewDetailsofCustomers.Controls.Add(this.textBox3);
             this.pnlViewDetailsofCustomers.Controls.Add(this.button5);
             this.pnlViewDetailsofCustomers.Controls.Add(this.button6);
-            this.pnlViewDetailsofCustomers.Location = new System.Drawing.Point(277, 63);
+            this.pnlViewDetailsofCustomers.Location = new System.Drawing.Point(473, 112);
             this.pnlViewDetailsofCustomers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlViewDetailsofCustomers.Name = "pnlViewDetailsofCustomers";
             this.pnlViewDetailsofCustomers.Size = new System.Drawing.Size(1125, 747);
@@ -891,16 +901,17 @@
             // lblLoggedas
             // 
             this.lblLoggedas.AutoSize = true;
-            this.lblLoggedas.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoggedas.Location = new System.Drawing.Point(272, 18);
+            this.lblLoggedas.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoggedas.ForeColor = System.Drawing.Color.White;
+            this.lblLoggedas.Location = new System.Drawing.Point(35, 30);
             this.lblLoggedas.Name = "lblLoggedas";
-            this.lblLoggedas.Size = new System.Drawing.Size(92, 29);
+            this.lblLoggedas.Size = new System.Drawing.Size(236, 51);
             this.lblLoggedas.TabIndex = 43;
-            this.lblLoggedas.Text = "label17";
+            this.lblLoggedas.Text = "UserName";
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(1287, 18);
+            this.btnLogout.Location = new System.Drawing.Point(1828, 19);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(96, 38);
@@ -912,29 +923,23 @@
             // metroTile1
             // 
             this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(7, 770);
+            this.metroTile1.Location = new System.Drawing.Point(81, 817);
             this.metroTile1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(264, 39);
+            this.metroTile1.Size = new System.Drawing.Size(282, 76);
+            this.metroTile1.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroTile1.TabIndex = 46;
-            this.metroTile1.Text = "Job Role Settings";
+            this.metroTile1.Text = "Job Roll Settings";
             this.metroTile1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.metroTile1.UseSelectable = true;
             this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
             // 
-            // pnlWelcome
-            // 
-            this.pnlWelcome.BackgroundImage = global::AttendanceRecorder.Properties.Resources.Capture;
-            this.pnlWelcome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlWelcome.Location = new System.Drawing.Point(277, 66);
-            this.pnlWelcome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlWelcome.Name = "pnlWelcome";
-            this.pnlWelcome.Size = new System.Drawing.Size(1125, 743);
-            this.pnlWelcome.TabIndex = 47;
-            // 
             // btnMyProfile
             // 
-            this.btnMyProfile.Location = new System.Drawing.Point(1165, 18);
+            this.btnMyProfile.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.btnMyProfile.FlatAppearance.BorderSize = 5;
+            this.btnMyProfile.Location = new System.Drawing.Point(1687, 18);
             this.btnMyProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMyProfile.Name = "btnMyProfile";
             this.btnMyProfile.Size = new System.Drawing.Size(115, 38);
@@ -946,13 +951,15 @@
             // btnManageRooms
             // 
             this.btnManageRooms.ActiveControl = null;
-            this.btnManageRooms.Location = new System.Drawing.Point(7, 704);
+            this.btnManageRooms.Location = new System.Drawing.Point(81, 719);
             this.btnManageRooms.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnManageRooms.Name = "btnManageRooms";
-            this.btnManageRooms.Size = new System.Drawing.Size(264, 50);
+            this.btnManageRooms.Size = new System.Drawing.Size(282, 76);
+            this.btnManageRooms.Style = MetroFramework.MetroColorStyle.Silver;
             this.btnManageRooms.TabIndex = 49;
             this.btnManageRooms.Text = "Manage Rooms";
             this.btnManageRooms.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnManageRooms.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.btnManageRooms.UseSelectable = true;
             this.btnManageRooms.Click += new System.EventHandler(this.btnManageRooms_Click);
             // 
@@ -960,13 +967,15 @@
             // 
             this.tileEmployeeLeaveRequests.ActiveControl = null;
             this.tileEmployeeLeaveRequests.Controls.Add(this.lblRequestCount);
-            this.tileEmployeeLeaveRequests.Location = new System.Drawing.Point(7, 395);
+            this.tileEmployeeLeaveRequests.Location = new System.Drawing.Point(34, 522);
             this.tileEmployeeLeaveRequests.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tileEmployeeLeaveRequests.Name = "tileEmployeeLeaveRequests";
-            this.tileEmployeeLeaveRequests.Size = new System.Drawing.Size(264, 103);
+            this.tileEmployeeLeaveRequests.Size = new System.Drawing.Size(360, 108);
+            this.tileEmployeeLeaveRequests.Style = MetroFramework.MetroColorStyle.Silver;
             this.tileEmployeeLeaveRequests.TabIndex = 35;
             this.tileEmployeeLeaveRequests.Text = "Employee Leave Requests";
             this.tileEmployeeLeaveRequests.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tileEmployeeLeaveRequests.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.tileEmployeeLeaveRequests.UseSelectable = true;
             this.tileEmployeeLeaveRequests.Click += new System.EventHandler(this.tileEmployeeLeaveRequests_Click);
             // 
@@ -976,7 +985,7 @@
             this.lblRequestCount.BackColor = System.Drawing.Color.Red;
             this.lblRequestCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRequestCount.ForeColor = System.Drawing.Color.White;
-            this.lblRequestCount.Location = new System.Drawing.Point(213, 14);
+            this.lblRequestCount.Location = new System.Drawing.Point(290, 17);
             this.lblRequestCount.Name = "lblRequestCount";
             this.lblRequestCount.Size = new System.Drawing.Size(26, 29);
             this.lblRequestCount.TabIndex = 0;
@@ -1008,191 +1017,211 @@
             this.pnlLeaveRequests.Controls.Add(this.btnRejected);
             this.pnlLeaveRequests.Controls.Add(this.btnApprove);
             this.pnlLeaveRequests.Controls.Add(this.dgvLeaverequests);
-            this.pnlLeaveRequests.Location = new System.Drawing.Point(277, 63);
+            this.pnlLeaveRequests.Location = new System.Drawing.Point(436, 112);
             this.pnlLeaveRequests.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlLeaveRequests.Name = "pnlLeaveRequests";
-            this.pnlLeaveRequests.Size = new System.Drawing.Size(1123, 746);
+            this.pnlLeaveRequests.Size = new System.Drawing.Size(1531, 856);
             this.pnlLeaveRequests.TabIndex = 50;
             this.pnlLeaveRequests.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLeaveRequests_Paint);
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(139, 222);
+            this.label23.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(155, 220);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(57, 17);
+            this.label23.Size = new System.Drawing.Size(69, 18);
             this.label23.TabIndex = 3;
             this.label23.Text = "Reason";
             // 
             // From
             // 
             this.From.AutoSize = true;
+            this.From.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.From.Location = new System.Drawing.Point(157, 342);
             this.From.Name = "From";
-            this.From.Size = new System.Drawing.Size(40, 17);
+            this.From.Size = new System.Drawing.Size(51, 18);
             this.From.TabIndex = 3;
             this.From.Text = "From";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(379, 342);
+            this.label27.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(543, 342);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(60, 17);
+            this.label27.Size = new System.Drawing.Size(73, 18);
             this.label27.TabIndex = 3;
             this.label27.Text = "Time To";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(379, 292);
+            this.label26.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(543, 290);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(59, 17);
+            this.label26.Size = new System.Drawing.Size(72, 18);
             this.label26.TabIndex = 3;
             this.label26.Text = "Date To";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(124, 292);
+            this.label25.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(124, 290);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(74, 17);
+            this.label25.Size = new System.Drawing.Size(95, 18);
             this.label25.TabIndex = 3;
             this.label25.Text = "Date From";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(115, 178);
+            this.label24.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(121, 176);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(83, 17);
+            this.label24.Size = new System.Drawing.Size(103, 18);
             this.label24.TabIndex = 3;
             this.label24.Text = "Leave Type";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(75, 137);
+            this.label22.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(66, 135);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(124, 17);
+            this.label22.Size = new System.Drawing.Size(158, 18);
             this.label22.TabIndex = 3;
             this.label22.Text = "Employee Position";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(87, 89);
+            this.label19.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(83, 94);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(111, 17);
+            this.label19.Size = new System.Drawing.Size(141, 18);
             this.label19.TabIndex = 3;
             this.label19.Text = "Employee Name";
             // 
             // txtTimeFromLeave
             // 
             this.txtTimeFromLeave.AutoSize = true;
-            this.txtTimeFromLeave.Location = new System.Drawing.Point(240, 342);
+            this.txtTimeFromLeave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimeFromLeave.Location = new System.Drawing.Point(314, 347);
             this.txtTimeFromLeave.Name = "txtTimeFromLeave";
-            this.txtTimeFromLeave.Size = new System.Drawing.Size(91, 17);
+            this.txtTimeFromLeave.Size = new System.Drawing.Size(95, 18);
             this.txtTimeFromLeave.TabIndex = 3;
             this.txtTimeFromLeave.Text = "Not assigned";
             // 
             // txtTimetoLeave
             // 
             this.txtTimetoLeave.AutoSize = true;
-            this.txtTimetoLeave.Location = new System.Drawing.Point(460, 342);
+            this.txtTimetoLeave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimetoLeave.Location = new System.Drawing.Point(637, 342);
             this.txtTimetoLeave.Name = "txtTimetoLeave";
-            this.txtTimetoLeave.Size = new System.Drawing.Size(91, 17);
+            this.txtTimetoLeave.Size = new System.Drawing.Size(95, 18);
             this.txtTimetoLeave.TabIndex = 3;
             this.txtTimetoLeave.Text = "Not assigned";
             // 
             // txtDateToLeave
             // 
             this.txtDateToLeave.AutoSize = true;
-            this.txtDateToLeave.Location = new System.Drawing.Point(460, 292);
+            this.txtDateToLeave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDateToLeave.Location = new System.Drawing.Point(637, 290);
             this.txtDateToLeave.Name = "txtDateToLeave";
-            this.txtDateToLeave.Size = new System.Drawing.Size(91, 17);
+            this.txtDateToLeave.Size = new System.Drawing.Size(95, 18);
             this.txtDateToLeave.TabIndex = 3;
             this.txtDateToLeave.Text = "Not assigned";
             // 
             // txtDateFromLeave
             // 
             this.txtDateFromLeave.AutoSize = true;
-            this.txtDateFromLeave.Location = new System.Drawing.Point(240, 292);
+            this.txtDateFromLeave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDateFromLeave.Location = new System.Drawing.Point(314, 295);
             this.txtDateFromLeave.Name = "txtDateFromLeave";
-            this.txtDateFromLeave.Size = new System.Drawing.Size(91, 17);
+            this.txtDateFromLeave.Size = new System.Drawing.Size(95, 18);
             this.txtDateFromLeave.TabIndex = 3;
             this.txtDateFromLeave.Text = "Not assigned";
             // 
             // txtReason
             // 
             this.txtReason.AutoSize = true;
-            this.txtReason.Location = new System.Drawing.Point(240, 222);
+            this.txtReason.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReason.Location = new System.Drawing.Point(314, 227);
             this.txtReason.MaximumSize = new System.Drawing.Size(400, 0);
             this.txtReason.Name = "txtReason";
-            this.txtReason.Size = new System.Drawing.Size(91, 17);
+            this.txtReason.Size = new System.Drawing.Size(95, 18);
             this.txtReason.TabIndex = 3;
             this.txtReason.Text = "Not assigned";
             // 
             // txtLeaveType
             // 
             this.txtLeaveType.AutoSize = true;
-            this.txtLeaveType.Location = new System.Drawing.Point(240, 178);
+            this.txtLeaveType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLeaveType.Location = new System.Drawing.Point(314, 183);
             this.txtLeaveType.Name = "txtLeaveType";
-            this.txtLeaveType.Size = new System.Drawing.Size(91, 17);
+            this.txtLeaveType.Size = new System.Drawing.Size(95, 18);
             this.txtLeaveType.TabIndex = 3;
             this.txtLeaveType.Text = "Not assigned";
             // 
             // txtempPositionLeave
             // 
             this.txtempPositionLeave.AutoSize = true;
-            this.txtempPositionLeave.Location = new System.Drawing.Point(240, 135);
+            this.txtempPositionLeave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtempPositionLeave.Location = new System.Drawing.Point(314, 140);
             this.txtempPositionLeave.Name = "txtempPositionLeave";
-            this.txtempPositionLeave.Size = new System.Drawing.Size(91, 17);
+            this.txtempPositionLeave.Size = new System.Drawing.Size(95, 18);
             this.txtempPositionLeave.TabIndex = 3;
             this.txtempPositionLeave.Text = "Not assigned";
             // 
             // txtEmpNameLeave
             // 
             this.txtEmpNameLeave.AutoSize = true;
-            this.txtEmpNameLeave.Location = new System.Drawing.Point(240, 89);
+            this.txtEmpNameLeave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmpNameLeave.Location = new System.Drawing.Point(314, 99);
             this.txtEmpNameLeave.Name = "txtEmpNameLeave";
-            this.txtEmpNameLeave.Size = new System.Drawing.Size(91, 17);
+            this.txtEmpNameLeave.Size = new System.Drawing.Size(95, 18);
             this.txtEmpNameLeave.TabIndex = 3;
             this.txtEmpNameLeave.Text = "Not assigned";
             // 
             // txtLeaveId
             // 
             this.txtLeaveId.AutoSize = true;
-            this.txtLeaveId.Location = new System.Drawing.Point(240, 14);
+            this.txtLeaveId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLeaveId.Location = new System.Drawing.Point(314, 19);
             this.txtLeaveId.Name = "txtLeaveId";
-            this.txtLeaveId.Size = new System.Drawing.Size(91, 17);
+            this.txtLeaveId.Size = new System.Drawing.Size(95, 18);
             this.txtLeaveId.TabIndex = 3;
             this.txtLeaveId.Text = "Not assigned";
             // 
             // txtEmpIDLeave
             // 
             this.txtEmpIDLeave.AutoSize = true;
-            this.txtEmpIDLeave.Location = new System.Drawing.Point(240, 42);
+            this.txtEmpIDLeave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmpIDLeave.Location = new System.Drawing.Point(314, 58);
             this.txtEmpIDLeave.Name = "txtEmpIDLeave";
-            this.txtEmpIDLeave.Size = new System.Drawing.Size(91, 17);
+            this.txtEmpIDLeave.Size = new System.Drawing.Size(95, 18);
             this.txtEmpIDLeave.TabIndex = 3;
             this.txtEmpIDLeave.Text = "Not assigned";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(131, 14);
+            this.label20.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(141, 18);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(64, 17);
+            this.label20.Size = new System.Drawing.Size(83, 18);
             this.label20.TabIndex = 3;
             this.label20.Text = "Leave ID";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(111, 42);
+            this.label18.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(111, 53);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(87, 17);
+            this.label18.Size = new System.Drawing.Size(113, 18);
             this.label18.TabIndex = 3;
             this.label18.Text = "Employee ID";
             // 
@@ -1201,10 +1230,10 @@
             this.btnRejected.BackColor = System.Drawing.Color.Red;
             this.btnRejected.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRejected.ForeColor = System.Drawing.Color.White;
-            this.btnRejected.Location = new System.Drawing.Point(889, 167);
+            this.btnRejected.Location = new System.Drawing.Point(1237, 197);
             this.btnRejected.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRejected.Name = "btnRejected";
-            this.btnRejected.Size = new System.Drawing.Size(193, 106);
+            this.btnRejected.Size = new System.Drawing.Size(240, 122);
             this.btnRejected.TabIndex = 1;
             this.btnRejected.Text = "Reject";
             this.btnRejected.UseVisualStyleBackColor = false;
@@ -1214,10 +1243,10 @@
             this.btnApprove.BackColor = System.Drawing.Color.SpringGreen;
             this.btnApprove.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnApprove.ForeColor = System.Drawing.Color.White;
-            this.btnApprove.Location = new System.Drawing.Point(889, 57);
+            this.btnApprove.Location = new System.Drawing.Point(1237, 45);
             this.btnApprove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnApprove.Name = "btnApprove";
-            this.btnApprove.Size = new System.Drawing.Size(193, 106);
+            this.btnApprove.Size = new System.Drawing.Size(240, 117);
             this.btnApprove.TabIndex = 1;
             this.btnApprove.Text = "Approve";
             this.btnApprove.UseVisualStyleBackColor = false;
@@ -1228,28 +1257,55 @@
             this.dgvLeaverequests.AllowUserToAddRows = false;
             this.dgvLeaverequests.AllowUserToDeleteRows = false;
             this.dgvLeaverequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLeaverequests.Location = new System.Drawing.Point(21, 396);
+            this.dgvLeaverequests.Location = new System.Drawing.Point(21, 395);
             this.dgvLeaverequests.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvLeaverequests.Name = "dgvLeaverequests";
             this.dgvLeaverequests.ReadOnly = true;
             this.dgvLeaverequests.RowTemplate.Height = 24;
             this.dgvLeaverequests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLeaverequests.Size = new System.Drawing.Size(1083, 335);
+            this.dgvLeaverequests.Size = new System.Drawing.Size(1456, 408);
             this.dgvLeaverequests.TabIndex = 0;
+            this.dgvLeaverequests.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLeaverequests_CellContentClick);
             this.dgvLeaverequests.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvLeaverequests_MouseClick);
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
+            // 
+            // imgNotification
+            // 
+            this.imgNotification.Image = global::AttendanceRecorder.Properties.Resources.icons8_alarm_96;
+            this.imgNotification.Location = new System.Drawing.Point(1440, 19);
+            this.imgNotification.Name = "imgNotification";
+            this.imgNotification.Size = new System.Drawing.Size(56, 51);
+            this.imgNotification.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgNotification.TabIndex = 51;
+            this.imgNotification.TabStop = false;
+            this.imgNotification.Click += new System.EventHandler(this.imgNotification_Click);
+            // 
+            // pnlWelcome
+            // 
+            this.pnlWelcome.BackgroundImage = global::AttendanceRecorder.Properties.Resources.Capture;
+            this.pnlWelcome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlWelcome.Location = new System.Drawing.Point(473, 115);
+            this.pnlWelcome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlWelcome.Name = "pnlWelcome";
+            this.pnlWelcome.Size = new System.Drawing.Size(1125, 743);
+            this.pnlWelcome.TabIndex = 47;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1403, 823);
-            this.Controls.Add(this.pnlEmployeeAttendance);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.ClientSize = new System.Drawing.Size(1924, 980);
+            this.ControlBox = false;
             this.Controls.Add(this.pnlManageEmployee);
             this.Controls.Add(this.pnlLeaveRequests);
+            this.Controls.Add(this.pnlWelcome);
+            this.Controls.Add(this.pnlEmployeeAttendance);
+            this.Controls.Add(this.imgNotification);
             this.Controls.Add(this.btnManageRooms);
             this.Controls.Add(this.btnMyProfile);
             this.Controls.Add(this.metroTile1);
@@ -1260,11 +1316,12 @@
             this.Controls.Add(this.tileEmployeeAttendance);
             this.Controls.Add(this.tileManageEmployee);
             this.Controls.Add(this.pnlViewDetailsofCustomers);
-            this.Controls.Add(this.pnlWelcome);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(19, 74, 19, 16);
-            this.Text = "Manager";
+            this.TransparencyKey = System.Drawing.Color.LightSkyBlue;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlManageEmployee.ResumeLayout(false);
             this.pnlManageEmployee.PerformLayout();
@@ -1280,6 +1337,7 @@
             this.pnlLeaveRequests.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeaverequests)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgNotification)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1378,7 +1436,8 @@
         private System.Windows.Forms.Label txtDateToLeave;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label txtTimetoLeave;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        public System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.PictureBox imgNotification;
 
     }
 }

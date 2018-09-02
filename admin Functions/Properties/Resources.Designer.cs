@@ -83,6 +83,16 @@ namespace AttendanceRecorder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_alarm_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-alarm-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap z_pxii_regent {
             get {
                 object obj = ResourceManager.GetObject("z_pxii-regent", resourceCulture);

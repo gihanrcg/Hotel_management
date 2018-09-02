@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace AttendanceRecorder
 {
-    public partial class Form1 : MetroFramework.Forms.MetroForm
+    public partial class Form1 : Form
     {
         EncryptAndDecrypt en = new EncryptAndDecrypt();
 
@@ -36,7 +36,7 @@ namespace AttendanceRecorder
         public Form1(String username, String Jobrole, String employeeID)
         {
             InitializeComponent();
-            this.lblLoggedas.Text = "Logged as " + username + " : " + Jobrole;
+            this.lblLoggedas.Text = username + " : " + Jobrole;
             this.loggedEmployeeID = employeeID;
 
         }
@@ -54,10 +54,11 @@ namespace AttendanceRecorder
 
         void timerLeaveReq_Tick(object sender, EventArgs e)
         {
-            int count = 0;
+            
 
             using (DBConnect db = new DBConnect())
             {
+                int count = 0;
                 String q = "SELECT COUNT(id) FROM leaverequests";
                 MySqlCommand cmd = new MySqlCommand(q, db.con);
                 MySqlDataReader r = cmd.ExecuteReader();
@@ -76,10 +77,32 @@ namespace AttendanceRecorder
                     lblRequestCount.Text = count.ToString();
                 }
             }
+            using (DBConnect db = new DBConnect())
+            {
+                int count = 0;
+                String q = "select count(id) from employeenotification where employeeNo ='" + loggedEmployeeID + "'";
+                MySqlCommand cmd = new MySqlCommand(q, db.con);
+                MySqlDataReader r = cmd.ExecuteReader();
+
+                while (r.Read())
+                {
+                    count = Int32.Parse(r[0].ToString());
+                }
+                if (count == 0)
+                {
+                    imgNotification.Visible = false;
+                }
+                else
+                {
+                    imgNotification.Visible = true;
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            imgNotification.Visible = false;
+            lblRequestCount.Visible = false;
             initTimer();
             //DBConnect db = new DBConnect();
             //String q = "SELECT * FROM employee";
@@ -326,6 +349,8 @@ namespace AttendanceRecorder
             comboJobRole.SelectedItem = "";
 
             picEmployeePicture.Image = null;
+
+            txtpicpath.Clear();
         }
 
 
@@ -619,8 +644,27 @@ namespace AttendanceRecorder
             txtEmpIDLeave.Text = dgvLeaverequests.SelectedRows[0].Cells[1].Value.ToString();
             txtEmpNameLeave.Text = dgvLeaverequests.SelectedRows[0].Cells[2].Value.ToString();
             txtLeaveType.Text = dgvLeaverequests.SelectedRows[0].Cells[3].Value.ToString();
-            txtDateFromLeave.Text = dgvLeaverequests.SelectedRows[0].Cells[4].Value.ToString();
-            txtDateToLeave.Text = dgvLeaverequests.SelectedRows[0].Cells[5].Value.ToString();
+            
+                    String dateFrom =dgvLeaverequests.SelectedRows[0].Cells[4].Value.ToString();
+                    int index = dateFrom.IndexOf(" ");
+                    if (index > 0)
+                    {
+                        dateFrom = dateFrom.Substring(0, index);
+                        txtDateFromLeave.Text = dateFrom;
+                    }
+
+                    String dateto = dgvLeaverequests.SelectedRows[0].Cells[5].Value.ToString();
+                    int index1 = dateto.IndexOf(" ");
+                    if (index1 > 0)
+                    {
+                        dateto = dateto.Substring(0, index1);
+                        txtDateToLeave.Text = dateto;
+                    }
+            
+            
+            
+            
+            
             txtTimeFromLeave.Text = dgvLeaverequests.SelectedRows[0].Cells[6].Value.ToString();
             txtTimetoLeave.Text = dgvLeaverequests.SelectedRows[0].Cells[7].Value.ToString();
             // txtLeaveId.Text = dgvLeaverequests.SelectedRows[0].Cells[8].Value.ToString();
@@ -636,11 +680,68 @@ namespace AttendanceRecorder
 
         private void btnApprove_Click(object sender, EventArgs e)
         {
-            using (DBConnect db = new DBConnect())
+            
+            DialogResult d = MessageBox.Show("Are you sure want to approve this leave request..?","Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (d == DialogResult.Yes)
             {
+                using (DBConnect db = new DBConnect())
+                {
+                    String q = null;
+                    if (txtLeaveType.Text.Equals("Casual Leave 1+ days"))
+                    {
+                        String[] dateFrom = txtDateFromLeave.Text.Split('/');
+                        String[] dateTo = txtDateToLeave.Text.Split('/');
+
+                        DateTime from = new DateTime(Int32.Parse(dateFrom[2]), Int32.Parse(dateFrom[0]), Int32.Parse(dateFrom[1]));
+                        DateTime to = new DateTime(Int32.Parse(dateTo[2]), Int32.Parse(dateTo[0]), Int32.Parse(dateTo[1]));
+
+                        int noOfDays = (to - from).Days + 1;
+
+                        q = "update leavesremaining set casual = casual - " + noOfDays + " where employeeNo = '" + txtEmpIDLeave.Text + "'";
+                    }
+                    else if (txtLeaveType.Text.Equals("Casual Leave One Day"))
+                    {
+                        q = "update leavesremaining set casual = casual - 1 where employeeNo = '" + txtEmpIDLeave.Text + "'";
+                    }
+                    else if (txtLeaveType.Text.Equals("Half Day"))
+                    {
+                        q = "update leavesremaining set half = half - 1 where employeeNo = '" + txtEmpIDLeave.Text + "'";
+                    }
+                    else if (txtLeaveType.Text.Equals("Medical Leave"))
+                    {
+                        q = "update leavesremaining set medical = medical - 1 where employeeNo = '" + txtEmpIDLeave.Text + "'";
+                    }
+                    else if (txtLeaveType.Text.Equals("Short Leave"))
+                    {
+                        q = "update leavesremaining set short = short - 1 where employeeNo = '" + txtEmpIDLeave.Text + "'";
+                    }
+
+                    MySqlCommand cmd = new MySqlCommand(q, db.con);
+                    cmd.ExecuteNonQuery();
+                
+                }
+                using (DBConnect db = new DBConnect())
+                {
+                    String q2 = "delete from leaverequests where employeeNo = '" + txtEmpIDLeave.Text + "'";
+                    MySqlCommand cmd = new MySqlCommand(q2, db.con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Leave approved", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                using (DBConnect db = new DBConnect())
+                {
+                    String q = "insert into employeenotification(employeeNo,type,message) values('" + txtEmpIDLeave.Text + "','LeaveApproved','Your leave request to the date " + txtDateFromLeave.Text + " has been approved by " + lblLoggedas .Text+ "')";
+                    MySqlCommand cmd = new MySqlCommand(q, db.con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Leave approved and a notification has been sent to " + txtEmpNameLeave .Text+ " ", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
 
 
+                    dgvLeaverequests.DataSource = loadLeaveRequests();
+                
             }
+    
         }
 
         private bool ValidationManageEmployeeAdd()
@@ -713,6 +814,17 @@ namespace AttendanceRecorder
 
             // 1, where my other algorithm resulted in 0.
             return years;
+        }
+
+        private void dgvLeaverequests_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void imgNotification_Click(object sender, EventArgs e)
+        {
+            EmployeeNotifications f = new EmployeeNotifications(loggedEmployeeID);
+            f.Show();
         }
 
     }

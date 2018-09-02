@@ -120,6 +120,12 @@
     <Compile Include="EmployeeIDPrint.Designer.cs">
       <DependentUpon>EmployeeIDPrint.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeNotifications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeNotifications.Designer.cs">
+      <DependentUpon>EmployeeNotifications.cs</DependentUpon>
+    </Compile>
     <Compile Include="hotelDataSet3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeIDPrint.resx">
       <DependentUpon>EmployeeIDPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeNotifications.resx">
+      <DependentUpon>EmployeeNotifications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageDrinks.resx">
       <DependentUpon>ManageDrinks.cs</DependentUpon>
@@ -303,6 +312,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dapino-Summer-Holiday-Hotel.ico" />
+    <None Include="Resources\icons8-alarm-96.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
