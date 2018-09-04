@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
 
 namespace AttendanceRecorder
 {
@@ -101,48 +102,59 @@ namespace AttendanceRecorder
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+
+            AutoCompleteStringCollection empNames = new AutoCompleteStringCollection();
+
+            using (DBConnect db = new DBConnect())
+            {
+                string q = "select name from employee";
+                MySqlCommand cmd = new MySqlCommand(q, db.con);
+                MySqlDataReader r = cmd.ExecuteReader();
+
+                while (r.Read())
+                {
+                    empNames.Add(r[0].ToString());
+                }
+
+                textBox1.AutoCompleteCustomSource = empNames;
+
+            }
+            //employeeNameLoad();
             imgNotification.Visible = false;
             lblRequestCount.Visible = false;
             initTimer();
-            //DBConnect db = new DBConnect();
-            //String q = "SELECT * FROM employee";
-            //MySqlCommand cmd = new MySqlCommand(q, db.con);
-            //MySqlDataReader r = cmd.ExecuteReader();
-
-
-            //if (r.HasRows == true)
-            //{
-            //    while (r.Read())
-            //        Console.WriteLine(r[1].ToString());
-            //    namesCollection.Add(r[1].ToString());
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Data not found");
-            //}
-            //r.Close();
-            //txtEmployeeName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            //txtEmployeeName.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            //txtEmployeeName.AutoCompleteCustomSource = namesCollection; 
-
-            //var textBox = new TextBox
-            //{
-            txtEmployeeName.AutoCompleteCustomSource = namesCollection;
-            txtEmployeeName.AutoCompleteMode =
-                AutoCompleteMode.SuggestAppend;
-            txtEmployeeName.AutoCompleteSource =
-                AutoCompleteSource.CustomSource;
-
-            // };
-
-            // Add the text box to the form.
-
+ 
 
             pnlEmployeeAttendance.Hide();
             pnlManageEmployee.Hide();
             pnlViewDetailsofCustomers.Hide();
             pnlWelcome.Show();
 
+
+
+        }
+        
+
+        private void employeeNameLoad() {
+
+            AutoCompleteStringCollection empNames = new AutoCompleteStringCollection();
+
+            using (DBConnect db = new DBConnect())
+            {
+                string q = "select name from employee";
+                MySqlCommand cmd = new MySqlCommand(q, db.con);
+                MySqlDataReader r = cmd.ExecuteReader();
+
+                while (r.Read())
+                {
+                    empNames.Add(r[0].ToString());
+                }
+
+                textBox1.AutoCompleteCustomSource = empNames;
+                
+            }
+        
         }
 
 
@@ -187,7 +199,7 @@ namespace AttendanceRecorder
             }
 
             comboJobRole.DataSource = jobs;
-
+            employeeNameLoad();
         }
 
         private void tileEmployeeAttendance_Click(object sender, EventArgs e)
@@ -825,6 +837,37 @@ namespace AttendanceRecorder
         {
             EmployeeNotifications f = new EmployeeNotifications(loggedEmployeeID);
             f.Show();
+        }
+
+        private void comboJobRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmployeeName_MouseClick(object sender, MouseEventArgs e)
+        {
+            employeeNameLoad();
+        }
+
+        private void txtEmployeeName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnIPtest_Click(object sender, EventArgs e)
+        {
+            IPHostEntry host;
+            String myIp = "";
+            host = Dns.GetHostEntry(Dns.GetHostName());
+
+            foreach (IPAddress ip in host.AddressList)
+            {
+                if (ip.AddressFamily.ToString() == "InterNetwork")
+                {
+                    myIp = ip.ToString();
+                    MessageBox.Show(myIp);
+                }
+            }
         }
 
     }

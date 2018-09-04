@@ -125,6 +125,8 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.imgNotification = new System.Windows.Forms.PictureBox();
             this.pnlWelcome = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnIPtest = new System.Windows.Forms.Button();
             this.pnlManageEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picEmployeePicture)).BeginInit();
             this.pnlEmployeeAttendance.SuspendLayout();
@@ -273,6 +275,7 @@
             this.comboJobRole.UseCustomBackColor = true;
             this.comboJobRole.UseCustomForeColor = true;
             this.comboJobRole.UseSelectable = true;
+            this.comboJobRole.SelectedIndexChanged += new System.EventHandler(this.comboJobRole_SelectedIndexChanged);
             this.comboJobRole.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboJobRole_MouseClick);
             // 
             // label8
@@ -479,11 +482,13 @@
             // 
             // txtEmployeeName
             // 
+            this.txtEmployeeName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtEmployeeName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtEmployeeName.BackColor = System.Drawing.Color.Teal;
             this.txtEmployeeName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmployeeName.ForeColor = System.Drawing.Color.White;
-            this.txtEmployeeName.Location = new System.Drawing.Point(313, 113);
+            this.txtEmployeeName.Location = new System.Drawing.Point(314, 113);
             this.txtEmployeeName.Margin = new System.Windows.Forms.Padding(27, 39, 27, 25);
             this.txtEmployeeName.MaximumSize = new System.Drawing.Size(444, 160);
             this.txtEmployeeName.MinimumSize = new System.Drawing.Size(0, 16);
@@ -492,6 +497,8 @@
             this.txtEmployeeName.Size = new System.Drawing.Size(265, 32);
             this.txtEmployeeName.TabIndex = 20;
             this.txtEmployeeName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEmployeeName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtEmployeeName_MouseClick);
+            this.txtEmployeeName.TextChanged += new System.EventHandler(this.txtEmployeeName_TextChanged);
             // 
             // tileManageEmployee
             // 
@@ -1294,6 +1301,25 @@
             this.pnlWelcome.Size = new System.Drawing.Size(1125, 743);
             this.pnlWelcome.TabIndex = 47;
             // 
+            // textBox1
+            // 
+            this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBox1.Location = new System.Drawing.Point(505, 34);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(270, 22);
+            this.textBox1.TabIndex = 52;
+            // 
+            // btnIPtest
+            // 
+            this.btnIPtest.Location = new System.Drawing.Point(910, 33);
+            this.btnIPtest.Name = "btnIPtest";
+            this.btnIPtest.Size = new System.Drawing.Size(75, 23);
+            this.btnIPtest.TabIndex = 53;
+            this.btnIPtest.Text = "My IP";
+            this.btnIPtest.UseVisualStyleBackColor = true;
+            this.btnIPtest.Click += new System.EventHandler(this.btnIPtest_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1301,6 +1327,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1924, 980);
             this.ControlBox = false;
+            this.Controls.Add(this.btnIPtest);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pnlManageEmployee);
             this.Controls.Add(this.pnlLeaveRequests);
             this.Controls.Add(this.pnlWelcome);
@@ -1321,7 +1349,6 @@
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(19, 74, 19, 16);
             this.TransparencyKey = System.Drawing.Color.LightSkyBlue;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlManageEmployee.ResumeLayout(false);
             this.pnlManageEmployee.PerformLayout();
@@ -1438,6 +1465,8 @@
         private System.Windows.Forms.Label txtTimetoLeave;
         public System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.PictureBox imgNotification;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnIPtest;
 
     }
 }
